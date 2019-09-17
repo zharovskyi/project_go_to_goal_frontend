@@ -1,5 +1,4 @@
 import React from 'react';
-// import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 
 // COMPONENTS
 import Header from '../../components/Header/Header';
