@@ -1,0 +1,100 @@
+.new_goal_section {
+  width: 840px;
+  margin: 0 auto;
+  padding-top: 50px;
+  /* font-family: 'Montserat'; */
+}
+
+.new_goal_title {
+  font-weight: bold;
+  font-size: 20px;
+  color: #42414b;
+  margin: 0 0 46px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new_goal_info {
+  font-size: 18px;
+  line-height: 32px;
+  color: #858598;
+  padding: 30px 0 0 0;
+}
+
+p {
+  margin: 0 0 20px;
+  line-height: 32px;
+}
+
+.button {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 280px;
+  height: 262px;
+  margin-right: 80px;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  background-color: #e0e0e0;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
+
+.button_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 262px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button_icon {
+  display: block;
+  width: 46px;
+  height: 46px;
+  background-image: url(../../images/add-plus-button.svg);
+  background-size: contain;
+}
+
+.icon {
+  width: 46px;
+  height: 46px;
+}
+
+.button_text {
+  width: 280px;
+  text-align: left;
+  text-indent: 30px;
+  margin: 0 0 30px;
+}
+
+.arrow_icon {
+  display: inline-block;
+  font-weight: bold;
+  color: #42414b;
+  /* line-height: 40px;
+  vertical-align: middle; */
+}
+
+.arrow_icon::before {
+  content: '';
+  display: inline-block;
+  width: 85px;
+  height: 50px;
+  background-image: url(../../images/arrow.png);
+  background-size: cover;
+  margin-right: 20px;
+  vertical-align: middle;
+}
