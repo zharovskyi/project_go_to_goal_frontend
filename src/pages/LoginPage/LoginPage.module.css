@@ -1,8 +1,157 @@
 .header {
+  width: 98vw;
+  height: 6vh;
+  position: fixed;
+  top: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px 0 20px;
+  border-radius: 3vh 3vh 0 0;
+  background-color: var(--bg-color-white);
+}
+
+.form_box {
   display: flex;
 }
 
+.header input {
+  /* width: 170px; */
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  margin-left: 20px;
+}
+
+.header input::placeholder {
+  font-size: 12px;
+  letter-spacing: 1px;
+  background-color: #fff;
+  color: #a8a8b5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.header input:focus {
+  outline: none;
+}
+
+.header button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-left: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background-color: #fff;
+  color: #858598;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.header button:focus {
+  outline: none;
+}
+
 .cover {
-  width: 100%;
-  height: 42%;
+  width: 100vw;
+  height: 39vh;
+  padding-top: 9.29vh;
+  background-color: var(--bg-color-yellow);
+}
+
+.bgi_cover {
+  width: 826px;
+  height: 211px;
+  margin: 0 auto;
+  /* background: url("../../assets/images/login-page-cover@1X.png") no-repeat center; */
+}
+
+.greeting {
+  width: 100vw;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 523px;
+  height: 24px;
+  font-size: 27px;
+  letter-spacing: 2px;
+  line-height: 45px;
+  color: #42414b;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.greeting_text {
+  width: 737px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 23px;
+  color: #a8a8b5;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.greeting_btn {
+  width: 200px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 24px;
+  margin-top: 22px;
+  background: linear-gradient(to top, #f4d33c, #edb446);
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 48px;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+.greeting_btn:focus {
+  outline: none;
+}
+
+.decor {
+  width: 305px;
+  height: 290px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: url("../../assets/images/login-page-decor@1X.png") no-repeat center;
+}
+
+.footer {
+  width: 100vw;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-yellow);
+}
+
+.footer_text {
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 23px;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-align: center;
 }
