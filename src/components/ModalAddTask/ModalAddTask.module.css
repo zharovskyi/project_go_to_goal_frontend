@@ -1,0 +1,46 @@
+.modal_container {
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 3.464px 23.2px 5.8px rgba(29, 29, 27, 0.1);
+  position: absolute;
+  left: 217px;
+  top: 261px;
+  width: 849px;
+  height: 328px;
+  z-index: 67;
+}
+
+.form {
+  border-radius: 6px;
+  background-color: pink;
+  margin: 50px auto;
+  width: 600px;
+  height: 200px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.input_task {
+  border-width: 0px 0px 2px 0px;
+  border-color: rgb(224, 224, 224);
+  border-style: solid;
+  width: 569px;
+  height: 37px;
+}
+
+.input_options {
+  width: 264px;
+  height: 37px;
+  border-width: 0px 0px 2px 0px;
+  border-color: rgb(224, 224, 224);
+  border-style: solid;
+}
+
+.button {
+  border-radius: 20px 20px 20px 20px;
+  border: none;
+  width: 200px;
+  height: 48px;
+  background-image: -webkit-linear-gradient(90deg, rgb(245, 213, 59) 0%, rgb(241, 195, 65) 55%, rgb(236, 177, 70) 100%);
+}
