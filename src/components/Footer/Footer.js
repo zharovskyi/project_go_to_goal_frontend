@@ -10,7 +10,10 @@ export default function Footer() {
     <div className={styles.footer}>
       <p className={styles.footerText}>
         &#169; Copyright 2019
-        <span className={styles.footerCopyright}> BOOTC@MP#13 team</span>
+        <span className={styles.footerCopyright}>
+          {' '}
+          powered by BOOTC@MP#13 team
+        </span>
       </p>
     </div>
   );

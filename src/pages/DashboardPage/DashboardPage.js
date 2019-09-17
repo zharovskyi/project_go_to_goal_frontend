@@ -11,11 +11,14 @@ import ModalLogout from '../../components/ModalLogout/ModalLogout';
 import ModalDeleteTask from '../../components/ModalDeleteTask/ModalDeleteTask';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 
+//  STYLES
+import styles from './DashboardPage.module.css';
+
 const DashboardPage = () => {
   return (
-    <div>
-      {/* <Header />
-      <TaskList /> */}
+    <div className={styles.dashboardBody}>
+      <Header />
+      <TaskList />
       <Footer />
       {/* <ModalCreateGoal />
       <ModalAddTask />
