@@ -1,9 +1,11 @@
 import React from 'react';
+// import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 
 const DashboardPage = () => {
   return (
     <div>
-      <ModalRegistration />
+      <h2>DashboardPage</h2>
+      {/* <ModalRegistration /> */}
     </div>
   );
 };
