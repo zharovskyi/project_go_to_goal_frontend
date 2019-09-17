@@ -1,4 +1,4 @@
-/* :root {
+:root {
   --bg-color-white: #ffffff;
   --bg-color-grey: #eff1f3;
   --bg-color-blue: #284060;
@@ -19,9 +19,8 @@
   --button-icon-color: #fff;
   --button-icon-color-hover: #fff;
 
-
-  --logo-fonts: 'GothamProLight', Verdana, sans-serif;
-  --bold-fonts: 'GothamProBold', Verdana, sans-serif;
-  --black-fonts: 'GothamProBlack', Verdana, sans-serif;
-  --light-fonts: 'GothamProLight', Verdana, sans-serif;
-} */
+  --logo-fonts: "GothamProLight", Verdana, sans-serif;
+  --bold-fonts: "GothamProBold", Verdana, sans-serif;
+  --black-fonts: "GothamProBlack", Verdana, sans-serif;
+  --light-fonts: "GothamProLight", Verdana, sans-serif;
+}
