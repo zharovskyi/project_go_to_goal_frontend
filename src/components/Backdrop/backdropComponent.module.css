@@ -9,7 +9,7 @@
   height: 100vh;
   background: grey;
   opacity: 1;
-  z-index: 1
+  z-index: 1;
 }
 
 .modal {

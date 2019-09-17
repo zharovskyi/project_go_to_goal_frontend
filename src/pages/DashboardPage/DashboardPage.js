@@ -1,5 +1,6 @@
 import React from 'react';
 // import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
+import backdropComponent from '../../components/Backdrop/backdropComponent';
 
 const DashboardPage = () => {
   return (
@@ -10,4 +11,6 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default backdropComponent({ closeOnEsc: true, closeOnclick: true })(
+  DashboardPage,
+);

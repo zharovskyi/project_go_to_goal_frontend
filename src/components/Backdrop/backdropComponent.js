@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import styles from './backdropComponent.module.css';
 
-const backdropComponent = BaseComponent => {
+const backdropComponent = ({ closeOnEsc, closeOnclick }) => BaseComponent => {
   return class BackdropComponent extends Component {
     state = {
       showModal: true,
+      closeOnEsc,
+      closeOnclick,
     };
 
     componentDidMount() {
-      window.addEventListener('keydown', this.closeOnEsc);
+      if (this.state.closeOnEsc) {
+        window.addEventListener('keydown', this.closeOnEsc);
+      }
     }
 
     componentWillUnmount() {
-      window.removeEventListener('keydown', this.closeOnEsc);
+      if (this.state.closeOnEsc) {
+        window.removeEventListener('keydown', this.closeOnEsc);
+      }
     }
 
     closeOnEsc = e => {
@@ -22,7 +28,11 @@ const backdropComponent = BaseComponent => {
     };
 
     closeModal = e => {
-      if (this.state.showModal === true && e.target.id === 'BaseComponent') {
+      if (
+        this.state.showModal === true &&
+        this.state.closeOnclick === true &&
+        e.target.id === 'BaseComponent'
+      ) {
         console.log(e.target);
         this.setState({ showModal: false });
       }
@@ -37,7 +47,7 @@ const backdropComponent = BaseComponent => {
           id="BaseComponent"
         >
           <div className={styles.modal}>
-            <BaseComponent />
+            <BaseComponent {...this.props} />
           </div>
         </div>
       ) : (
