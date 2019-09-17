@@ -1,18 +1,18 @@
 .goal {
-    display: flex;
-    justify-content: space-between;
-    width: 600px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .goalLogo {
-    display: flex;
+  display: flex;
 }
 
 .goalLabel {
-    display: block;
-    width: 180px;
-    height: 32px;
-    background-color: #f3ce3d;
-    border-radius: 16px;
+  display: block;
+  width: 180px;
+  height: 32px;
+  background-color: #f3ce3d;
+  border-radius: 16px;
 }
