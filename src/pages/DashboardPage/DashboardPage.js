@@ -1,6 +1,5 @@
+// MODULES
 import React, { Component } from 'react';
-import windowSize from 'react-window-size';
-import { connect } from 'react-redux';
 
 // COMPONENTS
 import Header from '../../components/Header/Header';
@@ -15,18 +14,10 @@ import ModalLogout from '../../components/ModalLogout/ModalLogout';
 import ModalDeleteTask from '../../components/ModalDeleteTask/ModalDeleteTask';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 
-// ACTIONS
-import * as modalAddTaskActions from '../../redux/ModalAddTask/ModalAddTaskActions';
-import * as modalCongratsActions from '../../redux/ModalCongrats/ModalCongratsActions';
-import * as modalCreateGoalActions from '../../redux/ModalCreateGoal/ModalCreateGoalActions';
-import * as modalDeleteTaskActions from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
-import * as modalLogoutActions from '../../redux/ModalLogout/ModalLogoutActions';
-import * as modalRegistrationActions from '../../redux/ModalRegistration/ModalRegistrationActions';
-
 //  STYLES
 import styles from './DashboardPage.module.css';
 
-class DashboardPage extends Component {
+export default class DashboardPage extends Component {
   state = {};
 
   render() {
@@ -40,47 +31,31 @@ class DashboardPage extends Component {
         <TaskList />
         <Footer />
         {this.props.isModalAddTaskOpen && (
-          <Backdrop>
+          <Backdrop onClose={this.props.onCloseModalAddTask}>
             <ModalAddTask onClose={this.props.onCloseModalAddTask} />
           </Backdrop>
         )}
-        {this.props.isModalAddTaskOpen && (
-          <Backdrop>
+        {this.props.isModalCongratsOpen && (
+          <Backdrop onClose={this.props.onCloseModalCongrats}>
             <ModalCongrats onClose={this.props.onCloseModalCongrats} />
           </Backdrop>
         )}
-        <ModalCreateGoal />
-        <ModalLogout />
-        <ModalDeleteTask />
+        {this.props.isModalCreateGoalOpen && (
+          <Backdrop onClose={this.props.onCloseModalCreateGoal}>
+            <ModalCreateGoal onClose={this.props.onCloseModalCreateGoal} />
+          </Backdrop>
+        )}
+        {this.props.isModalDeleteTaskOpen && (
+          <Backdrop onClose={this.props.onCloseModalDeleteTask}>
+            <ModalDeleteTask onClose={this.props.onCloseModalDeleteTask} />
+          </Backdrop>
+        )}
+        {this.props.isModalLogautOpen && (
+          <Backdrop onClose={this.props.onCloseModalLogaut}>
+            <ModalLogout onClose={this.props.onCloseModalLogaut} />
+          </Backdrop>
+        )}
       </div>
     );
   }
 }
-
-const mapStateToProps = store => ({
-  isModalAddTaskOpen: store.modals.isModalAddTaskOpen,
-  isModalCongratsOpen: store.modals.isModalCongratsOpen,
-  isModalCreateGoalOpen: store.modals.isModalCreateGoalOpen,
-  isModalDeleteTaskOpen: store.modals.isModalDeleteTaskOpen,
-  isModalLogoutOpen: store.modals.isModalLogoutOpen,
-  isModalRegistrationOpen: store.modals.isModalRegistrationOpen,
-});
-
-const mapDispatchToProps = dispatch => ({
-  onCloseModalAddTask: isOpen =>
-    dispatch(modalAddTaskActions.closeModal(isOpen)),
-  onCloseModalCongrats: isOpen =>
-    dispatch(modalCongratsActions.closeModal(isOpen)),
-  onCloseModalCreateGoal: isOpen =>
-    dispatch(modalCreateGoalActions.closeModal(isOpen)),
-  onCloseModalDeleteTask: isOpen =>
-    dispatch(modalDeleteTaskActions.closeModal(isOpen)),
-  onCloseModalLogout: isOpen => dispatch(modalLogoutActions.closeModal(isOpen)),
-  onCloseModalRegistration: isOpen =>
-    dispatch(modalRegistrationActions.closeModal(isOpen)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(windowSize(DashboardPage));

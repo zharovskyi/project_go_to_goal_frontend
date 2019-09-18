@@ -3,12 +3,10 @@ export const Type = {
   MODAL_ADD_TASK_CLOSE: 'MODAL_ADD_TASK_CLOSE',
 };
 
-export const openModal = isOpen => ({
+export const openModal = () => ({
   type: Type.MODAL_ADD_TASK_OPEN,
-  payload: { isOpen },
 });
 
-export const closeModal = isOpen => ({
+export const closeModal = () => ({
   type: Type.MODAL_ADD_TASK_CLOSE,
-  payload: { isOpen },
 });
