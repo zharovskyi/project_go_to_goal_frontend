@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import windowSize from 'react-window-size';
 import css from './Header.module.css';
-// import Logo from './Logo/Logo';
+import Logo from '../Logo/Logo';
 import Goal from '../Goal/Goal';
 import ProgressBar from '../ProgressBar/ProgressBar';
 // import User from './User/User  ';
