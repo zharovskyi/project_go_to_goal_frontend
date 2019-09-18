@@ -1,0 +1,21 @@
+.activeCards {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.activeTaskCard {
+  border-radius: 6px;
+  background-color: rgb(224, 224, 224);
+  width: 280px;
+  height: 260px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.activeTaskCard:nth-child(4n) {
+  margin-right: 0;
+}
