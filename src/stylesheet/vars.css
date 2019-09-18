@@ -33,4 +33,9 @@
   --bold-fonts: 'GothamProBold', Verdana, sans-serif;
   --black-fonts: 'GothamProBlack', Verdana, sans-serif;
   --light-fonts: 'GothamProLight', Verdana, sans-serif;
+
+  --footer-bg_color: #f5d53b;
+  --footer-text_color: #000;
+  --footer-copyright_color: #336633;
+  --dashboard-body_color: #f7f7f7;
 }

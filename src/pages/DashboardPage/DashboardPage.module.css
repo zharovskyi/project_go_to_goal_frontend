@@ -1,0 +1,4 @@
+.dashboardBody {
+  background: var(--dashboard-body_color);
+  height: 100vh;
+}
