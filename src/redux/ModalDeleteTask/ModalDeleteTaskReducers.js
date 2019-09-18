@@ -1,6 +1,6 @@
 import { Type } from './ModalDeleteTaskActions';
 
-export const openCloseReducer = (prevState = 0, action) => {
+export const openCloseReducer = (prevState = false, action) => {
   switch (action.type) {
     case Type.MODAL_DELETE_TASK_OPEN:
       return true;

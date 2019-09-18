@@ -1,5 +1,6 @@
 import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 // ACTIONS
 import * as modalAddTaskActions from '../../redux/ModalAddTask/ModalAddTaskActions';
@@ -19,19 +20,18 @@ const mapStateToProps = store => ({
   isModalLogoutOpen: store.modals.isModalLogoutOpen,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onCloseModalAddTask: isOpen =>
-    dispatch(modalAddTaskActions.closeModal(isOpen)),
-  onCloseModalCongrats: isOpen =>
-    dispatch(modalCongratsActions.closeModal(isOpen)),
-  onCloseModalCreateGoal: isOpen =>
-    dispatch(modalCreateGoalActions.closeModal(isOpen)),
-  onCloseModalDeleteTask: isOpen =>
-    dispatch(modalDeleteTaskActions.closeModal(isOpen)),
-  onCloseModalLogout: isOpen => dispatch(modalLogoutActions.closeModal(isOpen)),
-});
+const mapDispatchToProps = {
+  onCloseModalAddTask: modalAddTaskActions.closeModal,
+  onCloseModalCongrats: modalCongratsActions.closeModal,
+  onCloseModalCreateGoal: modalCreateGoalActions.closeModal,
+  onCloseModalDeleteTask: modalDeleteTaskActions.closeModal,
+  onCloseModalLogout: modalLogoutActions.closeModal,
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(windowSize(DashboardPage));
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  windowSize,
+)(DashboardPage);

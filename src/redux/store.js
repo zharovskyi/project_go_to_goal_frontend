@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
 
 // импортируем сюда свои редюсеры
-import * as modalsReducers from './modalsReducers';
+import modalsReducers from './modalsReducers';
 
 const rootReducer = combineReducers({
   session: (prevState = {}, action) => {
