@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 
 class LoginPage extends Component {
   state = {};
@@ -8,7 +7,6 @@ class LoginPage extends Component {
     return (
       <div>
         <h2>LoginPage</h2>
-        <ModalRegistration />
       </div>
     );
   }

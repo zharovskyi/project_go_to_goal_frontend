@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import s from './ModalRegistration.module.css';
-import logo from './zaglushka.PNG';
+import logo from '../../assets/images/zaglushka.PNG';
 // import passwordValidation from './signUpValidations';
 
 class ModalRegistration extends Component {
