@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './NewGoal.module.css';
+import { ReactComponent as AddPlusButton } from '../../assets/icons/add-plus-button.svg';
 
 const NewGoal = () => {
   return (
@@ -9,9 +10,7 @@ const NewGoal = () => {
         <button type="button" className={styles.button}>
           <div className={styles.button_overlay}>
             <div className={styles.button_icon}>
-              <svg className={styles.icon}>
-                <use href="../../images/add-plus-button.svg" />
-              </svg>
+              <AddPlusButton className={styles.icon} />
             </div>
           </div>
           <p className={styles.button_text}> Додай мету</p>

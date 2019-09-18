@@ -64,28 +64,19 @@ p {
   display: block;
   width: 46px;
   height: 46px;
-  background-image: url(../../images/add-plus-button.svg);
-  background-size: contain;
-}
-
-.icon {
-  width: 46px;
-  height: 46px;
 }
 
 .button_text {
   width: 280px;
   text-align: left;
   text-indent: 30px;
-  margin: 0 0 30px;
+  margin: 0 0 20px;
 }
 
 .arrow_icon {
   display: inline-block;
   font-weight: bold;
   color: #42414b;
-  /* line-height: 40px;
-  vertical-align: middle; */
 }
 
 .arrow_icon::before {
@@ -93,8 +84,112 @@ p {
   display: inline-block;
   width: 85px;
   height: 50px;
-  background-image: url(../../images/arrow.png);
+  background-image: url(../../assets/images/arrow.png);
   background-size: cover;
   margin-right: 20px;
+  margin-bottom: 10px;
   vertical-align: middle;
+}
+
+/* MEDIA PAD 768PX */
+
+@media (max-width: 767px) {
+  .new_goal_section {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-image: url(../../assets/images/big-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    padding: 120px 0 0;
+  }
+  .container {
+    width: 486px;
+    margin: 0 auto;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .button {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .arrow_icon {
+    margin-bottom: 80px;
+  }
+
+  .arrow_icon::before {
+    display: none;
+  }
+
+  .new_goal_info {
+    padding: 0;
+  }
+
+  .new_goal_title {
+    padding: 0 328px 230px;
+    background-image: url(../../assets/images/decor.png);
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+  }
+}
+
+/* MEDIA MOBILE 320PX */
+
+@media (max-width: 330px) {
+  .new_goal_section {
+    background: none;
+    padding: 46px 0;
+  }
+
+  .container {
+    width: 240px;
+    margin: 0 auto;
+  }
+
+  .new_goal_title {
+    display: none;
+  }
+
+  .arrow_icon {
+    margin: 0;
+    padding-bottom: 60px;
+    position: relative;
+  }
+
+  .arrow_icon::after {
+    content: '';
+    display: inline-block;
+    margin: 0;
+    width: 16px;
+    height: 30px;
+    background-image: url(../../assets/images/arrow-down.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .button,
+  .button_overlay {
+    width: 220px;
+    height: 200px;
+    margin: 0;
+  }
+
+  .button_text {
+    font-size: 14px;
+    text-indent: 26px;
+    margin: 0 0 20px;
+    width: 220px;
+  }
+
+  .new_goal_info {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
