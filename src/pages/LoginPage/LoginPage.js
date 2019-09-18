@@ -7,6 +7,7 @@ class LoginPage extends Component {
     return (
       <div>
         <h2>LoginPage</h2>
+        <p>dfdfdf</p>
       </div>
     );
   }
