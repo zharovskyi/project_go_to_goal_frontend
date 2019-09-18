@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import DashboardPage from '../pages/DashboardPage/DashboardPage';
-import Header from './Header/Header'
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
         <Route path="/" exact component={LoginPage} />
         <Route path="/dashboard" component={DashboardPage} />
       </Switch>
-      <Header />
     </>
   );
 }

@@ -1,11 +1,24 @@
 .header {
     display: flex;
-    width: 1250px;
+    max-width: 1250px;
     height: 54px;
     margin: 0 auto;
-    padding: 0 2% 0 2%;
+    margin: 22px;
+    padding: 0 25px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     align-items: center;
+}
+
+@media screen and (max-width: 1279px) {
+    .header {
+        /* max-width: 738px; */
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        /* max-width: 330px; */
+    }
 }
