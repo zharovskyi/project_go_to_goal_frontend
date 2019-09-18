@@ -11,17 +11,22 @@ const options = [
 const Modal = () => {
   return (
     <div className={style.modal_title}>
-      <p className={style.title}>Немає завдань? Тоді їх треба створити!</p>
+      <p className={style.title_modal}>
+        Немає завдань? Тоді їх треба створити!
+      </p>
       <div className={style.modal_container}>
         <form className={style.form}>
+          <p className={style.title_form}>Що зробити?</p>
           <input
             className={style.input_task}
-            placeholder="Що ти хочешь зробити?"
+            placeholder="Обери завдання або створи нове"
           />
           <div className={style.input_options_section}>
-            <Select className={style.input_options} options={options} />
+            <Select className={style.input_options} options={options}>
+              Час
+            </Select>
             <input
-              className={style.input_options}
+              className={style.input_options_input}
               placeholder="Бали (до 1000)"
             />
           </div>
