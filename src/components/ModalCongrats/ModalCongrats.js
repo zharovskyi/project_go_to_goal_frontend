@@ -1,7 +1,6 @@
 import React from 'react';
 import FlagsIcon from '../../assets/images/FlagsIcon.png';
 
-import PipeParty from '../../assets/images/PipeParty.png';
 // import PropTypes from 'prop-types';
 import styles from './ModalCongrats.module.css';
 
@@ -19,7 +18,6 @@ const ModalCongrats = () => {
         <button className={styles.button} type="button">
           Так!
         </button>
-        {/* <img className={styles.pipeParty} src={PipeParty} alt="PipeParty" /> */}
       </div>
     </div>
   );
