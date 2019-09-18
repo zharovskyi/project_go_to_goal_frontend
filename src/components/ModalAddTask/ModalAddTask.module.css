@@ -2,31 +2,42 @@
   border-radius: 6px;
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 3.464px 23.2px 5.8px rgba(29, 29, 27, 0.1);
-  position: absolute;
-  left: 217px;
-  top: 261px;
+  margin: 0 auto;
   width: 849px;
   height: 328px;
-  z-index: 67;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .form {
   border-radius: 6px;
-  background-color: pink;
-  margin: 50px auto;
+  /* background-color: pink; */
   width: 600px;
-  height: 200px;
+  /* height: 200px; */
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .input_task {
+  margin: 20px auto;
   border-width: 0px 0px 2px 0px;
   border-color: rgb(224, 224, 224);
   border-style: solid;
   width: 569px;
   height: 37px;
+}
+
+.input_task::placeholder {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.input_options_section {
+  display: flex;
+  justify-content: space-between;
+  width: 580px;
+  margin: 0 auto;
 }
 
 .input_options {
@@ -37,10 +48,20 @@
   border-style: solid;
 }
 
+.input_options::placeholder {
+  font-size: 14px;
+  font-weight: 900;
+}
+
 .button {
   border-radius: 20px 20px 20px 20px;
   border: none;
+  color: #ffffff;
+  font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(90deg, rgb(245, 213, 59) 0%, rgb(241, 195, 65) 55%, rgb(236, 177, 70) 100%);
+  background-image: -webkit-linear-gradient(90deg,
+      rgb(245, 213, 59) 0%,
+      rgb(241, 195, 65) 55%,
+      rgb(236, 177, 70) 100%);
 }

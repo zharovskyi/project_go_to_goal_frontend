@@ -16,8 +16,10 @@ const Modal = () => {
           className={style.input_task}
           placeholder="Що ти хочешь зробити?"
         />
-        <Select className={style.input_options} options={options} />
-        <input className={style.input_options} placeholder="Бали (до 1000)" />
+        <div className={style.input_options_section}>
+          <Select className={style.input_options} options={options} />
+          <input className={style.input_options} placeholder="Бали (до 1000)" />
+        </div>
         <button type="button" className={style.button}>
           OK
         </button>
