@@ -93,7 +93,7 @@ p {
 
 /* MEDIA PAD 768PX */
 
-@media (max-width: 767px) {
+@media (max-width: 1279px) {
   .new_goal_section {
     width: 100%;
     display: flex;
@@ -139,7 +139,7 @@ p {
 
 /* MEDIA MOBILE 320PX */
 
-@media (max-width: 330px) {
+@media (max-width: 767px) {
   .new_goal_section {
     background: none;
     padding: 46px 0;
