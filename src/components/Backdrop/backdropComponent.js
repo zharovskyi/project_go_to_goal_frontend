@@ -1,60 +1,62 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './backdropComponent.module.css';
 
-const backdropComponent = ({ closeOnEsc, closeOnclick }) => BaseComponent => {
-  return class BackdropComponent extends Component {
-    state = {
-      showModal: true,
-      closeOnEsc,
-      closeOnclick,
-    };
+class BackdropComponent extends Component {
+  state = {
+    showModal: true,
+    closeOnEsc: true,
+    closeOnclick: true,
+  };
 
-    componentDidMount() {
-      if (this.state.closeOnEsc) {
-        window.addEventListener('keydown', this.closeOnEsc);
-      }
+  componentDidMount() {
+    const { closeOnEsc } = this.state;
+    if (closeOnEsc) {
+      window.addEventListener('keydown', this.closeOnEsc);
     }
+  }
 
-    componentWillUnmount() {
-      if (this.state.closeOnEsc) {
-        window.removeEventListener('keydown', this.closeOnEsc);
-      }
+  componentWillUnmount() {
+    const { closeOnEsc } = this.state;
+    if (closeOnEsc) {
+      window.removeEventListener('keydown', this.closeOnEsc);
     }
+  }
 
-    closeOnEsc = e => {
-      if (e.code === 'Escape') {
-        this.setState({ showModal: false });
-      }
-    };
-
-    closeModal = e => {
-      if (
-        this.state.showModal === true &&
-        this.state.closeOnclick === true &&
-        e.target.id === 'BaseComponent'
-      ) {
-        console.log(e.target);
-        this.setState({ showModal: false });
-      }
-    };
-
-    render() {
-      const { showModal } = this.state;
-      return showModal ? (
-        <div
-          className={styles.overlay}
-          onClick={this.closeModal}
-          id="BaseComponent"
-        >
-          <div className={styles.modal}>
-            <BaseComponent {...this.props} />
-          </div>
-        </div>
-      ) : (
-        <BaseComponent />
-      );
+  closeOnEsc = e => {
+    if (e.code === 'Escape') {
+      this.setState({ showModal: false });
     }
   };
+
+  closeModal = e => {
+    if (
+      this.state.showModal === true &&
+      this.state.closeOnclick === true &&
+      e.target.id === 'BaseComponent'
+    ) {
+      this.setState({ showModal: false });
+    }
+  };
+
+  render() {
+    const { showModal } = this.state;
+    const { children } = this.props;
+    return showModal ? (
+      <div
+        className={styles.overlay}
+        onClick={this.closeModal}
+        id="BaseComponent"
+      >
+        <div className={styles.modal} />
+        {children}
+      </div>
+    ) : null;
+  }
+}
+
+BackdropComponent.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
-export default backdropComponent;
+export default BackdropComponent;
