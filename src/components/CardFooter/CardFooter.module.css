@@ -1,0 +1,23 @@
+.cardFooter_div {
+  text-transform: uppercase;
+  padding: 0 30px;
+  display: flex;
+  flex-flow: column;
+  line-height: 35px;
+}
+
+.CardFooter_task,
+.CardFooter_timeFrames {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.CardFooter_task {
+  color: #858698;
+  font-weight: 800;
+}
+
+.CardFooter_timeFrames {
+  color: #848599;
+}

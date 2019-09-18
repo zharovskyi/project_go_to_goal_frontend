@@ -1,5 +1,6 @@
 import React from 'react';
 // import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
+// import Backdrop from '../../components/Backdrop/Backdrop';
 import Header from '../../components/Header/Header';
 
 const DashboardPage = () => {
