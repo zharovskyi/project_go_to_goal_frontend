@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const LoginCover = ({ sCover, coverImg, sBgCover }) => {
   return (
@@ -6,6 +7,12 @@ const LoginCover = ({ sCover, coverImg, sBgCover }) => {
       <img src={coverImg} alt="cover" width="826" className={sBgCover} />
     </div>
   );
+};
+
+LoginCover.propTypes = {
+  sCover: PropTypes.string.isRequired,
+  coverImg: PropTypes.string.isRequired,
+  sBgCover: PropTypes.string.isRequired,
 };
 
 export default LoginCover;

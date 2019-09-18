@@ -63,6 +63,7 @@
 
 .main {
   position: relative;
+  /* padding: 50px 0; */
 }
 
 .cover {
@@ -89,6 +90,10 @@
 
 .title {
   width: 40.85vw;
+  display: block;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  margin-bottom: 26px;
   font-size: 27px;
   letter-spacing: 2px;
   line-height: 45px;
@@ -97,7 +102,6 @@
   font-style: normal;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 26px;
 }
 
 .greeting_text {
@@ -117,7 +121,7 @@
   width: 200px;
   height: 48px;
   display: block;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   border: none;
   border-radius: 24px;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import windowSize from 'react-window-size';
+import PropTypes from 'prop-types';
 import s from './LoginPage.module.css';
 import logo from '../../assets/images/login-page-logo@1X.png';
 import coverImg from '../../assets/images/login-page-cover@1X.png';
@@ -12,6 +13,10 @@ import LoadingGreetingBtn from '../../components/LoginPage/LoadingGreetingBtn';
 import LoginFooter from '../../components/LoginPage/LoginFooter';
 
 class LoginPage extends Component {
+  static propTypes = {
+    windowWidth: PropTypes.number.isRequired,
+  };
+
   state = {
     login: '',
     password: '',
@@ -43,7 +48,7 @@ class LoginPage extends Component {
     const { login, password } = this.state;
     const { windowWidth } = this.props;
     return (
-      <body className={s.login_page}>
+      <div className={s.login_page}>
         {/* MOBILE */}
         {windowWidth < 768 && (
           <img src={logo} alt="logo" width="104" className={s.logo} />
@@ -106,7 +111,7 @@ class LoginPage extends Component {
         {windowWidth > 767 && (
           <LoginFooter sFooter={s.footer} sFooterText={s.footer_text} />
         )}
-      </body>
+      </div>
     );
   }
 }

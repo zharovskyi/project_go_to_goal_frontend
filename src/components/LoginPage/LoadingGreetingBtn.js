@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const LoadingGreetingBtn = ({ sGreetingBtn }) => {
   return (
@@ -6,6 +7,10 @@ const LoadingGreetingBtn = ({ sGreetingBtn }) => {
       Зареєструватися
     </button>
   );
+};
+
+LoadingGreetingBtn.propTypes = {
+  sGreetingBtn: PropTypes.string.isRequired,
 };
 
 export default LoadingGreetingBtn;
