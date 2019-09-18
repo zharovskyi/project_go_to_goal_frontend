@@ -1,0 +1,25 @@
+.button {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #d8ad3b;
+  position: fixed;
+  top: 98px;
+  right: 50px;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}
+
+@media (max-width: 767px) {
+  .button {
+    bottom: 64px;
+    right: 14px;
+  }
+}
