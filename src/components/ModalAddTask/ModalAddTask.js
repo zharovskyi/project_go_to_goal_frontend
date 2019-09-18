@@ -10,20 +10,26 @@ const options = [
 
 const Modal = () => {
   return (
-    <div className={style.modal_container}>
-      <form className={style.form}>
-        <input
-          className={style.input_task}
-          placeholder="Що ти хочешь зробити?"
-        />
-        <div className={style.input_options_section}>
-          <Select className={style.input_options} options={options} />
-          <input className={style.input_options} placeholder="Бали (до 1000)" />
-        </div>
-        <button type="button" className={style.button}>
-          OK
-        </button>
-      </form>
+    <div className={style.modal_title}>
+      <p className={style.title}>Немає завдань? Тоді їх треба створити!</p>
+      <div className={style.modal_container}>
+        <form className={style.form}>
+          <input
+            className={style.input_task}
+            placeholder="Що ти хочешь зробити?"
+          />
+          <div className={style.input_options_section}>
+            <Select className={style.input_options} options={options} />
+            <input
+              className={style.input_options}
+              placeholder="Бали (до 1000)"
+            />
+          </div>
+          <button type="button" className={style.button}>
+            OK
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

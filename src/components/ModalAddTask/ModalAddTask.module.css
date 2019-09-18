@@ -1,3 +1,16 @@
+.modal_title {
+  border-radius: 6px;
+  /* background-color: rgb(255, 255, 255); */
+  /* box-shadow: 2px 3.464px 23.2px 5.8px rgba(29, 29, 27, 0.1); */
+  margin: 0 auto;
+  width: 849px;
+  height: 500px;
+  /* display: flex; */
+  /* justify-content: space-evenly; */
+  text-align: center;
+  font-weight: 700;
+}
+
 .modal_container {
   border-radius: 6px;
   background-color: rgb(255, 255, 255);
@@ -31,6 +44,7 @@
 .input_task::placeholder {
   font-size: 14px;
   font-weight: 900;
+  font-family: "Montserrat";
 }
 
 .input_options_section {
@@ -38,6 +52,7 @@
   justify-content: space-between;
   width: 580px;
   margin: 0 auto;
+  font-family: "Montserrat";
 }
 
 .input_options {
@@ -46,24 +61,25 @@
   border-width: 0px 0px 2px 0px;
   border-color: rgb(224, 224, 224);
   border-style: solid;
+  font-family: "Montserrat";
 }
 
 .input_options::placeholder {
   font-size: 14px;
   font-weight: 900;
+  font-family: "Montserrat";
 }
 
 .button {
   border-radius: 20px 20px 20px 20px;
+  font-family: "Montserrat";
   border: none;
   color: #ffffff;
   font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgb(245, 213, 59) 0%,
-    rgb(241, 195, 65) 55%,
-    rgb(236, 177, 70) 100%
-  );
+  background-image: -webkit-linear-gradient(90deg,
+      rgb(245, 213, 59) 0%,
+      rgb(241, 195, 65) 55%,
+      rgb(236, 177, 70) 100%);
 }
