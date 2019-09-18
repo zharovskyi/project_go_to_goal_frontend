@@ -1,0 +1,153 @@
+.formContainer {
+  width: 850px;
+  height: 670px;
+  margin: 0 auto;
+  padding-top: 120px;
+  border-radius: 5px
+}
+
+.form {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 630px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.inputContant {
+  border: none;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.userName {
+  margin-right: 40px;
+  width: 180px;
+}
+
+.userAge {
+  width: 180px;
+}
+
+.nameSurname {
+  margin-bottom: 40px;
+}
+
+.inputText {
+  margin-bottom: 40px;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #999;
+}
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.image {
+  width: 198px;
+  height: 336px;
+}
+
+.text {
+  margin: 0;
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: black;
+  font-size: 18px;
+}
+
+h2 {
+  color: grey;
+}
+
+.buttonDiv {
+  width: 435px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 28px;
+  border: 1px solid #9da39d;
+  background-color: #fff;
+  color: grey;
+  width: 210px;
+  height: 45px;
+}
+
+.button:nth-of-type(2) {
+  background-color: orange;
+  color: white;
+}
+
+@media(max-width:767px) {
+  .formContainer {
+    padding-top: 40px;
+    position: relative;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .form {
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .nameSurname {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+  }
+
+  .inputContant {
+    margin-bottom: 0;
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  input {
+    margin: 0;
+    width: 240px;
+    padding-bottom: 5px;
+  }
+
+  .buttonDiv {
+    position: absolute;
+    left: 17px;
+    bottom: 60px;
+    width: 265px;
+  }
+
+  .button {
+    width: 126px;
+    height: 45px;
+  }
+
+  .userName {
+    margin-bottom: 30px;
+    width: 240px;
+  }
+
+  .userAge {
+    width: 240px;
+  }
+
+  .image {
+    padding-bottom: 150px;
+    margin: 0 auto;
+  }
+}
