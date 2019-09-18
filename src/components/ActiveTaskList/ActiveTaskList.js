@@ -11,6 +11,11 @@ class ActiveTaskList extends Component {
           <li className={styles.activeTaskCard}> </li>
           <li className={styles.activeTaskCard}> </li>
           <li className={styles.activeTaskCard}> </li>
+          <li className={styles.activeTaskCard}> </li>
+          <li className={styles.activeTaskCard}> </li>
+          <li className={styles.activeTaskCard}> </li>
+          <li className={styles.activeTaskCard}> </li>
+          <li className={styles.activeTaskCard}> </li>
         </ul>
       </>
     );
