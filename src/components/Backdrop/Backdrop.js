@@ -26,8 +26,8 @@ class Backdrop extends Component {
   closeOnEsc = e => {
     if (e.code === 'Escape') {
       this.setState({ showModal: false });
+      this.props.onClose();
     }
-    this.props.onClose();
   };
 
   closeModal = e => {
@@ -37,8 +37,8 @@ class Backdrop extends Component {
       e.target.id === 'BaseComponent'
     ) {
       this.setState({ showModal: false });
+      this.props.onClose();
     }
-    this.props.onClose();
   };
 
   render() {
