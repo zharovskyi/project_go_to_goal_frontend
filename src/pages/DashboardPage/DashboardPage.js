@@ -8,7 +8,7 @@ const DashboardPage = () => {
     <div>
       <Header />
 
-      {/* <h2>DashboardPage</h2> */}
+      <h2>DashboardPage</h2>
       <ModalCongrats />
       {/* <ModalRegistration /> */}
     </div>
