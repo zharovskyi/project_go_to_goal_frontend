@@ -7,11 +7,11 @@ import Card from './Card/Card';
 function App() {
   return (
     <>
-      {/* <Switch>
-        <Route path="/" exact component={LoginPage} />
-        <Route path="/dashboard" component={DashboardPage} />
-      </Switch> */}
-      <Card />
+      {/* <Switch> */}
+      {/* <Route path="/" exact component={LoginPage} /> */}
+      {/* <Route path="/dashboard" component={DashboardPage} /> */}
+      {/* </Switch> */}
+      {/* <Card /> */}
     </>
   );
 }
