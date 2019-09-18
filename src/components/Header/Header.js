@@ -7,6 +7,8 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 import User from '../User/User';
 
 class Header extends Component {
+  state = {};
+
   render() {
     const { windowWidth } = this.props;
     return (
