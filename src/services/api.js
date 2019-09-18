@@ -12,4 +12,4 @@ export const setToken = token => ({
   },
 });
 
-export const w = () => { };
+export const w = () => {};
