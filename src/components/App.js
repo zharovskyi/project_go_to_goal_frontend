@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 // import LoginPage from '../pages/LoginPage/LoginPage';
 import DashboardPage from '../pages/DashboardPage/DashboardPage';
 import TaskList from './TaskList/TaskList';
+// import Card from './Card/Card';
 
 function App() {
   return (
