@@ -7,7 +7,9 @@ import style from './Logo.module.css';
 const Logo = () => {
     return (
         <Link to="#" className={style.logo}>
-            <LogoSvg /> to <Goal />
+            <LogoSvg />
+            <span className={style.to}>
+                &nbsp; to  &nbsp;</span><Goal />
         </Link>
     );
 };

@@ -9,7 +9,7 @@ const User = () => {
             Вася, 30 років
         <button className={style.btn}>
                 <LogoOut />
-                <LogOutModal />
+                {/* <LogOutModal /> */}
             </button>
         </div>)
 };
