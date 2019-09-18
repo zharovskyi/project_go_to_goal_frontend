@@ -1,27 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './ToggleButton.module.css';
 
-export default class ToggleButton extends Component {
-  state = {
-    isChecked: false,
-  };
+const ToggleButton = ({ isChecked }) => {
+  return (
+    <div className={styles.div}>
+      <input
+        type="checkbox"
+        // checked={isChecked}
+        // onChange={this.handleCheckedToggle}
+      />
+    </div>
+  );
+};
 
-  // handleCheckedToggle = () => {
-  //   if (this.prevState.isChecked !== this.state.isChecked) {
-  //     this.setState({ isChecked: true });
-  //   }
-  // };
-
-  render() {
-    // const { isChecked } = this.state;
-    return (
-      <div className={styles.div}>
-        <input
-          type="checkbox"
-          // checked={isChecked}
-          // onChange={this.handleCheckedToggle}
-        />
-      </div>
-    );
-  }
-}
+export default ToggleButton;
