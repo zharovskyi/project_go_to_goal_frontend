@@ -1,6 +1,6 @@
 .header {
     display: block;
-    width: 1250px;
+    max-width: 1250px;
     height: 54px;
     margin: 0 auto;
     margin-top: 22px;

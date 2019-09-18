@@ -1,54 +1,58 @@
 .goal {
-    display: flex;
-    justify-content: space-between;
-    width: 660px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 660px;
+  margin: 0 auto;
 }
 
 .goalLogo {
-    display: flex;
-    text-align: center;
-    align-items: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 
 .goalName {
-    /* font-family: 'Montserrat'; */
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #858598;
-    font-size: 12px;
-    line-height: 32px;
+  /* font-family: 'Montserrat'; */
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #858598;
+  font-size: 12px;
+  line-height: 32px;
 }
 
 .goalLabel {
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    /* font-family: 'Montserrat'; */
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 180px;
-    height: 32px;
-    line-height: 32px;
-    background-image: linear-gradient( rgb(236, 177, 70) 0%, rgb(241, 195, 65) 55%, rgb(245, 213, 59) 100%);
-    box-shadow: 0px 8px 29px 0px rgba(178, 138, 61, 0.31);
-    border-radius: 16px;
-    margin-left: 10px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: 'Montserrat'; */
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 180px;
+  height: 32px;
+  line-height: 32px;
+  background-image: linear-gradient(
+    rgb(236, 177, 70) 0%,
+    rgb(241, 195, 65) 55%,
+    rgb(245, 213, 59) 100%
+  );
+  box-shadow: 0px 8px 29px 0px rgba(178, 138, 61, 0.31);
+  border-radius: 16px;
+  margin-left: 10px;
 }
 
 .progresBar {
-    display: flex;
-    align-items: center;
-    min-width: 255px;
+  display: flex;
+  align-items: center;
+  min-width: 255px;
 }
 
 .progresScore {
-    color: #858598;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    font-size: 14px;
-    width: 100px;
+  color: #858598;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 14px;
+  width: 100px;
 }
 
 .total {
-    color: #000;
+  color: #000;
 }
