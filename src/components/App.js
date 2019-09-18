@@ -11,7 +11,7 @@ function App() {
         <Route path="/" exact component={LoginPage} />
         <Route path="/dashboard" component={DashboardPage} />
       </Switch>
-      <Header />
+      {/* <Header /> */}
     </>
   );
 }
