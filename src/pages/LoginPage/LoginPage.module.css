@@ -1,0 +1,270 @@
+/* HEADER */
+
+.header {
+  width: 100vw;
+  height: 9vh;
+  background-color: var(--color-yellow);
+  display: flex;
+  align-items: flex-end;
+}
+
+.header_form {
+  width: 98vw;
+  height: 6vh;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 35px 0 20px;
+  border-radius: 3vh 3vh 0 0;
+  background-color: var(--color-white);
+}
+
+.form input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 2px solid var(--color-pale-gray);
+  margin-left: 20px;
+}
+
+.form input::placeholder {
+  font-size: 12px;
+  letter-spacing: 1px;
+  background-color: var(--color-white);
+  color: var(--color-pale-gray);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.form button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-left: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background-color: var(--color-white);
+  color: var(--color-gray);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.form button:focus {
+  outline: none;
+}
+
+/* MAIN */
+
+.main {
+  position: relative;
+  /* padding: 50px 0; */
+}
+
+.cover {
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow);
+}
+
+.bg_cover {
+  width: 69vw;
+}
+
+.greeting {
+  width: 100vw;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 40.85vw;
+  display: block;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  margin-bottom: 26px;
+  font-size: 27px;
+  letter-spacing: 2px;
+  line-height: 45px;
+  color: var(--color-dark-blue);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+}
+
+.greeting_text {
+  width: 737px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 23px;
+  color: var(--color-gray);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.greeting_btn {
+  width: 200px;
+  height: 48px;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  border-radius: 24px;
+  margin-top: 22px;
+  background: linear-gradient(
+    to top,
+    var(--color-yellow),
+    var(--color-dark-yellow)
+  );
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 48px;
+  color: var(--color-white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+.greeting_btn:focus {
+  outline: none;
+}
+
+.decor {
+  width: 23.52vw;
+  height: 23.52vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  fill: var(--color-green);
+}
+
+/* FOOTER */
+
+.footer {
+  width: 100vw;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow);
+}
+
+.footer_text {
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 23px;
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* TABLET */
+
+@media (max-width: 1279px) {
+  .header_form {
+    padding: 0 15px 0 10px;
+  }
+
+  .header input {
+    width: 150px;
+    margin-left: 10px;
+  }
+
+  .header input::placeholder {
+    font-size: 10px;
+  }
+
+  .header button {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+
+  .bg_cover {
+    width: 64vw;
+  }
+
+  .decor {
+    width: 18.88vw;
+    height: 18.88vh;
+  }
+
+  .title {
+    width: 65vw;
+    margin-bottom: 10px;
+  }
+
+  .greeting_text {
+    width: 77vh;
+    margin-bottom: 10px;
+  }
+
+  .greeting_btn {
+    margin-top: 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+  .login_page {
+    width: 100vw;
+    height: 100vh;
+    padding: 74px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 104px;
+    margin-bottom: 30px;
+  }
+
+  .main {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    width: 60vw;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 30px;
+  }
+
+  .greeting_btn {
+    margin: 0 auto;
+  }
+
+  .form {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .reg_btn {
+    display: none;
+  }
+}
