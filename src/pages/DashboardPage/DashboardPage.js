@@ -1,5 +1,6 @@
 // MODULES
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // COMPONENTS
 import Header from '../../components/Header/Header';
@@ -17,45 +18,73 @@ import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 //  STYLES
 import styles from './DashboardPage.module.css';
 
-export default class DashboardPage extends Component {
+class DashboardPage extends Component {
   state = {};
 
   render() {
+    const {
+      windowWidth,
+      isModalAddTaskOpen,
+      isModalCongratsOpen,
+      isModalCreateGoalOpen,
+      isModalDeleteTaskOpen,
+      isModalLogoutOpen,
+      onCloseModalAddTask,
+      onCloseModalCongrats,
+      onCloseModalCreateGoal,
+      onCloseModalDeleteTask,
+      onCloseModalLogout,
+    } = this.props;
+
     return (
       <div className={styles.dashboardBody}>
         <Header />
-        {this.props.windowWidth > 320 && this.props.windowWidth <= 768 && (
-          <ProgressBar />
-        )}
+        {windowWidth > 320 && windowWidth <= 768 && <ProgressBar />}
         <NewGoal />
         <TaskList />
         <Footer />
-        {this.props.isModalAddTaskOpen && (
-          <Backdrop onClose={this.props.onCloseModalAddTask}>
-            <ModalAddTask onClose={this.props.onCloseModalAddTask} />
+        {isModalAddTaskOpen && (
+          <Backdrop onClose={onCloseModalAddTask}>
+            <ModalAddTask onClose={onCloseModalAddTask} />
           </Backdrop>
         )}
-        {this.props.isModalCongratsOpen && (
-          <Backdrop onClose={this.props.onCloseModalCongrats}>
-            <ModalCongrats onClose={this.props.onCloseModalCongrats} />
+        {isModalCongratsOpen && (
+          <Backdrop onClose={onCloseModalCongrats}>
+            <ModalCongrats onClose={onCloseModalCongrats} />
           </Backdrop>
         )}
-        {this.props.isModalCreateGoalOpen && (
-          <Backdrop onClose={this.props.onCloseModalCreateGoal}>
-            <ModalCreateGoal onClose={this.props.onCloseModalCreateGoal} />
+        {isModalCreateGoalOpen && (
+          <Backdrop onClose={onCloseModalCreateGoal}>
+            <ModalCreateGoal onClose={onCloseModalCreateGoal} />
           </Backdrop>
         )}
-        {this.props.isModalDeleteTaskOpen && (
-          <Backdrop onClose={this.props.onCloseModalDeleteTask}>
-            <ModalDeleteTask onClose={this.props.onCloseModalDeleteTask} />
+        {isModalDeleteTaskOpen && (
+          <Backdrop onClose={onCloseModalDeleteTask}>
+            <ModalDeleteTask onClose={onCloseModalDeleteTask} />
           </Backdrop>
         )}
-        {this.props.isModalLogautOpen && (
-          <Backdrop onClose={this.props.onCloseModalLogaut}>
-            <ModalLogout onClose={this.props.onCloseModalLogaut} />
+        {isModalLogoutOpen && (
+          <Backdrop onClose={onCloseModalLogout}>
+            <ModalLogout onClose={onCloseModalLogout} />
           </Backdrop>
         )}
       </div>
     );
   }
 }
+
+DashboardPage.propTypes = {
+  windowWidth: PropTypes.number.isRequired,
+  isModalAddTaskOpen: PropTypes.bool.isRequired,
+  isModalCongratsOpen: PropTypes.bool.isRequired,
+  isModalCreateGoalOpen: PropTypes.bool.isRequired,
+  isModalDeleteTaskOpen: PropTypes.bool.isRequired,
+  isModalLogoutOpen: PropTypes.bool.isRequired,
+  onCloseModalAddTask: PropTypes.func.isRequired,
+  onCloseModalCongrats: PropTypes.func.isRequired,
+  onCloseModalCreateGoal: PropTypes.func.isRequired,
+  onCloseModalDeleteTask: PropTypes.func.isRequired,
+  onCloseModalLogout: PropTypes.func.isRequired,
+};
+
+export default DashboardPage;
