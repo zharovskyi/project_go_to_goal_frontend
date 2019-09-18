@@ -4,21 +4,28 @@ import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 
 class Card extends Component {
-  state = {
-    isActive: false,
+  constructor(props) {
+    super(props);
+    this.state = { isChecked: false };
+  }
+
+  handleCheckedToggle = () => {
+    this.setState(prevState => ({
+      isChecked: !prevState.isChecked,
+      // className: 'bodyCard.checked',
+    }));
   };
 
-  // handleCheckedToggle = () => {
-  //   if (this.prevState.isChecked !== this.state.isChecked) {
-  //     this.setState({ isChecked: true });
-  //   }
-  // };
-
   render() {
-    // const { isChecked } = this.state;
+    console.log(this.state);
+    const { isChecked } = this.state;
     return (
       <li className={styles.cardLi}>
-        <CardBody />
+        <CardBody
+          onChangeToggle={this.handleCheckedToggle}
+          isChecked={isChecked}
+          // className={isChecked ? 'bodyCard' : 'bodyCard checked'}
+        />
         <CardFooter />
       </li>
     );
