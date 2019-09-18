@@ -1,6 +1,6 @@
 import React from 'react';
-import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 // import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
+// import Backdrop from '../../components/Backdrop/Backdrop';
 import Header from '../../components/Header/Header';
 
 const DashboardPage = () => {
@@ -9,7 +9,6 @@ const DashboardPage = () => {
       <Header />
 
       <h2>DashboardPage</h2>
-      <ModalCongrats />
       {/* <ModalRegistration /> */}
     </div>
   );
