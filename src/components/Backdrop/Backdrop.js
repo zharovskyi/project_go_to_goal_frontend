@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './backdropComponent.module.css';
+import styles from './Backdrop.module.css';
 
-class BackdropComponent extends Component {
+class Backdrop extends Component {
   state = {
     showModal: true,
     closeOnEsc: true,
@@ -27,6 +27,7 @@ class BackdropComponent extends Component {
     if (e.code === 'Escape') {
       this.setState({ showModal: false });
     }
+    this.props.onClose();
   };
 
   closeModal = e => {
@@ -37,6 +38,7 @@ class BackdropComponent extends Component {
     ) {
       this.setState({ showModal: false });
     }
+    this.props.onClose();
   };
 
   render() {
@@ -55,8 +57,9 @@ class BackdropComponent extends Component {
   }
 }
 
-BackdropComponent.propTypes = {
+Backdrop.propTypes = {
   children: PropTypes.element.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
-export default BackdropComponent;
+export default Backdrop;
