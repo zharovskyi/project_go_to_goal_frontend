@@ -3,7 +3,7 @@
   height: 670px;
   margin: 0 auto;
   padding-top: 120px;
-  border-radius: 5px
+  border-radius: 5px;
 }
 
 .form {
@@ -91,7 +91,7 @@ h2 {
   color: white;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
   .formContainer {
     padding-top: 40px;
     position: relative;
