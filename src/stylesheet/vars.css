@@ -1,9 +1,17 @@
 :root {
+  /* login-page */
+  --color-white: #ffffff;
+  --color-yellow: #f5d53b;
+  --color-dark-yellow: #edb446;
+  --color-green: #9ecb45;
+  --color-pale-gray: #e0e0e0;
+  --color-gray: #858598;
+  --color-dark-blue: #42414b;
+  /* login-page */
+
   --bg-color-white: #ffffff;
   --bg-color-grey: #eff1f3;
   --bg-color-blue: #284060;
-  /* login-page */
-  --bg-color-yellow: #f5d53b;
 
   --text-color-white: #ffffff;
   --text-color-grey: #999daa;

@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import windowSize from 'react-window-size';
 import s from './LoginPage.module.css';
 import logo from '../../assets/images/login-page-logo@1X.png';
 import coverImg from '../../assets/images/login-page-cover@1X.png';
+import { ReactComponent as Party } from '../../assets/svg/party.svg';
+import LoginForm from '../../components/LoginPage/LoginForm';
+import LoginCover from '../../components/LoginPage/LoginCover';
+import LoginGreeting from '../../components/LoginPage/LoginGreeting';
+import LoginGreetingTitle from '../../components/LoginPage/LoginGreetingTitle';
+import LoadingGreetingBtn from '../../components/LoginPage/LoadingGreetingBtn';
+import LoginFooter from '../../components/LoginPage/LoginFooter';
 
 class LoginPage extends Component {
   state = {
@@ -34,68 +41,74 @@ class LoginPage extends Component {
 
   render() {
     const { login, password } = this.state;
+    const { windowWidth } = this.props;
     return (
-      <body>
-        <header className={s.header}>
-          <img src={logo} alt="logo" width="104" />
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="login"
-              value={login}
+      <body className={s.login_page}>
+        {/* MOBILE */}
+        {windowWidth < 768 && (
+          <img src={logo} alt="logo" width="104" className={s.logo} />
+        )}
+
+        {/* TABLET & DESKTOP */}
+        {windowWidth > 767 && (
+          <header className={s.header}>
+            <div className={s.header_form}>
+              <img src={logo} alt="logo" width="104" className={s.logo} />
+              <LoginForm
+                onSubmit={this.handleSubmit}
+                onChange={this.handleChange}
+                login={login}
+                password={password}
+                sForm={s.form}
+              />
+            </div>
+          </header>
+        )}
+        <main className={s.main}>
+          {/* TABLET & DESKTOP */}
+          {windowWidth > 767 && (
+            <LoginCover
+              sCover={s.cover}
+              coverImg={coverImg}
+              sBgCover={s.bg_cover}
+            />
+          )}
+
+          {/* ALL */}
+          <LoginGreetingTitle sTitle={s.title} />
+
+          {/* MOBILE */}
+          {windowWidth < 768 && (
+            <LoginForm
+              onSubmit={this.handleSubmit}
               onChange={this.handleChange}
-              placeholder="Enter your login/email..."
+              login={login}
+              password={password}
+              sForm={s.form}
+              sRegBtn={s.reg_btn}
             />
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-              placeholder="Enter your password..."
+          )}
+
+          {/* TABLET & DESKTOP */}
+          {windowWidth > 767 && (
+            <LoginGreeting
+              sGreeting={s.greeting}
+              sGreetingText={s.greeting_text}
             />
-            <button type="submit">Логін</button>
-            <button type="button">Реєстрація</button>
-          </form>
-        </header>
-        <main>
-          <div className={s.cover}>
-            <img
-              src={coverImg}
-              alt="cover"
-              width="826"
-              className={s.bgi_cover}
-            />
-            {/* <div className={s.bgi_cover} /> */}
-          </div>
-          <div className={s.greeting}>
-            <h2 className={s.title}>Вітаємо вас у нашій програмі!</h2>
-            <p className={s.greeting_text}>
-              Тут ви зможете чітко сформулювати ваші бажання - чого ви хочете
-              досягти чи отримати у якості винагороди. Вам потрібно поставити
-              собі мету, а згодом - виконувати поставлені задачі у комфортному
-              для себе ритмі та не забувати відмічати їх виконання.
-            </p>
-            <p className={s.greeting_text}>
-              Будьте наполегливими, відповідальними і ви зможете досягти всього,
-              чого забажаєете! Подобається ідея? Готові допомагати, розвиватися
-              та йти до своєї мети?
-            </p>
-            <p className={s.greeting_text}>
-              Так, так, все саме так, як у дорослому житті :) Тоді не зважайте,
-              а швидко зареєструйтеся, або заходьте на свій аккаунт.
-            </p>
-            <button type="button" className={s.greeting_btn}>
-              Зареєструватися
-            </button>
-          </div>
-          <div className={s.decor} />
+          )}
+          {windowWidth > 767 && <Party className={s.decor} />}
+
+          {/* ALL */}
+          <LoadingGreetingBtn sGreetingBtn={s.greeting_btn} />
         </main>
-        <footer className={s.footer}>
-          <p className={s.footer_text}>@ Copyright 2019</p>
-        </footer>
+
+        {/* TABLET & DESKTOP */}
+        {windowWidth > 767 && (
+          <LoginFooter sFooter={s.footer} sFooterText={s.footer_text} />
+        )}
       </body>
     );
   }
 }
 
-export default LoginPage;
+export default windowSize(LoginPage);
