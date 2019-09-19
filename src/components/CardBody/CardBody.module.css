@@ -14,8 +14,8 @@
   fill: #eeeeee;
   width: 45px;
   height: 45px;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 40px;
+  margin-bottom: 5px;
 }
 .SVG_close {
   fill: white;
@@ -45,6 +45,8 @@
 .points_txt_p {
   text-transform: uppercase;
   font-size: 14px;
+  padding: 0;
+  margin: 0;
   color: #fff;
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
@@ -53,7 +55,6 @@
 .points_txt_number {
   display: inline-block;
   font-size: 24px;
-  padding-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
 }
 /*ACTIVE - DONE*/
