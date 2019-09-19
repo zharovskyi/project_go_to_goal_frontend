@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './User.module.css';
 import { ReactComponent as LogoOut } from '../../assets/images/logout.svg';
-// import LogOutModal from '../LogOutModal/LogOutModal';
+import ModalLogout from '../ModalLogout/ModalLogout';
 import Avatar from '../../assets/images/avatar.jpeg';
 
-const User = () => {
+const User = ({ isModalLogoutOpen, openModal }) => {
   return (
     <>
       <div className={style.userInfo}>
@@ -12,11 +12,17 @@ const User = () => {
         <span className={style.userName}>Вася</span>
         <span className={style.userAge}>30 років</span>
       </div>
-      <button type="button" className={style.btn}>
+      <button type="button" className={style.btn} onClick={openModal} isOpen={isModalLogoutOpen}>
+
         <LogoOut />
-        {/* <LogOutModal /> */}
+        {/* if (isOpen) {
+          <ModalLogout />
+        } */}
+
       </button>
     </>
   );
 };
+
+
 export default User;
