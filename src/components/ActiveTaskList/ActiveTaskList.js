@@ -9,20 +9,17 @@ class ActiveTaskList extends Component {
   state = {};
 
   render() {
-    const { activePosts, donePosts } = this.props;
-    console.log(activePosts);
-    console.log(donePosts);
+    const { activePosts } = this.props;
 
+    if (activePosts.length === 0) {
+      return <li className={styles.activeTaskCard}> </li>;
+    }
     return (
       <>
         <ul className={styles.activeCards}>
-          <Card />
-          {/* <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card /> */}
+          {activePosts.map(activePost => (
+            <Card key={activePost._id} activePost={activePost} />
+          ))}
         </ul>
       </>
     );
@@ -31,12 +28,10 @@ class ActiveTaskList extends Component {
 
 ActiveTaskList.propTypes = {
   activePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  donePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 const mapStateToProps = store => ({
   activePosts: TaskListSelectors.getActivePosts(store),
-  donePosts: TaskListSelectors.getDonePosts(store),
 });
 const mapDispatchToProps = {};
 
