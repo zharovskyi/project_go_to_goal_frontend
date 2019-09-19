@@ -3,15 +3,15 @@ import { Progress } from 'react-sweet-progress';
 
 import css from './ProgressBar.module.css';
 
-const ProgressBar = () => {
+const ProgressBar = ({ goalPoints, taskPoints, percent }) => {
   return (
     <div className={css.progress}>
       <p className={css.progressScore}>
-        999 / <span className={css.total}> 1000</span>
+        {taskPoints} / <span className={css.total}> {goalPoints}</span>
       </p>
       <Progress
         className={css.progresBar}
-        percent={(500 / 1000) * 100}
+        percent={percent}
         symbol="none"
         theme={{
           success: {

@@ -2,9 +2,9 @@ import { Type } from './ModalLogoutActions';
 
 export const openCloseReducer = (prevState = false, action) => {
   switch (action.type) {
-    case Type.MODAL_LOGOUT_OPEN:
+    case Type.MODAL_REGISTRATION_OPEN:
       return true;
-    case Type.MODAL_LOGOUT_CLOSE:
+    case Type.MODAL_REGISTRATION_CLOSE:
       return false;
 
     default:

@@ -10,10 +10,25 @@ const rootReducer = combineReducers({
     return { a: 1 };
   },
   goal: (prevState = {}, action) => {
-    return { title: '', description: '', _id: '', points: 0 };
+    return { title: 'bike', description: '', _id: '', points: 100 };
   },
   tasks: (prevState = {}, action) => {
-    return [];
+    return [
+      {
+        title: 'string',
+        description: 'string',
+        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        points: 15,
+        isDone: true,
+      },
+      {
+        title: 'string',
+        description: 'string',
+        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        points: 25,
+        isDone: true,
+      },
+    ];
   },
   modals: modalsReducers,
 });

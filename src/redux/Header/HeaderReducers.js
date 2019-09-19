@@ -1,10 +1,10 @@
-import { Type } from './ModalDeleteTaskActions';
+import { Type } from './HeaderActions';
 
 export const openCloseReducer = (prevState = false, action) => {
   switch (action.type) {
-    case Type.MODAL_LOGOUT_OPEN:
+    case Type.MODAL_DELETE_TASK_OPEN:
       return true;
-    case Type.MODAL_LOGOUT_CLOSE:
+    case Type.MODAL_DELETE_TASK_CLOSE:
       return false;
 
     default:
