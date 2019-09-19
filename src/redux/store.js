@@ -1,8 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
+import {
+  tasksReducer,
+  errorsModalDeleteReducer,
+  idForDeleteTaskReducer,
+} from './Dashboard/DashboardReducers';
 
-// импортируем сюда свои редюсеры
 import modalsReducers from './modalsReducers';
 
 const rootReducer = combineReducers({
@@ -12,10 +16,10 @@ const rootReducer = combineReducers({
   goal: (prevState = {}, action) => {
     return { title: '', description: '', _id: '', points: 0 };
   },
-  tasks: (prevState = {}, action) => {
-    return [];
-  },
+  tasks: tasksReducer,
   modals: modalsReducers,
+  idForDeleteTask: idForDeleteTaskReducer,
+  errorsModalDelete: errorsModalDeleteReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);
