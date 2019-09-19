@@ -65,3 +65,9 @@
   fill: white;
   transition: 0.4s ease-in-out;
 }
+
+@media (max-width: 1279px) {
+  .bodyCard {
+    height: 130px;
+  }
+}
