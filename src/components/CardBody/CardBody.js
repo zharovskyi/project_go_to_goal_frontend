@@ -21,9 +21,10 @@ const CardBody = ({
           <CloseSVG className={styles.SVG_close} />
         </button>
         <GiftIMG className={styles.SVG_gift} />
-        <p className={styles.points_txt_p}>
-          <p className={styles.points_txt_number}>{pointsS}</p> балів
-        </p>
+        <div className={styles.CardBody_div_txt}>
+          <p className={styles.points_txt_number}>{pointsS}</p>
+          <p className={styles.points_txt_p}>балів</p>
+        </div>
         <ToggleButton onChangeToggle={onChangeToggle} />
         {/* <p>Time now {dateInDone}</p> */}
       </div>

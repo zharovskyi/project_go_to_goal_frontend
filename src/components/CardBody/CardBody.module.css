@@ -41,6 +41,9 @@
   composes: SVG_close;
   outline: none;
 }
+.CardBody_div_txt {
+  padding-top: 10px;
+}
 
 .points_txt_p {
   text-transform: uppercase;
@@ -55,6 +58,7 @@
 .points_txt_number {
   display: inline-block;
   font-size: 24px;
+  color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
 /*ACTIVE - DONE*/
@@ -64,4 +68,20 @@
   background-color: #a7d056;
   fill: white;
   transition: 0.4s ease-in-out;
+}
+
+@media (max-width: 1279px) {
+  .SVG_gift {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .SVG_gift {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+  }
 }
