@@ -53,22 +53,22 @@ svg {
     margin-bottom: 6px;
     margin-right: 6px;
   }
-  .cardLi:nth-child(3n) {
-    margin-right: 0px;
-  }
   .cardLi:nth-child(4n) {
     margin-right: 6px;
+  }
+  .cardLi:nth-child(3n) {
+    margin-right: 0;
   }
 }
 
 @media (max-width: 767px) {
   .cardLi {
     margin: 0 auto;
-    margin-bottom: 6px;
+    margin-bottom: 16px;
   }
-  .cardLi:nth-child(3n),
-  .cardLi:nth-child(4n) {
+  .cardLi:nth-child(4n),
+  .cardLi:nth-child(3n) {
     margin: 0 auto;
-    margin-bottom: 6px;
+    margin-bottom: 16px;
   }
 }

@@ -22,3 +22,25 @@
 .CardFooter_timeFrames {
   color: #848599;
 }
+
+@media (max-width: 1279px) {
+  .cardFooter_div {
+    margin: 0;
+  }
+  .CardFooter_task,
+  .CardFooter_timeFrames {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardFooter_div {
+    margin: 0;
+  }
+  .CardFooter_task,
+  .CardFooter_timeFrames {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
