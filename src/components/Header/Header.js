@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
@@ -18,35 +18,39 @@ import * as headerSelectors from '../../redux/Header/HeaderSelectors';
 import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
 import * as congratsActions from '../../redux/ModalCongrats/ModalCongratsActions';
 
-const Header = ({
-  windowWidth,
-  goalTitle,
-  userName,
-  userAge,
-  percent,
-  openModalLogout,
-  openModalCongrats,
-}) => {
-  return (
-    <header className={css.header}>
-      <Logo />
-      {windowWidth > 320 && (
-        <Goal
-          title={goalTitle}
-          handleOpen={openModalCongrats}
-          percent={percent}
-        />
-      )}
-      {windowWidth > 1279 && <ProgressBar />}
-      <User
-        handleOpen={openModalLogout}
-        userName={userName}
-        userAge={userAge}
-      />
-    </header>
-  );
-};
+class Header extends Component {
+  state = {};
 
+  render() {
+    const {
+      windowWidth,
+      goalTitle,
+      userName,
+      userAge,
+      percent,
+      openModalLogout,
+      openModalCongrats,
+    } = this.props;
+    return (
+      <header className={css.header}>
+        <Logo />
+        {windowWidth > 320 && (
+          <Goal
+            title={goalTitle}
+            handleOpen={openModalCongrats}
+            percent={percent}
+          />
+        )}
+        {windowWidth > 1279 && <ProgressBar />}
+        <User
+          handleOpen={openModalLogout}
+          userName={userName}
+          userAge={userAge}
+        />
+      </header>
+    );
+  }
+}
 const MSTP = store => ({
   percent: headerSelectors.getPercent(store),
   goalTitle: headerSelectors.getTitle(store),
