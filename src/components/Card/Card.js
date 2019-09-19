@@ -12,7 +12,6 @@ class Card extends Component {
   handleCheckedToggle = () => {
     this.setState(prevState => ({
       isChecked: !prevState.isChecked,
-      // className: 'bodyCard.checked',
     }));
   };
 
@@ -24,7 +23,6 @@ class Card extends Component {
         <CardBody
           onChangeToggle={this.handleCheckedToggle}
           isChecked={isChecked}
-          // className={isChecked ? 'bodyCard' : 'bodyCard checked'}
         />
         <CardFooter />
       </li>
