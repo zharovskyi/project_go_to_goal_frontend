@@ -1,51 +1,51 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-import windowSize from 'react-window-size';
+import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import PropTypes from 'prop-types';
+
+// style & npm
+import windowSize from 'react-window-size';
 import css from './Header.module.css';
+
+// components
 import Logo from '../Logo/Logo';
 import Goal from '../Goal/Goal';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import User from '../User/User';
+import ProgressBar from '../ProgressBar/ProgressBar';
+
+// redux
 import * as headerSelectors from '../../redux/Header/HeaderSelectors';
 import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
 import * as congratsActions from '../../redux/ModalCongrats/ModalCongratsActions';
 
-class Header extends Component {
-  state = {};
-
-  render() {
-    const {
-      windowWidth,
-      goalTitle,
-      userName,
-      userAge,
-      percent,
-      openModalLogout,
-      openModalCongrats,
-    } = this.props;
-    return (
-      <header className={css.header}>
-        <Logo />
-        {windowWidth > 320 && (
-          <Goal
-            title={goalTitle}
-            handleOpen={openModalCongrats}
-            percent={percent}
-          />
-        )}
-        {windowWidth > 1279 && <ProgressBar />}
-        <User
-          handleOpen={openModalLogout}
-          userName={userName}
-          userAge={userAge}
+const Header = ({
+  windowWidth,
+  goalTitle,
+  userName,
+  userAge,
+  percent,
+  openModalLogout,
+  openModalCongrats,
+}) => {
+  return (
+    <header className={css.header}>
+      <Logo />
+      {windowWidth > 320 && (
+        <Goal
+          title={goalTitle}
+          handleOpen={openModalCongrats}
+          percent={percent}
         />
-      </header>
-    );
-  }
-}
+      )}
+      {windowWidth > 1279 && <ProgressBar />}
+      <User
+        handleOpen={openModalLogout}
+        userName={userName}
+        userAge={userAge}
+      />
+    </header>
+  );
+};
 
 const MSTP = store => ({
   percent: headerSelectors.getPercent(store),

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// style & npm
 import 'react-sweet-progress/lib/style.css';
 import css from './Goal.module.css';
 
