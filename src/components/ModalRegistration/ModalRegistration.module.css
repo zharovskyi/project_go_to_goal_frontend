@@ -72,7 +72,6 @@ h2 {
 
 .passwordError {
   display: block;
-
 }
 
 .buttonDiv {
@@ -91,16 +90,13 @@ h2 {
   height: 45px;
 }
 
-
 .button:nth-of-type(2) {
   background-color: orange;
   color: white;
-
 }
 
 .button:hover {
   background-color: #ffa500c9;
-
 }
 
 @media (max-width: 767px) {
