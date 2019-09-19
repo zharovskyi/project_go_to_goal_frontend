@@ -1,9 +1,10 @@
 .cardFooter_div {
   text-transform: uppercase;
-  padding: 0 30px;
+  padding: 0 20px;
   display: flex;
   flex-flow: column;
-  line-height: 35px;
+  line-height: 30px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .CardFooter_task,

@@ -3,23 +3,60 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  height: 230px;
   background-color: #e0e0e0;
+  border-radius: 10px 10px 0 0;
   transition: 0.4s ease-in-out;
+  position: relative;
 }
 
-svg {
+.SVG_gift {
   fill: #eeeeee;
   width: 45px;
   height: 45px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+.SVG_close {
+  fill: white;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  transition: 120ms ease-in;
+}
+.SVG_close:hover {
+  transform: scale(1.15, 1.15);
+  fill: grey;
+  transition: 120ms ease-in;
+  cursor: pointer;
+}
+
+.SVG_close_btn {
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: transparent;
+  composes: SVG_close;
+  outline: none;
 }
 
 .points_txt_p {
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
   color: #fff;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
 }
 
+.points_txt_number {
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
 /*ACTIVE - DONE*/
 
 .isChecked {
