@@ -19,7 +19,7 @@ class ModalRegistration extends Component {
       // тут запускать операцию
     } else {
       this.setState({
-        errorPassword: 'Different password!',
+        errorPassword: 'Пароли не совпадают!!!',
       });
     }
   };
@@ -108,7 +108,7 @@ class ModalRegistration extends Component {
               </button>
             </div>
           </div>
-          <p>{errorPassword || ''}</p>
+          <p className={s.passwordError}>{errorPassword || ''}</p>
 
           {/* ------------------img------------------------------- */}
           <div className={s.image}>
