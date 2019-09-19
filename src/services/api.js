@@ -12,4 +12,18 @@ export const setToken = token => ({
   },
 });
 
-export const w = () => {};
+export const getTasks = (tasksAlias, token) => {
+  axios.get(tasksAlias, {
+    headers: {
+      Authorization: token,
+    },
+  });
+};
+
+export const getGoal = (goalAlias, token) => {
+  axios.get(goalAlias, {
+    headers: {
+      Authorization: token,
+    },
+  });
+};

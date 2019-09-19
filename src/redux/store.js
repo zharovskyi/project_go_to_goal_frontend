@@ -7,7 +7,7 @@ import modalsReducers from './modalsReducers';
 
 const rootReducer = combineReducers({
   session: (prevState = {}, action) => {
-    return { a: 1 };
+    return { token: '' };
   },
   goal: (prevState = {}, action) => {
     return { title: '', description: '', _id: '', points: 0 };
@@ -16,6 +16,12 @@ const rootReducer = combineReducers({
     return [];
   },
   modals: modalsReducers,
+  isLoading: (prevState = {}, action) => {
+    return false;
+  },
+  dashboardError: (prevState = {}, action) => {
+    return {};
+  },
 });
 
 const enhancer = applyMiddleware(ReduxThunk);

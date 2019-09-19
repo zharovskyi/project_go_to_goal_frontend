@@ -8,6 +8,7 @@ import * as modalCongratsActions from '../../redux/ModalCongrats/ModalCongratsAc
 import * as modalCreateGoalActions from '../../redux/ModalCreateGoal/ModalCreateGoalActions';
 import * as modalDeleteTaskActions from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
 import * as modalLogoutActions from '../../redux/ModalLogout/ModalLogoutActions';
+import * as dashboardOperations from '../../redux/Dashboard/DashboardOperations';
 
 //  COMPONENT TO WRAP
 import DashboardPage from './DashboardPage';
@@ -26,6 +27,7 @@ const mapDispatchToProps = {
   onCloseModalCreateGoal: modalCreateGoalActions.closeModal,
   onCloseModalDeleteTask: modalDeleteTaskActions.closeModal,
   onCloseModalLogout: modalLogoutActions.closeModal,
+  tasks: dashboardOperations.getTasksOperation,
 };
 
 export default compose(
