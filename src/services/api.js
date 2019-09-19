@@ -12,4 +12,8 @@ export const setToken = token => ({
   },
 });
 
-export const w = () => {};
+axios.defaults.baseURL = "https://go-to-goal.goit.co.ua";
+
+export const addPostLogOut = post => axios.post("/posts", post);
+
+export const w = () => { };

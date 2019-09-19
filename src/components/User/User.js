@@ -12,17 +12,19 @@ const User = ({ isModalLogoutOpen, openModal }) => {
         <span className={style.userName}>Вася</span>
         <span className={style.userAge}>30 років</span>
       </div>
-      <button type="button" className={style.btn} onClick={openModal} isOpen={isModalLogoutOpen}>
-
+      <button
+        type="button"
+        className={style.btn}
+        onClick={openModal}
+        isOpen={isModalLogoutOpen}
+      >
         <LogoOut />
         {/* if (isOpen) {
           <ModalLogout />
         } */}
-
       </button>
     </>
   );
 };
-
 
 export default User;
