@@ -1,12 +1,10 @@
 export const Type = {
-  MODAL_REGISTRATION_OPEN: 'MODAL_REGISTRATION_OPEN',
-  MODAL_REGISTRATION_CLOSE: 'MODAL_REGISTRATION_CLOSE',
+  MODAL_LOGOUT_OPEN: 'MODAL_LOGOUT_OPEN',
+  MODAL_LOGOUT_CLOSE: 'MODAL_LOGOUT_CLOSE',
 };
-
 export const openModal = () => ({
-  type: Type.MODAL_REGISTRATION_OPEN,
+  type: Type.MODAL_LOGOUT_OPEN,
 });
-
 export const closeModal = () => ({
-  type: Type.MODAL_REGISTRATION_CLOSE,
+  type: Type.MODAL_LOGOUT_CLOSE,
 });

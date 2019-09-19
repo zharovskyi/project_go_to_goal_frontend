@@ -1,6 +1,7 @@
-export const getGoalPoints = s => s.goal.points;
-
 export const getTitle = s => s.goal.title;
+
+// ProgressBar
+export const getGoalPoints = s => s.goal.points;
 
 export const getTasks = s => s.tasks;
 
@@ -16,3 +17,8 @@ export const getPercent = s => {
   const tasks = getTasksPoints(s);
   return (tasks / goal) * 100;
 };
+
+// /user
+
+export const userName = s => s.session.user.name;
+export const userAge = s => s.session.user.age;

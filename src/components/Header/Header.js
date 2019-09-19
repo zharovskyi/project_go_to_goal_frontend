@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -8,6 +10,8 @@ import Goal from '../Goal/Goal';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import User from '../User/User';
 import * as headerSelectors from '../../redux/Header/HeaderSelectors';
+import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
+import * as congratsActions from '../../redux/ModalCongrats/ModalCongratsActions';
 
 class Header extends Component {
   state = {};
@@ -15,35 +19,55 @@ class Header extends Component {
   render() {
     const {
       windowWidth,
-      goalPoints,
       goalTitle,
-      taskPoints,
+      userName,
+      userAge,
       percent,
+      openModalLogout,
+      openModalCongrats,
     } = this.props;
     return (
       <header className={css.header}>
         <Logo />
-        {windowWidth > 320 && <Goal title={goalTitle} />}
-        {windowWidth > 1279 && (
-          <ProgressBar
-            goalPoints={goalPoints}
-            taskPoints={taskPoints}
+        {windowWidth > 320 && (
+          <Goal
+            title={goalTitle}
+            handleOpen={openModalCongrats}
             percent={percent}
           />
         )}
-        <User />
+        {windowWidth > 1279 && <ProgressBar />}
+        <User
+          handleOpen={openModalLogout}
+          userName={userName}
+          userAge={userAge}
+        />
       </header>
     );
   }
 }
 
 const MSTP = store => ({
-  goalPoints: headerSelectors.getGoalPoints(store),
-  taskPoints: headerSelectors.getTasksPoints(store),
-  goalTitle: headerSelectors.getTitle(store),
   percent: headerSelectors.getPercent(store),
+  goalTitle: headerSelectors.getTitle(store),
+  userName: headerSelectors.userName(store),
+  userAge: headerSelectors.userAge(store),
 });
-const MDTP = dispatch => ({});
+
+const MDTP = dispatch => ({
+  openModalLogout: e => dispatch(logoutActions.openModal(e)),
+  openModalCongrats: e => dispatch(congratsActions.openModal(e)),
+});
+
+Header.propTypes = {
+  goalTitle: PropTypes.string.isRequired,
+  windowWidth: PropTypes.number.isRequired,
+  userName: PropTypes.string.isRequired,
+  userAge: PropTypes.number.isRequired,
+  percent: PropTypes.number.isRequired,
+  openModalLogout: PropTypes.func.isRequired,
+  openModalCongrats: PropTypes.func.isRequired,
+};
 
 export default compose(
   connect(

@@ -1,22 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import style from './User.module.css';
 import { ReactComponent as LogoOut } from '../../assets/images/logout.svg';
-// import LogOutModal from '../LogOutModal/LogOutModal';
 import Avatar from '../../assets/images/avatar.jpeg';
 
-const User = () => {
+const User = ({ handleOpen, userAge, userName }) => {
   return (
     <>
       <div className={style.userInfo}>
         <img src={Avatar} width="55" height="55" alt="Вася Пупкін" />
-        <span className={style.userName}>Вася</span>
-        <span className={style.userAge}>30 років</span>
+        <span className={style.userName}>{userName}</span>
+        <span className={style.userAge}>, {userAge} років</span>
       </div>
-      <button type="button" className={style.btn}>
+      <button type="button" className={style.btn} onClick={handleOpen}>
         <LogoOut />
-        {/* <LogOutModal /> */}
       </button>
     </>
   );
 };
+
+User.propTypes = {
+  userAge: PropTypes.number.isRequired,
+  userName: PropTypes.string.isRequired,
+  handleOpen: PropTypes.func.isRequired,
+};
+
 export default User;
