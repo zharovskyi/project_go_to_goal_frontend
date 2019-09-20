@@ -26,10 +26,13 @@
 .disableBtn {
   pointer-events: none;
   background-color: #e0e0e0;
+  border: 2px solid;
 }
 
 @media (max-width: 767px) {
-  .button {
+
+  .button,
+  .disableBtn {
     top: 80%;
     right: 14px;
   }
