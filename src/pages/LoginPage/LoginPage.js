@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import windowSize from 'react-window-size';
 import PropTypes from 'prop-types';
+import { login } from '../../redux/sessionLogin/sessionLoginOperations';
+import getIsAuthenticated from '../../redux/sessionLogin/sessionLoginSelectors';
+
+// HTML & CSS
 import s from './LoginPage.module.css';
 import logo from '../../assets/images/login-page-logo@1X.png';
 import coverImg from '../../assets/images/login-page-cover@1X.png';
@@ -18,13 +24,26 @@ class LoginPage extends Component {
   };
 
   state = {
-    login: '',
+    email: '',
     password: '',
   };
 
+  componentDidMount() {
+    const { authenticated, history } = this.props;
+    if (authenticated) {
+      history.replace('/dashboard');
+    }
+  }
+
+  componentDidUpdate() {
+    const { authenticated, history } = this.props;
+    if (authenticated) {
+      history.replace('/dashboard');
+    }
+  }
+
   handleChange = ({ target }) => {
     const { name, value } = target;
-
     this.setState({ [name]: value });
   };
 
@@ -33,7 +52,7 @@ class LoginPage extends Component {
 
     // const { login, password } = this.state;
 
-    // this.props.onSubmit({ ...this.state });
+    this.props.onLogin({ ...this.state });
     this.reset();
   };
 
@@ -45,16 +64,16 @@ class LoginPage extends Component {
   };
 
   render() {
-    const { login, password } = this.state;
+    const { email, password } = this.state;
     const { windowWidth } = this.props;
     return (
       <div className={s.login_page}>
-        {/* MOBILE */}
+        {/* MOBILE || LOGO */}
         {windowWidth < 768 && (
           <img src={logo} alt="logo" width="104" className={s.logo} />
         )}
 
-        {/* TABLET & DESKTOP */}
+        {/* TABLET & DESKTOP || FORM */}
         {windowWidth > 767 && (
           <header className={s.header}>
             <div className={s.header_form}>
@@ -62,7 +81,7 @@ class LoginPage extends Component {
               <LoginForm
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
-                login={login}
+                email={email}
                 password={password}
                 sForm={s.form}
               />
@@ -70,7 +89,7 @@ class LoginPage extends Component {
           </header>
         )}
         <main className={s.main}>
-          {/* TABLET & DESKTOP */}
+          {/* TABLET & DESKTOP || COVER */}
           {windowWidth > 767 && (
             <LoginCover
               sCover={s.cover}
@@ -78,36 +97,34 @@ class LoginPage extends Component {
               sBgCover={s.bg_cover}
             />
           )}
+          <div className={s.greeting}>
+            {/* ALL || TITLE */}
+            <LoginGreetingTitle sTitle={s.title} />
 
-          {/* ALL */}
-          <LoginGreetingTitle sTitle={s.title} />
+            {/* MOBILE ||FORM */}
+            {windowWidth < 768 && (
+              <LoginForm
+                onSubmit={this.handleSubmit}
+                onChange={this.handleChange}
+                login={email}
+                password={password}
+                sForm={s.form}
+                sRegBtn={s.reg_btn}
+              />
+            )}
 
-          {/* MOBILE */}
-          {windowWidth < 768 && (
-            <LoginForm
-              onSubmit={this.handleSubmit}
-              onChange={this.handleChange}
-              login={login}
-              password={password}
-              sForm={s.form}
-              sRegBtn={s.reg_btn}
-            />
-          )}
+            {/* TABLET & DESKTOP ||GREETING */}
+            {windowWidth > 767 && (
+              <LoginGreeting sGreetingText={s.greeting_text} />
+            )}
+            {windowWidth > 767 && <Party className={s.decor} />}
 
-          {/* TABLET & DESKTOP */}
-          {windowWidth > 767 && (
-            <LoginGreeting
-              sGreeting={s.greeting}
-              sGreetingText={s.greeting_text}
-            />
-          )}
-          {windowWidth > 767 && <Party className={s.decor} />}
-
-          {/* ALL */}
-          <LoadingGreetingBtn sGreetingBtn={s.greeting_btn} />
+            {/* ALL || BTN REG */}
+            <LoadingGreetingBtn sGreetingBtn={s.greeting_btn} />
+          </div>
         </main>
 
-        {/* TABLET & DESKTOP */}
+        {/* TABLET & DESKTOP || FOOTER */}
         {windowWidth > 767 && (
           <LoginFooter sFooter={s.footer} sFooterText={s.footer_text} />
         )}
@@ -116,4 +133,18 @@ class LoginPage extends Component {
   }
 }
 
-export default windowSize(LoginPage);
+const mapStateToProps = state => ({
+  authenticated: getIsAuthenticated(state),
+});
+
+const mapDispatchToProps = {
+  onLogin: login,
+};
+
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  windowSize,
+)(LoginPage);

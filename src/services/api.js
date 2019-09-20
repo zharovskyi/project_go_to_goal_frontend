@@ -12,6 +12,10 @@ export const setToken = token => ({
   },
 });
 
+export const setLogin = credentials => {
+  return axios.post('auth/login', credentials);
+};
+
 export const getTasks = (tasksAlias, token) =>
   axios.get(tasksAlias, {
     headers: {
