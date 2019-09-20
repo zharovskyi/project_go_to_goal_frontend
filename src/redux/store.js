@@ -7,6 +7,7 @@ import storage from 'redux-persist/lib/storage';
 // импортируем сюда свои редюсеры
 import sessionLoginReducers from './sessionLogin/sessionLoginReducers';
 import modalsReducers from './modalsReducers';
+import * as dashboardReducers from './Dashboard/DashboardReducers';
 
 const sessionPersistConfig = {
   key: 'session',
@@ -16,38 +17,15 @@ const sessionPersistConfig = {
 
 const rootReducer = combineReducers({
   session: persistReducer(sessionPersistConfig, sessionLoginReducers),
-  goal: (prevState = {}, action) => {
-    return { title: '', description: '', _id: '', points: 0 };
-  },
-  tasks: (prevState = {}, action) => {
-    return [];
-  },
+  goal: dashboardReducers.goalReducer,
+  tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
+  isLoading: dashboardReducers.isLoadingReducer,
+  dashboardError: dashboardReducers.errorsReducer,
 });
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-// const rootReducer = combineReducers({
-//   session: sessionLoginReducers,
-//   goal: (prevState = {}, action) => {
-//     return { title: '', description: '', _id: '', points: 0 };
-//   },
-//   tasks: (prevState = {}, action) => {
-//     return [];
-//   },
-//   modals: modalsReducers,
-// });
 
 const middleware = [ReduxThunk];
 const enhancer = applyMiddleware(...middleware);
-
-// export const store = createStore(
-//   rootReducer,
-//   {},
-//   composeWithDevTools(enhancer),
-// );
-
-// export const a = () => {};
 
 export const store = createStore(
   rootReducer,
