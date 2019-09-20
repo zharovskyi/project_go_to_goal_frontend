@@ -6,10 +6,9 @@ export const openCloseReducer = (prevState = false, action) => {
       return true;
     case Type.MODAL_LOGOUT_CLOSE:
       return false;
-
     default:
       return prevState;
   }
 };
 
-export const w = () => {};
+export const w = () => { };
