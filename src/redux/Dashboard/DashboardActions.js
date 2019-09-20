@@ -3,6 +3,7 @@ export const Type = {
   MODAL_DELETE_TASK_OPEN: 'MODAL_DELETE_TASK_OPEN',
   MODAL_DELETE_TASK_CLOSE: 'MODAL_DELETE_TASK_CLOSE',
   DELETE_CARD_SUCCESS: 'DELETE_CARD_SUCCESS',
+  DELETE_TASK_LOCALLY: 'DELETE_CARD_LOCALLY',
   DELETE_CARD_ERROR: 'DELETE_CARD_ERROR',
   TASKLIST_GET_START: 'TASKLIST_GET_START',
   TASKLIST_GET_SUCCESS: 'TASKLIST_GET_SUCCESS',
@@ -72,5 +73,12 @@ export const getGoalError = error => ({
   type: Type.GOAL_GET_ERROR,
   payload: {
     error,
+  },
+});
+
+export const deleteTaskLocally = id => ({
+  type: Type.DELETE_TASK_LOCALLY,
+  payload: {
+    id,
   },
 });

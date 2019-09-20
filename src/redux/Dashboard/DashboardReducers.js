@@ -3,7 +3,7 @@ import { Type } from './DashboardActions';
 
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
-    case Type.DELETE_CARD_SUCCESS:
+    case Type.DELETE_TASK_LOCALLY:
       return prevState.filter(el => el._id !== action.payload._id);
     case Type.TASKLIST_GET_SUCCESS:
       return action.payload.tasks;
