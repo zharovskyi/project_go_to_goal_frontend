@@ -8,22 +8,20 @@ axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 
 export const setToken = token => ({
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `${token}`,
   },
 });
 
-export const getTasks = (tasksAlias, token) => {
+export const getTasks = (tasksAlias, token) =>
   axios.get(tasksAlias, {
     headers: {
       Authorization: token,
     },
   });
-};
 
-export const getGoal = (goalAlias, token) => {
+export const getGoal = (goalAlias, token) =>
   axios.get(goalAlias, {
     headers: {
       Authorization: token,
     },
   });
-};

@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 import { Type } from './DashboardActions';
 
-const tasksReducer = (prevState = [], action) => {
+export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.TASKLIST_GET_SUCCESS:
       return action.payload.tasks;
@@ -11,7 +11,7 @@ const tasksReducer = (prevState = [], action) => {
   }
 };
 
-const goalReducer = (prevState = [], action) => {
+export const goalReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
       return action.payload.goal;
@@ -21,7 +21,7 @@ const goalReducer = (prevState = [], action) => {
   }
 };
 
-const isLoadingReducer = (prevState = [], action) => {
+export const isLoadingReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_START:
     case Type.TASKLIST_GET_START:
@@ -38,7 +38,7 @@ const isLoadingReducer = (prevState = [], action) => {
   }
 };
 
-const errorsReducer = (prevState = [], action) => {
+export const errorsReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_ERROR:
     case Type.TASKLIST_GET_ERROR:
@@ -55,9 +55,9 @@ const errorsReducer = (prevState = [], action) => {
   }
 };
 
-export default combineReducers({
-  tasks: tasksReducer,
-  goal: goalReducer,
-  isLoading: isLoadingReducer,
-  error: errorsReducer,
-});
+// export default combineReducers({
+//   tasks: tasksReducer,
+//   goal: goalReducer,
+//   isLoading: isLoadingReducer,
+//   error: errorsReducer,
+// });

@@ -16,7 +16,6 @@ import ModalDeleteTask from '../../components/ModalDeleteTask/ModalDeleteTask';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 
 // ACTIONS ... SELECTORS ... OPERATIONS
-// import * as dashboardOperations from '../../redux/Dashboard/DashboardOperations';
 
 //  STYLES
 import styles from './DashboardPage.module.css';
@@ -25,8 +24,9 @@ class DashboardPage extends Component {
   state = {};
 
   componentDidMount() {
-    // dashboardOperations.getGoalOperation();
-    // dashboardOperations.getTasksOperation();
+    const { onGetGoal, onGetTasks, token } = this.props;
+    onGetGoal(token);
+    onGetTasks(token);
   }
 
   render() {
@@ -93,6 +93,9 @@ DashboardPage.propTypes = {
   onCloseModalCreateGoal: PropTypes.func.isRequired,
   onCloseModalDeleteTask: PropTypes.func.isRequired,
   onCloseModalLogout: PropTypes.func.isRequired,
+  onGetGoal: PropTypes.func.isRequired,
+  onGetTasks: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 export default DashboardPage;
