@@ -10,13 +10,18 @@ const rootReducer = combineReducers({
     return {
       a: 1,
       user: {
-        name: 'Вася Пупкін',
+        name: 'asdfg',
         age: 8,
       },
     };
   },
   goal: (prevState = {}, action) => {
-    return { title: 'bike', description: '', _id: '', points: 100 };
+    return {
+      title: 'asdf',
+      description: '',
+      _id: '',
+      points: 100,
+    };
   },
   tasks: (prevState = {}, action) => {
     return [

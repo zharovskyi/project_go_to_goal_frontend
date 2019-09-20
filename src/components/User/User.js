@@ -10,8 +10,10 @@ const User = ({ handleOpen, userAge, userName }) => {
     <>
       <div className={style.userInfo}>
         <img src={Avatar} width="55" height="55" alt="Вася Пупкін" />
-        <span className={style.userName}>{userName}</span>
-        <span className={style.userAge}>, {userAge} років</span>
+        <div className={style.colum}>
+          <span className={style.userName}>{userName}</span>
+          <span className={style.userAge}>{userAge} років</span>
+        </div>
       </div>
       <button type="button" className={style.btn} onClick={handleOpen}>
         <LogoOut />

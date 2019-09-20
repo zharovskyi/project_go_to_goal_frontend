@@ -13,10 +13,10 @@ const Goal = ({ title, handleOpen, percent }) => {
   return (
     <div className={css.goal}>
       <div className={css.goalLogo}>
-        <p className={css.goalName}> Mоя мета:</p>
+        <p className={css.goalName}> Mоя ціль:</p>
         <button
           type="button"
-          className={percent < 100 ? css.goalBtn : css.goalBtnAcrtive}
+          className={percent < 100 ? css.goalBtn : css.goalBtnActive}
           onClick={handleOpen}
           disabled={btn}
         >
