@@ -22,8 +22,8 @@ const CardBodyActive = ({ points, onChangeToggle, isDone, openModal, _id }) => {
         </button>
         <GiftIMG className={styles.SVG_gift} />
         <div className={styles.CardBody_div_txt}>
-          <p className={styles.points_txt_number}>{pointsS}</p>
-          {/* <p className={styles.points_txt_number}>{points}</p> */}
+          {/* <p className={styles.points_txt_number}>{pointsS}</p> */}
+          <p className={styles.points_txt_number}>{points}</p>
           <p className={styles.points_txt_p}>балів</p>
         </div>
         <ToggleButton onChangeToggle={onChangeToggle} />
