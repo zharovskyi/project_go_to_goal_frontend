@@ -2,14 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteTaskOperation } from '../../redux/ModalDeleteTask/ModalDeleteTaskOperations';
-import getIdForDeleteTaskSelector from '../../redux/ModalDeleteTask/ModalDeleteTaskSelectors';
+import {
+  getIdForDeleteTaskSelector,
+  getTaskDeleteError,
+} from '../../redux/ModalDeleteTask/ModalDeleteTaskSelectors';
 import style from './ModalDeleteTask.module.css';
 
-const ModalDeleteTask = ({ deleteTask, id }) => {
+const ModalDeleteTask = ({ id, errorsModalDelete, deleteTask, onClose }) => {
   return (
     <div className={style.basicLightbox}>
       <div className={style.modalContent}>
-        <h2 className={style.h2}>Ви впевнені, що хочете видалити завдання?</h2>
+        {!errorsModalDelete ? (
+          <h2 className={style.h2}>
+            Ви впевнені, що хочете видалити завдання?
+          </h2>
+        ) : (
+          <h2 className={style.h2}>
+            Вибачте за незручності. Виникли технічні труднощі. Спробувати ще?
+          </h2>
+        )}
         <div className={style.btnConteiner}>
           <button
             className={style.btn}
@@ -18,7 +29,7 @@ const ModalDeleteTask = ({ deleteTask, id }) => {
           >
             ТАК
           </button>
-          <button className={style.btn} type="button">
+          <button className={style.btn} type="button" onClick={() => onClose}>
             НІ
           </button>
         </div>
@@ -29,6 +40,7 @@ const ModalDeleteTask = ({ deleteTask, id }) => {
 
 const mapStateToProps = state => ({
   id: getIdForDeleteTaskSelector(state),
+  errorsModalDelete: getTaskDeleteError(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -11,14 +11,12 @@
   z-index: 1000;
 } */
 
-
-
 .modalContent {
   background-color: #fff;
   color: black;
   padding: 2%;
-  max-width: 420px;
-  max-height: 200px
+  width: 420px;
+  height: 200px;
 }
 
 .h2 {

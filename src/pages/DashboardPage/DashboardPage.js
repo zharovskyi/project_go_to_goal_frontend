@@ -58,7 +58,7 @@ class DashboardPage extends Component {
             <ModalCreateGoal onClose={onCloseModalCreateGoal} />
           </Backdrop>
         )}
-        {isModalDeleteTaskOpen && (
+        {true && (
           <Backdrop onClose={onCloseModalDeleteTask}>
             <ModalDeleteTask onClose={onCloseModalDeleteTask} />
           </Backdrop>

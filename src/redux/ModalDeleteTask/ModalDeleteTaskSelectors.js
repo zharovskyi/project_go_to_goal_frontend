@@ -1,3 +1,5 @@
-const getIdForDeleteTaskSelector = store => store.idForDeleteTask;
+export const getIdForDeleteTaskSelector = store => store.idForDeleteTask;
 
-export default getIdForDeleteTaskSelector;
+export const getTaskDeleteError = store => store.errorsModalDelete;
+
+// export default getIdForDeleteTaskSelector;
