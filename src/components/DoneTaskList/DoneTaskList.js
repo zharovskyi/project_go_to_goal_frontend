@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './DoneTaskList.module.css';
+import Card from '../Card/Card';
 
 class DoneTaskList extends Component {
   state = {};
@@ -8,7 +9,7 @@ class DoneTaskList extends Component {
     return (
       <>
         <ul className={styles.doneCards}>
-          <li className={styles.doneTaskCard}> </li>
+          <Card />
           <li className={styles.doneTaskCard}> </li>
           <li className={styles.doneTaskCard}> </li>
           <li className={styles.doneTaskCard}> </li>
