@@ -10,7 +10,7 @@ export const signupOperation = credentials => dispatch => {
   dispatch(signUpUserStart());
   API.signUpUser(credentials)
     .then(response => {
-      console.log('response :', response);
+      console.log('response :', response.data);
       dispatch(signUpUserSuccess(response));
     })
     .catch(error => {

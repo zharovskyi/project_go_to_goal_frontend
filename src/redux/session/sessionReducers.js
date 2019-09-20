@@ -48,7 +48,7 @@ const errorReducer = (prevState = null, { type, payload }) => {
 const tokenReducer = (prevState = null, { type, payload }) => {
   switch (type) {
     case Type.SIGNUP_USER_SUCCESS:
-      return payload.user.token;
+      return payload.response.user.token;
 
     case Type.SIGNUP_USER_ERROR:
       return null;
