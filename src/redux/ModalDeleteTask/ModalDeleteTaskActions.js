@@ -6,8 +6,11 @@ export const Type = {
   // DELETE_TASK_ERROR: 'DELETE_TASK_ERROR',
 };
 
-export const openModal = () => ({
+export const openModal = id => ({
   type: Type.MODAL_DELETE_TASK_OPEN,
+  payload: {
+    id,
+  },
 });
 
 export const closeModal = () => ({
