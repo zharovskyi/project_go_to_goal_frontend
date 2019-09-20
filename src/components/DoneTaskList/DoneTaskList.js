@@ -6,21 +6,19 @@ import Card from '../Card/Card';
 import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
 
 class DoneTaskList extends Component {
-  state = {};
+  state = {
+    showCloseButton: false,
+  };
 
   loadModeDoneTasks = () => {
-    console.log('It works!');
+    this.setState(prevState => ({
+      showCloseButton: !prevState.showCloseButton,
+    }));
   };
 
   render() {
     const { donePosts } = this.props;
-    let newDonePosts;
-
-    if (donePosts.length > 8) {
-      newDonePosts = donePosts.slice(0, 8);
-    } else {
-      newDonePosts = donePosts;
-    }
+    const { showCloseButton } = this.state;
 
     if (donePosts.length === 0) {
       return <li className={styles.doneTaskCard}> </li>;
@@ -28,9 +26,13 @@ class DoneTaskList extends Component {
     return (
       <>
         <ul className={styles.doneCards}>
-          {newDonePosts.map(donePost => (
-            <Card key={donePost._id} task={donePost} />
-          ))}
+          {showCloseButton
+            ? donePosts.map(donePost => (
+                <Card key={donePost._id} task={donePost} />
+              ))
+            : donePosts
+                .slice(0, 8)
+                .map(donePost => <Card key={donePost._id} task={donePost} />)}
         </ul>
         <div className={styles.buttonBlock}>
           {donePosts.length > 8 ? (
