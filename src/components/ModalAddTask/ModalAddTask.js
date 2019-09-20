@@ -11,7 +11,8 @@ const options = [
   { value: '12.00-14.00', label: '12.00-14.00' },
   { value: '14.00-16.00', label: '14.00-16.00' },
   { value: '16.00-18.00', label: '16.00-18.00' },
-  { value: '18.00-19.00', label: '18.00-19.00' },
+  { value: '18.00-20.00', label: '18.00-20.00' },
+  { value: '20.00-22.00', label: '20.00-22.00' },
 ];
 
 const findOption = value => options.find(opt => opt.value === value);
@@ -67,12 +68,14 @@ class ModalAddTask extends Component {
           <form className={style.form} onSubmit={this.handleSubmit}>
             <p className={style.title_form}>Що зробити?</p>
             <input
+              maxLength="20"
               name="inputValue"
               type="text"
               className={style.input_task}
               placeholder="Обери завдання або створи нове"
               value={inputValue}
               onChange={this.handleChange}
+              required
             />
             <div className={style.input_options_section}>
               <Select
@@ -86,6 +89,8 @@ class ModalAddTask extends Component {
               <input
                 name="inputPoint"
                 type="number"
+                max="1000"
+                min="10"
                 value={inputPoint}
                 onChange={this.handleChange}
                 className={style.input_options_input}
