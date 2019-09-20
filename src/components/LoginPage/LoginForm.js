@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({ onSubmit, onChange, email, password, sForm, sRegBtn }) => {
+const LoginForm = ({
+  onOpenModal,
+  onSubmit,
+  onChange,
+  email,
+  password,
+  sForm,
+  sRegBtn,
+}) => {
   return (
     <form onSubmit={onSubmit} className={sForm}>
       <input
@@ -19,7 +27,7 @@ const LoginForm = ({ onSubmit, onChange, email, password, sForm, sRegBtn }) => {
         placeholder="Enter your password..."
       />
       <button type="submit">Увiйти</button>
-      <button type="button" className={sRegBtn}>
+      <button onClick={onOpenModal} type="button" className={sRegBtn}>
         Реєстрація
       </button>
     </form>
@@ -37,6 +45,7 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   sForm: PropTypes.string.isRequired,
   sRegBtn: PropTypes.string,
+  onOpenModal: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

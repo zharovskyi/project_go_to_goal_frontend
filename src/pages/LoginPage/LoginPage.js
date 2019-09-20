@@ -17,10 +17,20 @@ import LoginGreeting from '../../components/LoginPage/LoginGreeting';
 import LoginGreetingTitle from '../../components/LoginPage/LoginGreetingTitle';
 import LoadingGreetingBtn from '../../components/LoginPage/LoadingGreetingBtn';
 import LoginFooter from '../../components/LoginPage/LoginFooter';
+import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
+import Backdrop from '../../components/Backdrop/Backdrop';
+import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
+import {
+  openModal,
+  closeModal,
+} from '../../redux/ModalRegistration/ModalRegistrationActions';
 
 class LoginPage extends Component {
   static propTypes = {
     windowWidth: PropTypes.number.isRequired,
+    isModalOpen: PropTypes.bool.isRequired,
+    onOpenModal: PropTypes.func.isRequired,
+    onCloseModal: PropTypes.func.isRequired,
   };
 
   state = {
@@ -65,9 +75,14 @@ class LoginPage extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { windowWidth } = this.props;
+    const { windowWidth, isModalOpen, onOpenModal, onCloseModal } = this.props;
     return (
       <div className={s.login_page}>
+        {isModalOpen && (
+          <Backdrop onClose={onCloseModal}>
+            <ModalRegistration onClose={onCloseModal} />
+          </Backdrop>
+        )}
         {/* MOBILE || LOGO */}
         {windowWidth < 768 && (
           <img src={logo} alt="logo" width="104" className={s.logo} />
@@ -79,6 +94,7 @@ class LoginPage extends Component {
             <div className={s.header_form}>
               <img src={logo} alt="logo" width="104" className={s.logo} />
               <LoginForm
+                onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
                 email={email}
@@ -104,6 +120,7 @@ class LoginPage extends Component {
             {/* MOBILE ||FORM */}
             {windowWidth < 768 && (
               <LoginForm
+                onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
                 login={email}
@@ -120,7 +137,10 @@ class LoginPage extends Component {
             {windowWidth > 767 && <Party className={s.decor} />}
 
             {/* ALL || BTN REG */}
-            <LoadingGreetingBtn sGreetingBtn={s.greeting_btn} />
+            <LoadingGreetingBtn
+              onOpenModal={onOpenModal}
+              sGreetingBtn={s.greeting_btn}
+            />
           </div>
         </main>
 
@@ -135,10 +155,13 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => ({
   authenticated: getIsAuthenticated(state),
+  isModalOpen: getIsOpenModalRegister(state),
 });
 
 const mapDispatchToProps = {
   onLogin: login,
+  onOpenModal: openModal,
+  onCloseModal: closeModal,
 };
 
 export default compose(
