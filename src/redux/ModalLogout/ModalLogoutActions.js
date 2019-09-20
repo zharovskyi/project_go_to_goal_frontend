@@ -16,13 +16,12 @@ export const closeModal = e => ({
   isModalLogoutOpen: false,
 });
 
-export const logOutSucsses = (session) => ({
+export const logOutSucsses = session => ({
   type: Type.LOG_OUT_SUCCSES,
-
-})
-export const logOutError = (error) => ({
+});
+export const logOutError = error => ({
   type: Type.LOG_OUT_ERROR,
   payload: error,
-})
+});
 
 //  ADd action to reducer

@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './User.module.css';
 import { ReactComponent as LogoOut } from '../../assets/images/logout.svg';
-import ModalLogout from '../ModalLogout/ModalLogout';
 import Avatar from '../../assets/images/avatar.jpeg';
 
 const User = ({ isModalLogoutOpen, openModal }) => {
@@ -19,9 +18,6 @@ const User = ({ isModalLogoutOpen, openModal }) => {
         isOpen={isModalLogoutOpen}
       >
         <LogoOut />
-        {/* if (isOpen) {
-          <ModalLogout />
-        } */}
       </button>
     </>
   );

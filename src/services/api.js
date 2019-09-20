@@ -12,8 +12,6 @@ export const setToken = token => ({
   },
 });
 
-
-
 // export const addPostLogOut = post => axios.post('auth/logout', post);
 
-export const w = () => { };
+export const w = () => {};

@@ -11,4 +11,4 @@ export const openCloseReducer = (prevState = false, action) => {
   }
 };
 
-export const w = () => { };
+export const w = () => {};
