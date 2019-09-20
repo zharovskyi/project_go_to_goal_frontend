@@ -18,7 +18,7 @@ class Card extends Component {
 
   render() {
     const { isDone } = this.state;
-    const { isActive, title, deadline, points, createdAt } = this.props;
+    const { isActive, title, deadline, points, createdAt, _id } = this.props;
     return (
       <li className={styles.cardLi}>
         {isActive ? (
@@ -28,6 +28,7 @@ class Card extends Component {
             onChangeToggle={this.handleCheckedToggle}
             isDone={isDone}
             points={points}
+            _id={_id}
           />
         )}
         <CardFooter title={title} deadline={deadline} />

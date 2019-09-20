@@ -9,7 +9,7 @@ import * as modalDeleteActions from '../../redux/ModalDeleteTask/ModalDeleteTask
 
 const pointsS = 500;
 
-const CardBodyActive = ({ points, onChangeToggle, isDone, openModal }) => {
+const CardBodyActive = ({ points, onChangeToggle, isDone, openModal, _id }) => {
   return (
     <>
       <div className={isDone ? styles.isDone : styles.bodyCard}>
