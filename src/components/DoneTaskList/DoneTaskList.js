@@ -29,7 +29,7 @@ class DoneTaskList extends Component {
       <>
         <ul className={styles.doneCards}>
           {newDonePosts.map(donePost => (
-            <Card key={donePost._id} donePost={donePost} />
+            <Card key={donePost._id} task={donePost} />
           ))}
         </ul>
         <div className={styles.buttonBlock}>

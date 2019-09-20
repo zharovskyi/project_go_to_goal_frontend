@@ -1,0 +1,66 @@
+.bodyCard {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 230px;
+  background-color: #a7d056;
+  border-radius: 10px 10px 0 0;
+  transition: 0.4s ease-in-out;
+  position: relative;
+}
+
+.SVG_gift {
+  fill: #eeeeee;
+  width: 45px;
+  height: 45px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+.CardBody_div_txt {
+  padding-top: 10px;
+}
+
+.points_txt_p {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.points_txt_number {
+  /* display: inline-block; */
+  font-size: 44px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.time_p {
+  margin-bottom: 10px;
+  /* margin: 0; */
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+@media (max-width: 1279px) {
+  .SVG_gift {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .SVG_gift {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+  }
+}

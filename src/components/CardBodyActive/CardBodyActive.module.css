@@ -51,19 +51,21 @@
   padding: 0;
   margin: 0;
   color: #fff;
-  display: inline-block;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
 
 .points_txt_number {
-  display: inline-block;
-  font-size: 24px;
+  /* display: inline-block; */
+  font-size: 44px;
+  padding: 0;
+  margin: 0;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
 /*ACTIVE - DONE*/
 
-.isChecked {
+.isDone {
   composes: bodyCard;
   background-color: #a7d056;
   fill: white;

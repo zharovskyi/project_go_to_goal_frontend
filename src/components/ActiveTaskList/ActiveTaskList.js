@@ -19,7 +19,7 @@ class ActiveTaskList extends Component {
       <>
         <ul className={styles.activeCards}>
           {activePosts.map(activePost => (
-            <Card key={activePost._id} activePost={activePost} />
+            <Card key={activePost._id} task={activePost} />
           ))}
         </ul>
       </>

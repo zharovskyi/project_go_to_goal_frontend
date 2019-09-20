@@ -3,7 +3,7 @@
   padding: 0 20px;
   display: flex;
   flex-flow: column;
-  line-height: 30px;
+  line-height: 20px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -12,6 +12,7 @@
   margin: 0;
   padding: 0;
   font-size: 14px;
+  text-align: center;
 }
 
 .CardFooter_task {
@@ -31,16 +32,19 @@
   .CardFooter_timeFrames {
     font-size: 12px;
     line-height: 20px;
+    text-align: center;
   }
 }
 
 @media (max-width: 767px) {
   .cardFooter_div {
     margin: 0;
+    padding: 5px 5px;
   }
   .CardFooter_task,
   .CardFooter_timeFrames {
     font-size: 12px;
     line-height: 20px;
+    text-align: center;
   }
 }
