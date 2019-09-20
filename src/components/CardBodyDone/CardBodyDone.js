@@ -1,11 +1,11 @@
 import React from 'react';
 // import classNames from 'classnames/bind';
 import styles from './CardBodyDone.module.css';
-import ToggleButton from '../ToggleButton/ToggleButton';
+// import ToggleButton from '../ToggleButton/ToggleButton';
 import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
-import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg';
+// import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg';
 
-const pointsS = 500;
+// const pointsS = 500;
 
 const CardBody = ({ points, isDone, createdAt, isChecked }) => {
   return (

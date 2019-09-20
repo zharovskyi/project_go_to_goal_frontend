@@ -7,7 +7,7 @@ import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
 import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg';
 import * as modalDeleteActions from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
 
-const pointsS = 500;
+// const pointsS = 500;
 
 const CardBodyActive = ({ points, onChangeToggle, isDone, openModal, _id }) => {
   return (
