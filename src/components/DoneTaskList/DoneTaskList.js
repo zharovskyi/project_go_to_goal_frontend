@@ -8,8 +8,19 @@ import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
 class DoneTaskList extends Component {
   state = {};
 
+  loadModeDoneTasks = () => {
+    console.log('It works!');
+  };
+
   render() {
     const { donePosts } = this.props;
+    let newDonePosts;
+
+    if (donePosts.length > 8) {
+      newDonePosts = donePosts.slice(0, 8);
+    } else {
+      newDonePosts = donePosts;
+    }
 
     if (donePosts.length === 0) {
       return <li className={styles.doneTaskCard}> </li>;
@@ -17,13 +28,17 @@ class DoneTaskList extends Component {
     return (
       <>
         <ul className={styles.doneCards}>
-          {donePosts.map(donePost => (
+          {newDonePosts.map(donePost => (
             <Card key={donePost._id} donePost={donePost} />
           ))}
         </ul>
         <div className={styles.buttonBlock}>
           {donePosts.length > 8 ? (
-            <button type="button" className={styles.button}>
+            <button
+              type="button"
+              className={styles.button}
+              onClick={this.loadModeDoneTasks}
+            >
               &#10507;
             </button>
           ) : (

@@ -14,17 +14,17 @@ const rootReducer = combineReducers({
   },
   tasks: (prevState = {}, action) => {
     return [
-      // {
-      //   isDone: false,
-      //   isBlocked: false,
-      //   _id: 'sdagfgcvbcbcv',
-      //   title: 'Делать уроки',
-      //   description: 'string',
-      //   points: 100,
-      //   deadline: '8.00-10.00',
-      //   createdAt: '2019-09-19T09:46:56.464Z',
-      //   isActive: false,
-      // },
+      {
+        isDone: false,
+        isBlocked: false,
+        _id: 'sdagfgcvbcbcv',
+        title: 'Делать уроки',
+        description: 'string',
+        points: 100,
+        deadline: '8.00-10.00',
+        createdAt: '2019-09-19T09:46:56.464Z',
+        isActive: false,
+      },
       {
         isDone: false,
         isBlocked: false,
