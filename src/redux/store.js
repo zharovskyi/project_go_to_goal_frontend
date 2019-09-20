@@ -8,18 +8,19 @@ import {
 } from './Dashboard/DashboardReducers';
 
 import modalsReducers from './modalsReducers';
+import * as dashboardReducers from './Dashboard/DashboardReducers';
 
 const rootReducer = combineReducers({
   session: (prevState = {}, action) => {
     return { a: 1 };
   },
-  goal: (prevState = {}, action) => {
-    return { title: '', description: '', _id: '', points: 0 };
-  },
-  tasks: tasksReducer,
+  goal: dashboardReducers.goalReducer,
+  tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
   idForDeleteTask: idForDeleteTaskReducer,
   errorsModalDelete: errorsModalDeleteReducer,
+  isLoading: dashboardReducers.isLoadingReducer,
+  dashboardError: dashboardReducers.errorsReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);

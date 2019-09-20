@@ -13,4 +13,20 @@ export const setToken = () => ({
   },
 });
 
+// Authorization: `${token}`,
+
 export const deleteTask = id => axios.delete(`tasks/${id}`, setToken());
+
+export const getTasks = (tasksAlias, token) =>
+  axios.get(tasksAlias, {
+    headers: {
+      Authorization: token,
+    },
+  });
+
+export const getGoal = (goalAlias, token) =>
+  axios.get(goalAlias, {
+    headers: {
+      Authorization: token,
+    },
+  });
