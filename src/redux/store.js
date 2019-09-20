@@ -125,7 +125,7 @@ const rootReducer = combineReducers({
         isActive: true,
       },
       {
-        isDone: false,
+        isDone: true,
         isBlocked: false,
         _id: 'sf8g7dfsf7ds87f87sdf',
         title: 'Вынести мусор',
@@ -147,7 +147,7 @@ const rootReducer = combineReducers({
         isActive: true,
       },
       {
-        isDone: false,
+        isDone: true,
         isBlocked: false,
         _id: 'sdflksdfjksdfiuuiiuiu999',
         title: 'Вынести мусор',
