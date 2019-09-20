@@ -4,18 +4,20 @@ import ReduxThunk from 'redux-thunk';
 
 // импортируем сюда свои редюсеры
 import modalsReducers from './modalsReducers';
+import * as dashboardReducers from './Dashboard/DashboardReducers';
 
 const rootReducer = combineReducers({
   session: (prevState = {}, action) => {
-    return { a: 1 };
+    return {
+      token:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2ODg4NTU1Nn0.LJS6uq7jf95CtnB6o0zEg5gIo_D2ejlXQbiTinqXT-s',
+    };
   },
-  goal: (prevState = {}, action) => {
-    return { title: '', description: '', _id: '', points: 0 };
-  },
-  tasks: (prevState = {}, action) => {
-    return [];
-  },
+  goal: dashboardReducers.goalReducer,
+  tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
+  isLoading: dashboardReducers.isLoadingReducer,
+  dashboardError: dashboardReducers.errorsReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);
