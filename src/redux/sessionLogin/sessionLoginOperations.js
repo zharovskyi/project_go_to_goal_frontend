@@ -7,7 +7,7 @@ export const login = credentials => dispatch => {
   setLogin(credentials)
     .then(response => {
       console.log('response :', response);
-      dispatch(loginSuccess(response.data.user));
+      dispatch(loginSuccess(response));
     })
     .catch(error => {
       console.log('error :', error);

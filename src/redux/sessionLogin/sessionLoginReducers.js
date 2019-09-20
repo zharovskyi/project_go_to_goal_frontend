@@ -4,7 +4,7 @@ import { ActionType } from './sessionLoginActions';
 const user = (prevState = null, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
-      return payload.response.data.user;
+      return payload.response.data.user.userData;
 
     case ActionType.LOGOUT:
       return null;
@@ -14,7 +14,7 @@ const user = (prevState = null, { type, payload }) => {
   }
 };
 
-const authenticated = (prevState = false, { type, payload }) => {
+const authenticated = (prevState = false, { type }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
       return true;
