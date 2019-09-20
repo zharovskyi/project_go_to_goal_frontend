@@ -15,11 +15,19 @@ import ModalLogout from '../../components/ModalLogout/ModalLogout';
 import ModalDeleteTask from '../../components/ModalDeleteTask/ModalDeleteTask';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 
+// ACTIONS ... SELECTORS ... OPERATIONS
+
 //  STYLES
 import styles from './DashboardPage.module.css';
 
 class DashboardPage extends Component {
   state = {};
+
+  componentDidMount() {
+    const { onGetGoal, onGetTasks, token } = this.props;
+    onGetGoal(token);
+    onGetTasks(token);
+  }
 
   render() {
     const {
@@ -85,6 +93,9 @@ DashboardPage.propTypes = {
   onCloseModalCreateGoal: PropTypes.func.isRequired,
   onCloseModalDeleteTask: PropTypes.func.isRequired,
   onCloseModalLogout: PropTypes.func.isRequired,
+  onGetGoal: PropTypes.func.isRequired,
+  onGetTasks: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 export default DashboardPage;
