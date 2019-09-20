@@ -8,6 +8,7 @@
 }
 
 .activeTaskCard {
+  list-style: none;
   border-radius: 6px;
   background-color: rgb(224, 224, 224);
   width: 280px;
