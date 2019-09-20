@@ -8,10 +8,10 @@ import * as API from '../../services/api';
 
 export const signupOperation = credentials => dispatch => {
   dispatch(signUpUserStart());
+
   API.signUpUser(credentials)
     .then(response => {
-      console.log('response :', response.data);
-      dispatch(signUpUserSuccess(response));
+      dispatch(signUpUserSuccess(response.data));
     })
     .catch(error => {
       dispatch(signUpUserError(error));
