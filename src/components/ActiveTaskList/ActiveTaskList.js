@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './ActiveTaskList.module.css';
 import Card from '../Card/Card';
 import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
+// import NewGoal from './NewGoal/NewGoal';
 
 class ActiveTaskList extends Component {
   state = {};
