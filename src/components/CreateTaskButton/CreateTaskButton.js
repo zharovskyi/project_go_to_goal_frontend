@@ -25,6 +25,8 @@ const CreateTaskButton = ({ openModal }) => {
   );
 };
 
+const mapStateToProps =
+
 const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(ModalAddTaskActions.openModal()),
 });
@@ -34,6 +36,6 @@ CreateTaskButton.propTypes = {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(CreateTaskButton);
