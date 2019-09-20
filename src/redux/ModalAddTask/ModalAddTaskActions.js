@@ -17,10 +17,10 @@ export const closeModal = () => ({
  * action for create task operation
  */
 
-export const postSuccessModal = post => ({
+export const postSuccessModal = task => ({
   type: Type.ADD_TASK_SUCCESS,
-  post: {
-    post,
+  task: {
+    task,
   },
 });
 

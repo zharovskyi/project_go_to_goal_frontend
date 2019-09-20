@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
+import { postSuccess } from '../../redux/ModalAddTask/ModalAddTaskOperations';
 import style from './ModalAddTask.module.css';
 
 const options = [
-  { value: '8:00-10:00', label: '8:00-10:00' },
-  { value: '10:00-12:00', label: '10:00-12:00' },
-  { value: '12:00-14:00', label: '12:00-14:00' },
-  { value: '14:00-16:00', label: '14:00-16:00' },
-  { value: '16:00-18:00', label: '16:00-18:00' },
-  { value: '18:00-19:00', label: '18:00-19:00' },
+  { value: '8.00-10.00', label: '8.00-10.00' },
+  { value: '10.00-12.00', label: '10.00-12.00' },
+  { value: '12.00-14.00', label: '12.00-14.00' },
+  { value: '14.00-16.00', label: '14.00-16.00' },
+  { value: '16.00-18.00', label: '16.00-18.00' },
+  { value: '18.00-19.00', label: '18.00-19.00' },
 ];
 
 const findOption = value => options.find(opt => opt.value === value);
 
-export default class Modal extends Component {
+class ModalAddTask extends Component {
   state = {
     inputValue: '',
     inputPoint: '',
     selectData: null,
-    // deadline: {},
   };
 
   handleChange = e => {
@@ -29,6 +31,23 @@ export default class Modal extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    const { postfunc } = this.props;
+    const { inputValue, inputPoint, selectData } = this.state;
+
+    postfunc({
+      title: inputValue,
+      description: 'task descr',
+      points: inputPoint,
+      deadline: selectData,
+      dates: [new Date().toISOString()],
+    });
+
+    this.setState({
+      inputValue: '',
+      inputPoint: '',
+      selectData: null,
+    });
   };
 
   onChangeSelect = opt => {
@@ -44,8 +63,8 @@ export default class Modal extends Component {
         <p className={style.title_modal}>
           Немає завдань? Тоді їх треба створити!
         </p>
-        <div className={style.modal_container} onSubmit={this.handleSubmit}>
-          <form className={style.form}>
+        <div className={style.modal_container}>
+          <form className={style.form} onSubmit={this.handleSubmit}>
             <p className={style.title_form}>Що зробити?</p>
             <input
               name="inputValue"
@@ -82,3 +101,16 @@ export default class Modal extends Component {
     );
   }
 }
+
+ModalAddTask.propTypes = {
+  postfunc: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  postfunc: task => dispatch(postSuccess(task)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(ModalAddTask);
