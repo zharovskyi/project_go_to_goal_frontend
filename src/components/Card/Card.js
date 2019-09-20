@@ -23,17 +23,17 @@ class Card extends Component {
     return (
       <li className={styles.cardLi}>
         {task.isActive ? (
-          <CardBodyDone
-            isDone={isDone}
-            points={task.points}
-            createdAt={task.createdAt}
-          />
-        ) : (
           <CardBodyActive
             onChangeToggle={this.handleCheckedToggle}
             isDone={isDone}
             points={task.points}
             _id={task._id}
+          />
+        ) : (
+          <CardBodyDone
+            isDone={isDone}
+            points={task.points}
+            createdAt={task.createdAt}
           />
         )}
         <CardFooter title={task.title} deadline={task.deadline} />
