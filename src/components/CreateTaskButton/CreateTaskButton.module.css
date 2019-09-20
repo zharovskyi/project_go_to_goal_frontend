@@ -1,8 +1,11 @@
-.button {
+.button,
+.disableBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background-color: #d8ad3b;
   position: fixed;
   top: 98px;
   right: 50px;
@@ -10,16 +13,24 @@
   border: none;
   color: #ffffff;
   font-size: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-bottom: 5px;
-  padding-right: 5px;
+  padding-left: 1px;
+  z-index: 1;
+}
+
+.button {
+  background-color: #d8ad3b;
+  cursor: pointer;
+}
+
+.disableBtn {
+  pointer-events: none;
+  background-color: #e0e0e0;
 }
 
 @media (max-width: 767px) {
   .button {
-    bottom: 64px;
+    top: 80%;
     right: 14px;
   }
 }
