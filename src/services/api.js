@@ -12,4 +12,6 @@ export const setToken = token => ({
   },
 });
 
-export const w = () => {};
+export const signUpUser = credentials => {
+  return axios.post('auth/register', credentials);
+};
