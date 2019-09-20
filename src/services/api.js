@@ -6,10 +6,12 @@ axios.defaults.headers.put['Content-Type'] = 'application/json';
 
 axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 
-export const setToken = token => ({
+const token = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODRjOTMwOWM2ZWUyNTI4NGNlNWRiOCIsImlhdCI6MTU2ODk4MzM0NH0.48AvmSOnH5uLHOBVYg6_ZKzZrADQv4IwAQ24yMlEtAA`;
+
+export const setToken = Token => ({
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `${Token}`,
   },
 });
 
-export const w = () => {};
+export const addNewGoal = goal => axios.post('goals', goal, setToken(token));
