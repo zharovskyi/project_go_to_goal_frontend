@@ -18,20 +18,25 @@ class Card extends Component {
 
   render() {
     const { isDone } = this.state;
-    const { isActive, title, deadline, points, createdAt, _id } = this.props;
+    // const { isActive, title, deadline, points, createdAt, _id } = this.props;
+    const { task } = this.props;
     return (
       <li className={styles.cardLi}>
-        {isActive ? (
-          <CardBodyDone isDone={isDone} points={points} createdAt={createdAt} />
+        {task.isActive ? (
+          <CardBodyDone
+            isDone={isDone}
+            points={task.points}
+            createdAt={task.createdAt}
+          />
         ) : (
           <CardBodyActive
             onChangeToggle={this.handleCheckedToggle}
             isDone={isDone}
-            points={points}
-            _id={_id}
+            points={task.points}
+            _id={task._id}
           />
         )}
-        <CardFooter title={title} deadline={deadline} />
+        <CardFooter title={task.title} deadline={task.deadline} />
       </li>
     );
   }
