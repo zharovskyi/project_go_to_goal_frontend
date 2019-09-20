@@ -36,12 +36,13 @@ const LoginForm = ({
 
 LoginForm.defaultProps = {
   sRegBtn: '',
+  email: '',
 };
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   password: PropTypes.string.isRequired,
   sForm: PropTypes.string.isRequired,
   sRegBtn: PropTypes.string,

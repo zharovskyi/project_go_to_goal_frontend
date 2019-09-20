@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const LoginCover = ({ sCover, coverImg, sBgCover }) => {
   return (
     <div className={sCover}>
-      <img src={coverImg} alt="cover" width="826" className={sBgCover} />
+      <img src={coverImg} alt="cover" className={sBgCover} />
     </div>
   );
 };

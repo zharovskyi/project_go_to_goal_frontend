@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import windowSize from 'react-window-size';
 import PropTypes from 'prop-types';
 import { login } from '../../redux/sessionLogin/sessionLoginOperations';
-import getIsAuthenticated from '../../redux/sessionLogin/sessionLoginSelectors';
+import { getIsAuthenticated } from '../../redux/sessionLogin/sessionLoginSelectors';
 
 // HTML & CSS
 import s from './LoginPage.module.css';
@@ -29,6 +29,11 @@ class LoginPage extends Component {
   static propTypes = {
     windowWidth: PropTypes.number.isRequired,
     isModalOpen: PropTypes.bool.isRequired,
+    onLogin: PropTypes.func.isRequired,
+    authenticated: PropTypes.bool.isRequired,
+    history: PropTypes.shape({
+      replace: PropTypes.func.isRequired,
+    }).isRequired,
     onOpenModal: PropTypes.func.isRequired,
     onCloseModal: PropTypes.func.isRequired,
   };
@@ -59,8 +64,6 @@ class LoginPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
-    // const { login, password } = this.state;
 
     this.props.onLogin({ ...this.state });
     this.reset();
