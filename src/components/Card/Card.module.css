@@ -3,9 +3,20 @@
   flex-flow: column;
   justify-content: space-between;
   width: 280px;
-  height: 230px;
-  /* border: 1px solid rgba(0, 0, 0, 0.5); */
+  height: 260px;
   border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-bottom: 24px;
+  margin-right: 24px;
+}
+
+.cardLi:nth-child(4n) {
+  margin-right: 0;
+}
+
+.cardLi:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .bodyCard {
@@ -33,4 +44,31 @@ svg {
 
 .checked {
   background-color: #a7d056;
+}
+
+@media (max-width: 1279px) {
+  .cardLi {
+    width: 220px;
+    height: 240px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+  }
+  .cardLi:nth-child(4n) {
+    margin-right: 6px;
+  }
+  .cardLi:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardLi {
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
+  .cardLi:nth-child(4n),
+  .cardLi:nth-child(3n) {
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
 }

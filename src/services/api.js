@@ -17,4 +17,24 @@ export const setToken = Token => ({
 
 export const addTask = task => axios.post('tasks', task, setToken(token));
 
-export const w = () => {};
+export const signUpUser = credentials => {
+  return axios.post('auth/register', credentials);
+};
+
+export const setLogin = credentials => {
+  return axios.post('auth/login', credentials);
+};
+
+export const getTasks = (tasksAlias, token) =>
+  axios.get(tasksAlias, {
+    headers: {
+      Authorization: token,
+    },
+  });
+
+export const getGoal = (goalAlias, token) =>
+  axios.get(goalAlias, {
+    headers: {
+      Authorization: token,
+    },
+  });
