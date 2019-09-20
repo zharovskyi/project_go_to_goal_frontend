@@ -12,4 +12,6 @@ export const setToken = token => ({
   },
 });
 
-export const w = () => {};
+export const setLogin = credentials => {
+  return axios.post('auth/login', credentials);
+};
