@@ -10,14 +10,15 @@ const rootReducer = combineReducers({
   session: (prevState = {}, action) => {
     return {
       token:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2ODg4NTU1Nn0.LJS6uq7jf95CtnB6o0zEg5gIo_D2ejlXQbiTinqXT-s',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2ODg4NTU1Nn0.LJS6uq7jf95CtnB6o0zEg5gIo_D2ejlXQbiTinqXT-s',
+      // 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2ODg4NTU1Nn0.LJS6uq7jf95CtnB6o0zEg5gIo_D2ejlXQbiTinqXT-s',
     };
   },
   goal: dashboardReducers.goalReducer,
   tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
   isLoading: dashboardReducers.isLoadingReducer,
-  dashboardError: dashboardReducers.errorsReducer,
+  dashboardErrors: dashboardReducers.errorsReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);

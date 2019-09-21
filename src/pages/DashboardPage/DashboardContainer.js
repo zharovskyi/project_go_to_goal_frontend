@@ -23,6 +23,8 @@ const mapStateToProps = store => ({
   goal: dashboardSelectors.getGoal(store),
   tasks: dashboardSelectors.getTasks(store),
   token: dashboardSelectors.getToken(store),
+  hasDashboardError: dashboardSelectors.hasDashboardError(store),
+  dashboardErrors: dashboardSelectors.getdDashboardErrors(store),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -33,6 +35,7 @@ const mapDispatchToProps = dispatch => ({
   onCloseModalLogout: modalLogoutActions.closeModal,
   onGetGoal: token => dispatch(dashboardOperations.getGoalOperation(token)),
   onGetTasks: token => dispatch(dashboardOperations.getTasksOperation(token)),
+  onDashboardErrors: errors => dashboardOperations.getErrorOperation(errors),
 });
 
 export default compose(
