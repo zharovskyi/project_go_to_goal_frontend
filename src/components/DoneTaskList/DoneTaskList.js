@@ -1,30 +1,67 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './DoneTaskList.module.css';
+import Card from '../Card/Card';
+import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
 
 class DoneTaskList extends Component {
-  state = {};
+  state = {
+    showCloseButton: false,
+  };
+
+  loadModeDoneTasks = () => {
+    this.setState(prevState => ({
+      showCloseButton: !prevState.showCloseButton,
+    }));
+  };
 
   render() {
+    const { donePosts } = this.props;
+    const { showCloseButton } = this.state;
+
+    if (donePosts.length === 0) {
+      return <li className={styles.doneTaskCard}> </li>;
+    }
     return (
       <>
         <ul className={styles.doneCards}>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
-          <li className={styles.doneTaskCard}> </li>
+          {showCloseButton
+            ? donePosts.map(donePost => (
+                <Card key={donePost._id} task={donePost} />
+              ))
+            : donePosts
+                .slice(0, 8)
+                .map(donePost => <Card key={donePost._id} task={donePost} />)}
         </ul>
         <div className={styles.buttonBlock}>
-          <button type="button" className={styles.button}>
-            &#10507;
-          </button>
+          {donePosts.length > 8 ? (
+            <button
+              type="button"
+              className={styles.button}
+              onClick={this.loadModeDoneTasks}
+            >
+              &#10507;
+            </button>
+          ) : (
+            ''
+          )}
         </div>
       </>
     );
   }
 }
 
-export default DoneTaskList;
+DoneTaskList.propTypes = {
+  donePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
+
+const mapStateToProps = store => ({
+  donePosts: TaskListSelectors.getDonePosts(store),
+});
+const mapDispatchToProps = {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DoneTaskList);

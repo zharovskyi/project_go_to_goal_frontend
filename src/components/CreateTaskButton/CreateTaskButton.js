@@ -1,14 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as ModalAddTaskActions from '../../redux/ModalAddTask/ModalAddTaskActions';
+import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
 import styles from './CreateTaskButton.module.css';
 
-const CreateTaskButton = () => {
+const CreateTaskButton = ({ openModal, activePosts }) => {
+  let isDisabled;
+  if (activePosts.length >= 8) {
+    isDisabled = true;
+  }
+
   return (
-    <div>
-      <button type="button" className={styles.button}>
+    <>
+      <button
+        type="button"
+        onClick={openModal}
+        disabled={isDisabled}
+        className={isDisabled === true ? styles.disableBtn : styles.button}
+      >
         &#x2b;
       </button>
-    </div>
+    </>
   );
 };
 
-export default CreateTaskButton;
+const mapStateToProps = store => ({
+  activePosts: TaskListSelectors.getActivePosts(store),
+});
+
+const mapDispatchToProps = dispatch => ({
+  openModal: () => dispatch(ModalAddTaskActions.openModal()),
+});
+
+CreateTaskButton.propTypes = {
+  openModal: PropTypes.func.isRequired,
+  activePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CreateTaskButton);
