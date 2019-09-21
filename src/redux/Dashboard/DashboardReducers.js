@@ -42,22 +42,15 @@ export const errorsReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_ERROR:
     case Type.TASKLIST_GET_ERROR:
-      return action.payload.error;
+      return [...prevState, action.payload.error];
 
     case Type.GOAL_GET_START:
     case Type.TASKLIST_GET_START:
     case Type.TASKLIST_GET_SUCCESS:
     case Type.GOAL_GET_SUCCESS:
-      return null;
+      return [];
 
     default:
       return prevState;
   }
 };
-
-// export default combineReducers({
-//   tasks: tasksReducer,
-//   goal: goalReducer,
-//   isLoading: isLoadingReducer,
-//   error: errorsReducer,
-// });

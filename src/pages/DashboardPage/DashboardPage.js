@@ -1,6 +1,8 @@
 // MODULES
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // COMPONENTS
 import Header from '../../components/Header/Header';
@@ -25,8 +27,21 @@ class DashboardPage extends Component {
 
   componentDidMount() {
     const { onGetGoal, onGetTasks, token } = this.props;
+
     onGetGoal(token);
     onGetTasks(token);
+  }
+
+  componentDidUpdate() {
+    const {
+      hasDashboardError,
+      onDashboardErrors,
+      dashboardErrors,
+    } = this.props;
+
+    if (hasDashboardError) {
+      onDashboardErrors(dashboardErrors);
+    }
   }
 
   render() {
@@ -76,6 +91,7 @@ class DashboardPage extends Component {
             <ModalLogout onClose={onCloseModalLogout} />
           </Backdrop>
         )}
+        <ToastContainer />
       </div>
     );
   }
@@ -96,6 +112,13 @@ DashboardPage.propTypes = {
   onGetGoal: PropTypes.func.isRequired,
   onGetTasks: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
+  hasDashboardError: PropTypes.bool.isRequired,
+  onDashboardErrors: PropTypes.func.isRequired,
+  dashboardErrors: PropTypes.arrayOf(PropTypes.object),
+};
+
+DashboardPage.defaultProps = {
+  dashboardErrors: [],
 };
 
 export default DashboardPage;
