@@ -15,6 +15,7 @@ export const setToken = Token => ({
   },
 });
 
+export const addNewGoal = goal => axios.post('goals', goal, setToken(token));
 export const addTask = task => axios.post('tasks', task, setToken(token));
 
 export const signUpUser = credentials => {
