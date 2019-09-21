@@ -10,9 +10,9 @@ class ActiveTaskList extends Component {
   state = {};
 
   render() {
-    const { activePosts, getGoal } = this.props;
+    const { activePosts, getGoalTitle } = this.props;
 
-    if (getGoal.title === '') {
+    if (getGoalTitle === '') {
       return <NewGoal />;
     }
 
@@ -31,14 +31,18 @@ class ActiveTaskList extends Component {
   }
 }
 
+ActiveTaskList.defaultProps = {
+  getGoalTitle: '',
+};
+
 ActiveTaskList.propTypes = {
   activePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  getGoal: PropTypes.shape().isRequired,
+  getGoalTitle: PropTypes.string,
 };
 
 const mapStateToProps = store => ({
   activePosts: TaskListSelectors.getActivePosts(store),
-  getGoal: TaskListSelectors.getGoalData(store),
+  getGoalTitle: TaskListSelectors.getGoalData(store),
 });
 const mapDispatchToProps = {};
 
