@@ -4,4 +4,4 @@ export const getActivePosts = store =>
 export const getDonePosts = store =>
   store.tasks.filter(task => task.inActive === false);
 
-export const getGoalData = store => store.goal;
+export const getGoalData = store => store.goal.title;
