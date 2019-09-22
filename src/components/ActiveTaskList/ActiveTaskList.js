@@ -12,12 +12,11 @@ class ActiveTaskList extends Component {
   render() {
     const { activePosts, getGoalTitle } = this.props;
 
-    if (getGoalTitle === '') {
-      return <NewGoal />;
-    }
-
     if (activePosts.length === 0) {
       return <li className={styles.activeTaskCard}> </li>;
+    }
+    if (getGoalTitle === '') {
+      return <NewGoal />;
     }
     return (
       <>
