@@ -1,18 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import s from '../../pages/LoginPage/LoginPage.module.css';
+import coverImg from '../../assets/images/login-page-cover@1X.png';
 
-const LoginCover = ({ sCover, coverImg, sBgCover }) => {
+const LoginCover = () => {
   return (
-    <div className={sCover}>
-      <img src={coverImg} alt="cover" className={sBgCover} />
+    <div className={s.cover}>
+      <img src={coverImg} alt="cover" className={s.bg_cover} />
     </div>
   );
-};
-
-LoginCover.propTypes = {
-  sCover: PropTypes.string.isRequired,
-  coverImg: PropTypes.string.isRequired,
-  sBgCover: PropTypes.string.isRequired,
 };
 
 export default LoginCover;

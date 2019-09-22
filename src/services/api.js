@@ -6,12 +6,6 @@ axios.defaults.headers.put['Content-Type'] = 'application/json';
 
 axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 
-// export const setToken = token => ({
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-// });
-
 // export const setAuthToken = token => {
 //   // eslint-disable-next-line dot-notation
 //   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -23,7 +17,8 @@ axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 // };
 
 export const setToken = options => {
-  return axios.post('auth/current', options);
+  // console.log('options :', options);
+  return axios.get('tasks', options);
 };
 
 export const setLogin = credentials => {

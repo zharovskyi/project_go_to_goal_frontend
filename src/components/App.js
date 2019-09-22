@@ -14,6 +14,7 @@ class App extends Component {
   state = {};
 
   componentDidMount() {
+    // eslint-disable-next-line no-shadow
     const { refresh } = this.props;
     refresh();
   }

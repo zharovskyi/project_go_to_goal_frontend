@@ -29,7 +29,7 @@ export const refresh = () => (dispatch, getState) => {
 
   const options = {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: token,
     },
   };
 
