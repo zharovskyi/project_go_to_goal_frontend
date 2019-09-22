@@ -14,4 +14,9 @@ export const getUser = store => store.session.user;
 
 export const getGoalPoints = store => store.goal.points;
 
-export const getUserPoints = store => store.session.user.scores;
+// export const getUserPoints = store => store.user.scores;
+
+export const getUserPoints = store =>
+  store.tasks
+    .filter(task => task.isDone)
+    .reduce((total, task) => total + task.points, 0);
