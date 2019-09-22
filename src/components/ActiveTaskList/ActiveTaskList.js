@@ -12,7 +12,7 @@ class ActiveTaskList extends Component {
   render() {
     const { activePosts, getGoal } = this.props;
 
-    if (getGoal.title === '') {
+    if (getGoal === null) {
       return <NewGoal />;
     }
 
@@ -33,7 +33,11 @@ class ActiveTaskList extends Component {
 
 ActiveTaskList.propTypes = {
   activePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  getGoal: PropTypes.shape().isRequired,
+  getGoal: PropTypes.shape(),
+};
+
+ActiveTaskList.defaultProps = {
+  getGoal: null,
 };
 
 const mapStateToProps = store => ({

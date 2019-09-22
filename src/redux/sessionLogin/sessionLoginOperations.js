@@ -6,11 +6,11 @@ export const login = credentials => dispatch => {
 
   setLogin(credentials)
     .then(response => {
-      console.log('response :', response);
+      // console.log('response :', response);
       dispatch(loginSuccess(response));
     })
     .catch(error => {
-      console.log('error :', error);
+      // console.log('error :', error);
       dispatch(loginError(error));
     });
 };
