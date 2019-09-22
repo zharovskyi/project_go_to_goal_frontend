@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 // COMPONENTS
 import Header from '../../components/Header/Header';
 import TaskList from '../../components/TaskList/TaskList';
-// import NewGoal from '../../components/NewGoal/NewGoal';
 import Footer from '../../components/Footer/Footer';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Backdrop from '../../components/Backdrop/Backdrop';

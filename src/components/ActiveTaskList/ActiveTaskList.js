@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './ActiveTaskList.module.css';
 import Card from '../Card/Card';
 import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import NewGoal from '../NewGoal/NewGoal';
 
 class ActiveTaskList extends Component {
@@ -42,7 +43,7 @@ ActiveTaskList.defaultProps = {
 
 const mapStateToProps = store => ({
   activePosts: TaskListSelectors.getActivePosts(store),
-  getGoal: TaskListSelectors.getGoalData(store),
+  getGoal: dashboardSelectors.getGoal(store),
 });
 const mapDispatchToProps = {};
 

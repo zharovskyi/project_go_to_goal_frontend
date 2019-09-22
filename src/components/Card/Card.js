@@ -22,7 +22,7 @@ class Card extends Component {
     const { task } = this.props;
     return (
       <li className={styles.cardLi}>
-        {task.isActive ? (
+        {task.inActive ? (
           <CardBodyActive
             onChangeToggle={this.handleCheckedToggle}
             isDone={isDone}
