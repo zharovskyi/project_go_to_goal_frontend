@@ -24,7 +24,7 @@ const mapStateToProps = store => ({
   tasks: dashboardSelectors.getTasks(store),
   token: dashboardSelectors.getToken(store),
   hasDashboardError: dashboardSelectors.hasDashboardError(store),
-  dashboardErrors: dashboardSelectors.getdDashboardErrors(store),
+  dashboardErrors: dashboardSelectors.getDashboardErrors(store),
 });
 
 const mapDispatchToProps = dispatch => ({
