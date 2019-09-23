@@ -41,6 +41,14 @@
   outline: none;
 }
 
+.input:focus:valid {
+  border: 2px solid green;
+}
+
+.input:focus:invalid {
+  border: 2px solid red;
+}
+
 .textarea::placeholder,
 .input::placeholder {
   color: #a8a8b5;
