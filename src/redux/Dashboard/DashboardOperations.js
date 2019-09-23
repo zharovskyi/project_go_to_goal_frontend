@@ -60,10 +60,8 @@ export const getErrorOperation = errors => {
           <br />
           <br />
           {error.config !== undefined &&
-            `METHOD: ${error.config.method}
-        <br />
-        <br />`}
-          {error.config !== undefined && `URL: ${error.config.url}`}
+            `<br /><br />METHOD: ${error.config.method}`}
+          {error.config !== undefined && `<br /><br />URL: ${error.config.url}`}
         </div>
       ) : (
         ''
