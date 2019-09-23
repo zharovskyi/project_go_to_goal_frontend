@@ -28,14 +28,18 @@ export const setToken = Token => ({
 });
 
 export const addNewGoal = (goal, token) =>
-  axios.post('goals', goal, {
+axios.post('goals', goal, {
     headers: {
       Authorization: `${token}`,
     },
   });
 
 export const addTask = (task, token) =>
-  axios.post('tasks', task, setToken(token));
+  axios.post('tasks', task, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
 
 export const signUpUser = credentials => {
   return axios.post('auth/register', credentials);
