@@ -4,19 +4,21 @@ import PropTypes from 'prop-types';
 import styles from './ActiveTaskList.module.css';
 import Card from '../Card/Card';
 import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import NewGoal from '../NewGoal/NewGoal';
 
 class ActiveTaskList extends Component {
   state = {};
 
   render() {
-    const { activePosts, getGoalTitle } = this.props;
+    const { activePosts, getGoal } = this.props;
+
+    if (getGoal === null) {
+      return <NewGoal />;
+    }
 
     if (activePosts.length === 0) {
       return <li className={styles.activeTaskCard}> </li>;
-    }
-    if (getGoalTitle === '') {
-      return <NewGoal />;
     }
     return (
       <>
@@ -30,18 +32,18 @@ class ActiveTaskList extends Component {
   }
 }
 
-ActiveTaskList.defaultProps = {
-  getGoalTitle: '',
-};
-
 ActiveTaskList.propTypes = {
   activePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  getGoalTitle: PropTypes.string,
+  getGoal: PropTypes.shape(),
+};
+
+ActiveTaskList.defaultProps = {
+  getGoal: null,
 };
 
 const mapStateToProps = store => ({
   activePosts: TaskListSelectors.getActivePosts(store),
-  getGoalTitle: TaskListSelectors.getGoalData(store),
+  getGoal: dashboardSelectors.getGoal(store),
 });
 const mapDispatchToProps = {};
 
