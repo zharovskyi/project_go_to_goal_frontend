@@ -28,7 +28,13 @@ export const setToken = Token => ({
   },
 });
 
-export const deleteTask = id => axios.delete(`tasks/${id}`, setToken(token));
+export const deleteTask = (id, token) =>
+  axios.delete(`tasks/${id}`, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
+
 export const addNewGoal = (goal, token) =>
   axios.post('goals', goal, {
     headers: {
@@ -43,8 +49,12 @@ export const addTask = (task, token) =>
     },
   });
 
-export const toggleTask = (id, status) =>
-  axios.patch(`tasks/${id}`, status, setToken(token));
+export const toggleTask = (id, status, token) =>
+  axios.patch(`tasks/${id}`, status, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
 
 export const signUpUser = credentials => {
   return axios.post('auth/register', credentials);

@@ -3,23 +3,28 @@ import { connect } from 'react-redux';
 import styles from './ToggleButton.module.css';
 import { toggleTaskOperation } from '../../redux/ToggleActive/ToggleActiveOperations';
 
-const ToggleButton = ({ onChangeToggle, checked, id }) => {
+const ToggleButton = ({ onChangeToggle, checked, id, token }) => {
   return (
     <div className={styles.div}>
       <input
         type="checkbox"
         checked={checked}
-        onClick={() => onChangeToggle(id, `{"isDone":${!checked}}`)}
+        onClick={() => onChangeToggle(id, `{"isDone":${!checked}}`, token)}
       />
     </div>
   );
 };
 
+const mapStateToProps = state => ({
+  token: state.session.token,
+});
+
 const mapDispatchToProps = dispatch => ({
-  onChangeToggle: (id, status) => dispatch(toggleTaskOperation(id, status)),
+  onChangeToggle: (id, status, token) =>
+    dispatch(toggleTaskOperation(id, status, token)),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ToggleButton);

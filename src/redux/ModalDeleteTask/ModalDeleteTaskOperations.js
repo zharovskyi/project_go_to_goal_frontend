@@ -6,9 +6,9 @@ import {
 import { closeModal } from './ModalDeleteTaskActions';
 import * as api from '../../services/api';
 
-export const deleteTaskOperation = id => dispatch => {
+export const deleteTaskOperation = (id, token) => dispatch => {
   api
-    .deleteTask(id)
+    .deleteTask(id, token)
     .then(() => {
       dispatch(removeCardsSuccess(id));
       dispatch(closeModal());

@@ -9,7 +9,13 @@ import {
 } from '../../redux/ModalDeleteTask/ModalDeleteTaskSelectors';
 import style from './ModalDeleteTask.module.css';
 
-const ModalDeleteTask = ({ id, errorsModalDelete, deleteTask, onClose }) => {
+const ModalDeleteTask = ({
+  id,
+  errorsModalDelete,
+  deleteTask,
+  onClose,
+  token,
+}) => {
   return (
     <div className={style.basicLightbox}>
       <div className={style.modalContent}>
@@ -26,7 +32,7 @@ const ModalDeleteTask = ({ id, errorsModalDelete, deleteTask, onClose }) => {
           <button
             className={style.btn}
             type="button"
-            onClick={() => deleteTask(id)}
+            onClick={() => deleteTask(id, token)}
           >
             ТАК
           </button>
@@ -42,10 +48,11 @@ const ModalDeleteTask = ({ id, errorsModalDelete, deleteTask, onClose }) => {
 const mapStateToProps = state => ({
   id: getIdForDeleteTaskSelector(state),
   errorsModalDelete: getTaskDeleteError(state),
+  token: state.session.token,
 });
 
 const mapDispatchToProps = dispatch => ({
-  deleteTask: id => dispatch(deleteTaskOperation(id)),
+  deleteTask: (id, token) => dispatch(deleteTaskOperation(id, token)),
   onClose: () => dispatch(closeModal()),
 });
 
