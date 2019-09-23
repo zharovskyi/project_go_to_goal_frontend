@@ -29,7 +29,7 @@ const ModalDeleteTask = ({ id, errorsModalDelete, deleteTask, onClose }) => {
           >
             ТАК
           </button>
-          <button className={style.btn} type="button" onClick={() => onClose}>
+          <button className={style.btn} type="button" onClick={() => onClose()}>
             НІ
           </button>
         </div>
