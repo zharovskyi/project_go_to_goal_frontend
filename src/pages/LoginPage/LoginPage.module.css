@@ -29,7 +29,7 @@
   margin-left: 20px;
   font-size: 12px;
   color: var(--color-gray);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
 
@@ -38,7 +38,7 @@
   letter-spacing: 1px;
   background-color: var(--color-white);
   color: var(--color-pale-gray);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
 
@@ -70,7 +70,7 @@
   letter-spacing: 1px;
   background-color: var(--color-white);
   color: var(--color-gray);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
 
@@ -116,7 +116,7 @@
   letter-spacing: 2px;
   line-height: 45px;
   color: var(--color-dark-blue);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 700;
   text-align: center;
@@ -128,7 +128,7 @@
   letter-spacing: 1px;
   line-height: 23px;
   color: var(--color-gray);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 400;
   text-align: center;
@@ -144,12 +144,16 @@
   border: none;
   border-radius: 24px;
   margin-top: 22px;
-  background: linear-gradient(to top, var(--color-yellow), var(--color-dark-yellow));
+  background: linear-gradient(
+    to top,
+    var(--color-yellow),
+    var(--color-dark-yellow)
+  );
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 48px;
   color: var(--color-white);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   text-align: center;
 }
@@ -183,7 +187,7 @@
   letter-spacing: 1px;
   line-height: 23px;
   color: #000000;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   text-align: center;
 }
