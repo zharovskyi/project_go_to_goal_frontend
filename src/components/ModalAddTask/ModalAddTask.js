@@ -4,6 +4,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 import { postSuccess } from '../../redux/ModalAddTask/ModalAddTaskOperations';
 import style from './ModalAddTask.module.css';
+import modalPresent from '../../assets/images/modal_present.png';
 
 const options = [
   { value: '8.00-10.00', label: '8.00-10.00' },
@@ -94,13 +95,14 @@ class ModalAddTask extends Component {
                 value={inputPoint}
                 onChange={this.handleChange}
                 className={style.input_options_input}
-                placeholder="Бали (до 1000)"
+                placeholder="Винагорода (макс. 1000)"
               />
             </div>
             <button type="submit" className={style.button}>
               OK
             </button>
           </form>
+          <img className={style.price} src={modalPresent} alt="present" />
         </div>
       </div>
     );

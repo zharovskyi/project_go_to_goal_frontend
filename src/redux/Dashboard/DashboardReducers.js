@@ -1,10 +1,14 @@
 // import { combineReducers } from 'redux';
 import { Type } from './DashboardActions';
+import { TypeAddTask } from '../ModalAddTask/ModalAddTaskActions';
 
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.TASKLIST_GET_SUCCESS:
       return action.payload.tasks;
+
+    case TypeAddTask.ADD_TASK_SUCCESS:
+      return { ...prevState, ...action.payload.tasks };
 
     default:
       return prevState;

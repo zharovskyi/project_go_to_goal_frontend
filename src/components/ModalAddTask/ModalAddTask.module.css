@@ -8,15 +8,17 @@
 
 .modal_title {
   border-radius: 6px;
-  /* background-color: rgb(255, 255, 255); */
-  /* box-shadow: 2px 3.464px 23.2px 5.8px rgba(29, 29, 27, 0.1); */
-  margin: 0 auto;
+  margin: 20px auto;
   width: 849px;
   height: 500px;
-  /* display: flex; */
-  /* justify-content: space-evenly; */
   text-align: center;
   font-weight: 700;
+}
+
+.title_modal {
+  margin: 20px auto;
+  font-weight: 900;
+  font-family: 'Montserrat';
 }
 
 .modal_container {
@@ -28,6 +30,7 @@
   height: 328px;
   display: flex;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 
 .form {
@@ -41,7 +44,8 @@
 }
 
 .input_task {
-  margin: 20px auto;
+  margin: 40px auto;
+  margin-bottom: 60px;
   border-width: 0px 0px 2px 0px;
   border-color: rgb(224, 224, 224);
   border-style: solid;
@@ -59,34 +63,38 @@
 .input_options_section {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   width: 580px;
   margin: 0 auto;
   font-family: 'Montserrat';
 }
 
 .input_options {
-  width: 264px;
-  height: 37px;
-  border-width: 0px 0px 2px 0px;
-  border-color: rgb(224, 224, 224);
-  border-style: solid;
+  width: 250px;
+  height: 10px;
+  padding: 2px;
+  font-size: 16px;
   font-family: 'Montserrat';
+  font-weight: 900;
+  color: black;
 }
 
 .input_options_input {
   width: 264px;
   height: 37px;
   border-width: 0px 0px 2px 0px;
-  border-color: rgb(224, 224, 224);
-  border-style: solid;
+  border-style: solid black 5px;
   font-family: 'Montserrat';
   outline: none;
 }
+
 
 .input_options::placeholder {
   font-size: 14px;
   font-weight: 900;
   font-family: 'Montserrat';
+  border-style: solid;
+  border-color: white;
 }
 
 .button {
@@ -97,12 +105,10 @@
   font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgb(245, 213, 59) 0%,
-    rgb(241, 195, 65) 55%,
-    rgb(236, 177, 70) 100%
-  );
+  background-image: -webkit-linear-gradient(90deg,
+      rgb(245, 213, 59) 0%,
+      rgb(241, 195, 65) 55%,
+      rgb(236, 177, 70) 100%);
 }
 
 @media (max-width: 1279px) {
@@ -128,7 +134,6 @@
     height: 831px;
     display: flex;
     justify-content: space-evenly;
-    background: url('/src//assets/images/modal_present.png');
     background-position: center;
     position: relative;
   }
@@ -147,10 +152,8 @@
   .price {
     display: block;
     position: absolute;
-    width: 300px;
-    left: -30px;
-    height: 300px;
-    bottom: -30px;
+    left: -68px;
+    bottom: -75px;
   }
 
   .title_form {
@@ -182,11 +185,12 @@
 
   .input_options {
     width: 264px;
-    height: 37px;
-    border-width: 0px 0px 2px 0px;
-    border-color: rgb(224, 224, 224);
-    border-style: solid;
+    height: 20px;
+    border-color: #ffffff;
+    border-style: none;
     font-family: 'Montserrat';
+    color: black;
+    font-weight: 900;
   }
 
   .input_options_input {
@@ -212,16 +216,18 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
   }
 }
 
 @media (max-width: 767px) {
+  .modal_title {
+    width: 320px;
+  }
+
   .title_form {
     margin-right: auto;
     height: 10px;
@@ -295,6 +301,8 @@
     margin: 0 auto;
     font-family: 'Montserrat';
     margin-bottom: 50px;
+    color: black;
+    font-weight: 900;
   }
 
   .input_options::placeholder {
@@ -315,12 +323,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
     margin: 0 auto;
   }
 }
