@@ -67,7 +67,6 @@
 
 .main {
   position: relative;
-  /* padding: 50px 0; */
 }
 
 .cover {
@@ -80,7 +79,8 @@
 }
 
 .bg_cover {
-  width: 52vw;
+  width: auto;
+  height: 27vh;
 }
 
 .greeting {
@@ -94,9 +94,8 @@
 
 .title {
   width: 40.85vw;
-  display: block;
+  height: 3vh;
   margin: 0 auto;
-  /* margin-top: 50px; */
   margin-bottom: 26px;
   font-size: 27px;
   letter-spacing: 2px;
@@ -109,7 +108,7 @@
 }
 
 .greeting_text {
-  width: 737px;
+  width: 60vw;
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 23px;
@@ -118,7 +117,7 @@
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .greeting_btn {
@@ -199,18 +198,9 @@
     margin-left: 10px;
   }
 
-  .bg_cover {
-    width: 64vw;
-  }
-
-  .decor {
-    width: 18.88vw;
-    height: 18.88vh;
-  }
-
   .title {
-    width: 65vw;
-    margin-bottom: 10px;
+    width: 100vw;
+    margin-bottom: 30px;
   }
 
   .greeting_text {
@@ -219,7 +209,12 @@
   }
 
   .greeting_btn {
-    margin-top: 0;
+    margin-top: 10px;
+  }
+
+  .decor {
+    width: 18.88vw;
+    height: 18.88vh;
   }
 }
 
@@ -229,7 +224,7 @@
   .login_page {
     width: 100vw;
     height: 100vh;
-    padding: 74px 40px 40px;
+    padding: 74px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -241,7 +236,7 @@
     margin-bottom: 30px;
   }
 
-  .main {
+  .greeting {
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -252,7 +247,7 @@
   .title {
     width: 60vw;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     line-height: 30px;
   }
 
@@ -266,6 +261,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .form button {
+    font-size: 20px;
   }
 
   .reg_btn {
