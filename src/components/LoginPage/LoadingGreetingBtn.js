@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import s from '../../pages/LoginPage/LoginPage.module.css';
 
-const LoadingGreetingBtn = ({ sGreetingBtn, onOpenModal }) => {
+const LoadingGreetingBtn = ({ onOpenModal }) => {
   return (
-    <button onClick={onOpenModal} type="button" className={sGreetingBtn}>
+    <button onClick={onOpenModal} type="button" className={s.greeting_btn}>
       Зареєструватися
     </button>
   );
 };
 
 LoadingGreetingBtn.propTypes = {
-  sGreetingBtn: PropTypes.string.isRequired,
   onOpenModal: PropTypes.func.isRequired,
 };
 
