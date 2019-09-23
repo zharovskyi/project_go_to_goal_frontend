@@ -30,7 +30,6 @@ export const getGoalOperation = token => dispatch => {
   apiServices
     .getGoal('goals', token)
     .then(response => {
-      console.log(response);
       dispatch(
         getGoalSuccess(
           response.data.goals
@@ -55,15 +54,20 @@ export const getGoalOperation = token => dispatch => {
 export const getErrorOperation = errors => {
   errors.map(error =>
     toast.error(
-      <div>
-        {error.name}: {error.message}
+      error !== null ? (
+        <div>
+          {error.name}: {error.message}
+          <br />
+          <br />
+          {error.config !== undefined &&
+            `METHOD: ${error.config.method}
         <br />
-        <br />
-        METHOD: {error.config.method}
-        <br />
-        <br />
-        URL: {error.config.url}
-      </div>,
+        <br />`}
+          {error.config !== undefined && `URL: ${error.config.url}`}
+        </div>
+      ) : (
+        ''
+      ),
       {
         autoClose: false,
         position: toast.POSITION.BOTTOM_RIGHT,
