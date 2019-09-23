@@ -4,6 +4,7 @@ import shortid from 'shortid';
 import { connect } from 'react-redux';
 import s from './ModalCreateGoal.module.css';
 import { addGoal } from '../../redux/ModalCreateGoal/ModalCreateGoalOperations';
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
 const idForInputGoal = shortid.generate();
 const idForInputPoints = shortid.generate();
@@ -24,19 +25,22 @@ class ModalCreateGoal extends Component {
 
   onSubmitForm = async e => {
     e.preventDefault();
-    const { postGoal } = this.props;
+    const { postGoal, token } = this.props;
     const {
       valueInputGoal,
       valueInputPoints,
       valueDescriptionArea,
     } = this.state;
 
-    await postGoal({
-      title: valueInputGoal,
-      points: Number(valueInputPoints),
-      description: valueDescriptionArea,
-      dates: [date],
-    });
+    await postGoal(
+      {
+        title: valueInputGoal,
+        points: Number(valueInputPoints),
+        description: valueDescriptionArea,
+        dates: [date],
+      },
+      token,
+    );
 
     await this.setState({
       valueInputGoal: '',
@@ -84,6 +88,7 @@ class ModalCreateGoal extends Component {
             />
           </label>
           <textarea
+            min="5"
             name="valueDescriptionArea"
             value={valueDescriptionArea}
             onChange={this.handleChange}
@@ -101,14 +106,19 @@ class ModalCreateGoal extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  postGoal: goal => dispatch(addGoal(goal)),
+  postGoal: (goal, token) => dispatch(addGoal(goal, token)),
+});
+
+const mapStateToProps = store => ({
+  token: dashboardSelectors.getToken(store),
 });
 
 ModalCreateGoal.propTypes = {
   postGoal: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ModalCreateGoal);
