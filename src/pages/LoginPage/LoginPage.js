@@ -19,6 +19,7 @@ import LoginFooter from '../../components/LoginPage/LoginFooter';
 import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
+import { getErrorMessage } from '../../redux/sessionLogin/sessionLoginSelectors';
 import {
   openModal,
   closeModal,
@@ -59,9 +60,16 @@ class LoginPage extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { windowWidth, isModalOpen, onOpenModal, onCloseModal } = this.props;
+    const {
+      windowWidth,
+      isModalOpen,
+      onOpenModal,
+      onCloseModal,
+      errorMessage,
+    } = this.props;
     return (
       <div className={s.login_page}>
+        {errorMessage && <p>{errorMessage}</p>}
         {isModalOpen && (
           <Backdrop onClose={onCloseModal}>
             <ModalRegistration onClose={onCloseModal} />
@@ -123,6 +131,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => ({
   isModalOpen: getIsOpenModalRegister(state),
+  errorMessage: getErrorMessage(state),
 });
 
 const mapDispatchToProps = {
@@ -130,16 +139,6 @@ const mapDispatchToProps = {
   onOpenModal: openModal,
   onCloseModal: closeModal,
 };
-
-// const qwe = withAuthRedirect(LoginPage);
-
-// export default compose(
-//   connect(
-//     mapStateToProps,
-//     mapDispatchToProps,
-//   ),
-//   windowSize,
-// )(qwe);
 
 export default compose(
   connect(

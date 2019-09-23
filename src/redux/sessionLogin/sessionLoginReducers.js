@@ -4,8 +4,10 @@ import { ActionType } from './sessionLoginActions';
 const user = (prevState = null, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
-    case ActionType.REFRESH_SUCCESS:
       return payload.response.data.user.userData;
+
+    case ActionType.REFRESH_SUCCESS:
+      return payload.response.data.user;
 
     case ActionType.LOGOUT:
       return null;

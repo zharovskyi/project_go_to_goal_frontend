@@ -6,7 +6,7 @@ const LoginForm = ({ onOpenModal, onSubmit, onChange, email, password }) => {
   return (
     <form onSubmit={onSubmit} className={s.form}>
       <input
-        type="text"
+        type="email"
         name="email"
         value={email}
         onChange={onChange}

@@ -15,7 +15,8 @@ export const login = credentials => dispatch => {
 
   setLogin(credentials)
     .then(response => {
-      // setAuthToken(response.data.token);
+      // console.log(response);
+      // setAuthToken(response.data.user.token);
       dispatch(loginSuccess(response));
     })
     .catch(error => {
@@ -37,11 +38,10 @@ export const refresh = () => (dispatch, getState) => {
 
   setTokenLoginPage(options)
     .then(response => {
-      // console.log('token response :', response);
+      console.log('setTokenLoginPage');
       dispatch(refreshSuccess(response));
     })
     .catch(error => {
-      // console.log('token error :', error);
       dispatch(refreshError(error));
     });
 };
