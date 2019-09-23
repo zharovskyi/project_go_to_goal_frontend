@@ -1,5 +1,6 @@
 // import { combineReducers } from 'redux';
 import { Type } from './DashboardActions';
+import { TypeAddGoal } from '../ModalCreateGoal/ModalCreateGoalActions';
 
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
@@ -14,6 +15,7 @@ export const tasksReducer = (prevState = [], action) => {
 export const goalReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
+    case TypeAddGoal.ADD_GOAL_SUCCESS:
       return action.payload.goal;
 
     default:
