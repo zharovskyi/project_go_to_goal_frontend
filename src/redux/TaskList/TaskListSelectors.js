@@ -1,7 +1,6 @@
 export const getActivePosts = store =>
-  store.tasks.filter(task => task.isActive === true);
+  store.tasks.filter(task => task.inActive);
 
-export const getDonePosts = store =>
-  store.tasks.filter(task => task.isActive === false);
+export const getDonePosts = store => store.tasks.filter(task => !task.inActive);
 
-export const getGoalData = store => store.goal;
+// export const getGoalData = store => store.goal.title;

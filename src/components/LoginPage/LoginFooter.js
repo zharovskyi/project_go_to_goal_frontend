@@ -1,17 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import s from '../../pages/LoginPage/LoginPage.module.css';
 
-const LoginFooter = ({ sFooter, sFooterText }) => {
+const LoginFooter = () => {
   return (
-    <footer className={sFooter}>
-      <p className={sFooterText}>@ Copyright 2019</p>
+    <footer className={s.footer}>
+      <p className={s.footer_text}>@ Copyright 2019</p>
     </footer>
   );
-};
-
-LoginFooter.propTypes = {
-  sFooter: PropTypes.string.isRequired,
-  sFooterText: PropTypes.string.isRequired,
 };
 
 export default LoginFooter;

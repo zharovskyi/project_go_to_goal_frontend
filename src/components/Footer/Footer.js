@@ -24,7 +24,7 @@ class Footer extends Component {
             powered by BOOTC@MP#13 team
           </span>
         </p>
-        {windowWidth <= 320 && <ProgressBar />}
+        {windowWidth < 768 && <ProgressBar />}
       </div>
     );
   }
