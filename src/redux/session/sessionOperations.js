@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import { closeModal } from '../ModalRegistration/ModalRegistrationActions';
 import {
   signUpUserStart,
   signUpUserSuccess,
@@ -12,6 +13,7 @@ export const signupOperation = credentials => dispatch => {
   API.signUpUser(credentials)
     .then(response => {
       dispatch(signUpUserSuccess(response.data));
+      dispatch(closeModal());
     })
     .catch(error => {
       dispatch(signUpUserError(error));
