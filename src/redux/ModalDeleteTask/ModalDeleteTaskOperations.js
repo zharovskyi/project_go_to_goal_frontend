@@ -12,7 +12,7 @@ export const deleteTaskOperation = id => dispatch => {
     .then(() => {
       dispatch(removeCardsSuccess(id));
       dispatch(closeModal());
-      dispatch(deleteTaskLocally());
+      dispatch(deleteTaskLocally(id));
     })
     .catch(error => {
       dispatch(removeCardsError(error));

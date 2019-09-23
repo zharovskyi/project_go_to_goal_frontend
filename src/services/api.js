@@ -15,7 +15,7 @@ export const setToken = Token => ({
   },
 });
 
-export const deleteTask = id => axios.delete(`tasks/${id}`, setToken());
+export const deleteTask = id => axios.delete(`tasks/${id}`, setToken(token));
 export const addNewGoal = goal => axios.post('goals', goal, setToken(token));
 export const addTask = task => axios.post('tasks', task, setToken(token));
 

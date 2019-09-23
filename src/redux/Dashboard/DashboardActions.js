@@ -76,9 +76,9 @@ export const getGoalError = error => ({
   },
 });
 
-export const deleteTaskLocally = id => ({
+export const deleteTaskLocally = _id => ({
   type: Type.DELETE_TASK_LOCALLY,
   payload: {
-    id,
+    _id,
   },
 });
