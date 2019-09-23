@@ -30,7 +30,6 @@
   height: 328px;
   display: flex;
   justify-content: space-evenly;
-  overflow: hidden;
 }
 
 .form {
@@ -49,6 +48,9 @@
   border-width: 0px 0px 2px 0px;
   border-color: rgb(224, 224, 224);
   border-style: solid;
+  font-size: 14px;
+  font-weight: 900;
+  font-family: 'Montserrat';
   width: 569px;
   height: 37px;
   outline: none;
@@ -86,6 +88,8 @@
   border-style: solid black 5px;
   font-family: 'Montserrat';
   outline: none;
+  font-weight: 900;
+  color: black;
 }
 
 .input_options::placeholder {
@@ -104,12 +108,10 @@
   font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgb(245, 213, 59) 0%,
-    rgb(241, 195, 65) 55%,
-    rgb(236, 177, 70) 100%
-  );
+  background-image: -webkit-linear-gradient(90deg,
+      rgb(245, 213, 59) 0%,
+      rgb(241, 195, 65) 55%,
+      rgb(236, 177, 70) 100%);
 }
 
 @media (max-width: 1279px) {
@@ -137,6 +139,7 @@
     justify-content: space-evenly;
     background-position: center;
     position: relative;
+    overflow: hidden;
   }
 
   .form {
@@ -168,6 +171,9 @@
     border-style: solid;
     width: 569px;
     height: 37px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Montserrat';
   }
 
   .input_task::placeholder {
@@ -182,6 +188,7 @@
     width: 580px;
     margin: 0 auto;
     font-family: 'Montserrat';
+
   }
 
   .input_options {
@@ -192,6 +199,7 @@
     font-family: 'Montserrat';
     color: black;
     font-weight: 900;
+
   }
 
   .input_options_input {
@@ -217,12 +225,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
   }
 }
 
@@ -275,6 +281,9 @@
     border-style: solid;
     width: 270px;
     height: 37px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Montserrat';
   }
 
   .input_task::placeholder {
@@ -306,6 +315,7 @@
     margin-bottom: 50px;
     color: black;
     font-weight: 900;
+    font-size: 14px;
   }
 
   .input_options::placeholder {
@@ -316,6 +326,9 @@
 
   .input_options_input {
     margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Montserrat';
   }
 
   .button {
@@ -326,12 +339,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
     margin: 0 auto;
   }
 }

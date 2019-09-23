@@ -10,7 +10,7 @@ export const tasksReducer = (prevState = [], action) => {
         : action.payload.tasks;
 
     case TypeAddTask.ADD_TASK_SUCCESS:
-      return { ...prevState, ...action.payload.tasks };
+      return [...prevState, action.payload.task];
 
     default:
       return prevState;
@@ -50,6 +50,7 @@ export const errorsReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_ERROR:
     case Type.TASKLIST_GET_ERROR:
+    case TypeAddTask.ADD_TASK_ERROR:
       return [...prevState, action.payload.error];
 
     case Type.GOAL_GET_START:
