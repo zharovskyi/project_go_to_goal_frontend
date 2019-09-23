@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
   isLoading: dashboardReducers.isLoadingReducer,
-  dashboardError: dashboardReducers.errorsReducer,
+  dashboardErrors: dashboardReducers.errorsReducer,
 });
 
 const middleware = [ReduxThunk];

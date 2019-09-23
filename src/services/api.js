@@ -16,17 +16,26 @@ axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 //   axios.defaults.headers.common['Authorization'] = null;
 // };
 
-export const setToken = options => {
-  // console.log('options :', options);
-  return axios.get('tasks', options);
+const token =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2OTE1OTkyOH0.PiBNEXKF8MPQ4ehVxyGVJDIB7yy3zuVjiSB8sR4sYcI';
+
+export const setTokenLoginPage = options => axios.get('tests', options);
+
+export const setToken = Token => ({
+  headers: {
+    Authorization: `${Token}`,
+  },
+});
+
+export const addNewGoal = goal => axios.post('goals', goal, setToken(token));
+export const addTask = task => axios.post('tasks', task, setToken(token));
+
+export const signUpUser = credentials => {
+  return axios.post('auth/register', credentials);
 };
 
 export const setLogin = credentials => {
   return axios.post('auth/login', credentials);
-};
-
-export const signUpUser = credentials => {
-  return axios.post('auth/register', credentials);
 };
 
 export const getTasks = (tasksAlias, token) =>

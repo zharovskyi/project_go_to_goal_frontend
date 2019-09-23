@@ -131,15 +131,7 @@ const mapDispatchToProps = {
   onCloseModal: closeModal,
 };
 
-const qwe = withAuthRedirect(LoginPage);
-
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-  windowSize,
-)(qwe);
+// const qwe = withAuthRedirect(LoginPage);
 
 // export default compose(
 //   connect(
@@ -147,5 +139,13 @@ export default compose(
 //     mapDispatchToProps,
 //   ),
 //   windowSize,
-//   withAuthRedirect,
-// )(LoginPage);
+// )(qwe);
+
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  withAuthRedirect,
+  windowSize,
+)(LoginPage);

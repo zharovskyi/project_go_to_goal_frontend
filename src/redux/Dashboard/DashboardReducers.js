@@ -11,7 +11,7 @@ export const tasksReducer = (prevState = [], action) => {
   }
 };
 
-export const goalReducer = (prevState = [], action) => {
+export const goalReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
       return action.payload.goal;
@@ -21,7 +21,7 @@ export const goalReducer = (prevState = [], action) => {
   }
 };
 
-export const isLoadingReducer = (prevState = [], action) => {
+export const isLoadingReducer = (prevState = false, action) => {
   switch (action.type) {
     case Type.GOAL_GET_START:
     case Type.TASKLIST_GET_START:
@@ -42,22 +42,15 @@ export const errorsReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_ERROR:
     case Type.TASKLIST_GET_ERROR:
-      return action.payload.error;
+      return [...prevState, action.payload.error];
 
     case Type.GOAL_GET_START:
     case Type.TASKLIST_GET_START:
     case Type.TASKLIST_GET_SUCCESS:
     case Type.GOAL_GET_SUCCESS:
-      return null;
+      return [];
 
     default:
       return prevState;
   }
 };
-
-// export default combineReducers({
-//   tasks: tasksReducer,
-//   goal: goalReducer,
-//   isLoading: isLoadingReducer,
-//   error: errorsReducer,
-// });
