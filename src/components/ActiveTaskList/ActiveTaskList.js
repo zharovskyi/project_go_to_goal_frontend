@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './ActiveTaskList.module.css';
 import Card from '../Card/Card';
 import * as TaskListSelectors from '../../redux/TaskList/TaskListSelectors';
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import NewGoal from '../NewGoal/NewGoal';
 
 class ActiveTaskList extends Component {
@@ -12,7 +13,7 @@ class ActiveTaskList extends Component {
   render() {
     const { activePosts, getGoal } = this.props;
 
-    if (getGoal.title === '') {
+    if (getGoal === null) {
       return <NewGoal />;
     }
 
@@ -33,12 +34,16 @@ class ActiveTaskList extends Component {
 
 ActiveTaskList.propTypes = {
   activePosts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  getGoal: PropTypes.shape().isRequired,
+  getGoal: PropTypes.shape(),
+};
+
+ActiveTaskList.defaultProps = {
+  getGoal: null,
 };
 
 const mapStateToProps = store => ({
   activePosts: TaskListSelectors.getActivePosts(store),
-  getGoal: TaskListSelectors.getGoalData(store),
+  getGoal: dashboardSelectors.getGoal(store),
 });
 const mapDispatchToProps = {};
 
