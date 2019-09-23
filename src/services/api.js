@@ -28,7 +28,7 @@ export const setToken = Token => ({
 });
 
 export const addNewGoal = (goal, token) =>
-axios.post('goals', goal, {
+  axios.post('goals', goal, {
     headers: {
       Authorization: `${token}`,
     },
