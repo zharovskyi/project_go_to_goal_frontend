@@ -15,7 +15,7 @@ const ContactsPage = () => {
           Предложения, вопросы направляйте на указанный ниже адрес:
         </p>
         <p className={styles.infoBlock__contacts}>
-          <span>[E-mail</span>
+          <span>[E-mail: </span>
           <a
             className={styles.infoBlock__email}
             href="mailto:bosssvit@gmail.com"
