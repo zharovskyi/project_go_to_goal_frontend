@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import s from './ModalRegistration.module.css';
 import logo from '../../assets/images/zaglushka.PNG';
 import * as sessionOperations from '../../redux/session/sessionOperations';
-
+import { closeModal } from '../../redux/ModalRegistration/ModalRegistrationActions';
 // import passwordValidation from './signUpValidations';
 
 class ModalRegistration extends Component {
@@ -36,6 +36,12 @@ class ModalRegistration extends Component {
         errorPassword: 'Пароли не совпадают!!!',
       });
     }
+  };
+
+  handleCloseModal = () => {
+    const { closeModal } = this.props;
+
+    closeModal();
   };
 
   HandleChange = e => {
@@ -114,7 +120,11 @@ class ModalRegistration extends Component {
               />
             </div>
             <div className={s.buttonDiv}>
-              <button className={s.button} type="button">
+              <button
+                className={s.button}
+                onClick={this.handleCloseModal}
+                type="button"
+              >
                 Назад
               </button>
               <button className={s.button} type="submit">
@@ -137,12 +147,14 @@ class ModalRegistration extends Component {
 
 ModalRegistration.propTypes = {
   onSignUp: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 // export default ModalRegistration;
 
 const mapDispatchToProps = {
   onSignUp: sessionOperations.signupOperation,
+  closeModal,
 };
 
 export default connect(
