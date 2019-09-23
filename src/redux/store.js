@@ -4,7 +4,6 @@ import ReduxThunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {
-  tasksReducer,
   errorsModalDeleteReducer,
   idForDeleteTaskReducer,
 } from './Dashboard/DashboardReducers';

@@ -15,7 +15,7 @@ export const tasksReducer = (prevState = [], action) => {
     case Type.TASK_TOGGLE:
       return prevState.map(el => {
         if (el._id === action.payload._id) {
-          el.isComplete = !el.isComplete;
+          el.isDone = !el.isDone;
         }
       });
     default:

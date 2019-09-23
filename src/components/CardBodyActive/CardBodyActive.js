@@ -38,7 +38,11 @@ const CardBodyActive = ({
           <p className={styles.points_txt_number}>{points}</p>
           <p className={styles.points_txt_p}>балів</p>
         </div>
-        <ToggleButton onChangeToggle={onChangeToggle} checked={isDone} />
+        <ToggleButton
+          onChangeToggle={onChangeToggle}
+          checked={isDone}
+          id={_id}
+        />
       </div>
     </>
   );

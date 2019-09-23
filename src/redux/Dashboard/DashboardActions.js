@@ -84,9 +84,9 @@ export const deleteTaskLocally = _id => ({
   },
 });
 
-export const taskStatusToggle = id => ({
-  type: Type.TASK_TOGGLE_DONE,
+export const taskStatusToggle = _id => ({
+  type: Type.TASK_TOGGLE,
   payload: {
-    id,
+    _id,
   },
 });
