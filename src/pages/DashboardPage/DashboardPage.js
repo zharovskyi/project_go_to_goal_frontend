@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // COMPONENTS
+// import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
 import TaskList from '../../components/TaskList/TaskList';
 import Footer from '../../components/Footer/Footer';
@@ -56,10 +57,12 @@ class DashboardPage extends Component {
       onCloseModalCreateGoal,
       onCloseModalDeleteTask,
       onCloseModalLogout,
+      isLoading,
     } = this.props;
 
     return (
       <div className={styles.dashboardBody}>
+        {/* {isLoading && <Loader />} */}
         <Header />
         {windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />}
         <TaskList />
@@ -102,6 +105,7 @@ DashboardPage.propTypes = {
   isModalCreateGoalOpen: PropTypes.bool.isRequired,
   isModalDeleteTaskOpen: PropTypes.bool.isRequired,
   isModalLogoutOpen: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   goal: PropTypes.shape({
     isDone: PropTypes.bool.isRequired,
     _id: PropTypes.string.isRequired,
