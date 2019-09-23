@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // COMPONENTS
-// import Loader from '../../components/Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
 import TaskList from '../../components/TaskList/TaskList';
 import Footer from '../../components/Footer/Footer';
@@ -62,7 +62,7 @@ class DashboardPage extends Component {
 
     return (
       <div className={styles.dashboardBody}>
-        {/* {isLoading && <Loader />} */}
+        {isLoading && <Loader />}
         <Header />
         {windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />}
         <TaskList />
