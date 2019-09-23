@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import s from '../../pages/LoginPage/LoginPage.module.css';
 
-const LoginForm = ({ onSubmit, onChange, login, password, sForm, sRegBtn }) => {
+const LoginForm = ({ onOpenModal, onSubmit, onChange, email, password }) => {
   return (
-    <form onSubmit={onSubmit} className={sForm}>
+    <form onSubmit={onSubmit} className={s.form}>
       <input
         type="text"
-        name="login"
-        value={login}
+        name="email"
+        value={email}
         onChange={onChange}
+        required
         placeholder="Enter your login/email..."
       />
       <input
@@ -16,10 +18,11 @@ const LoginForm = ({ onSubmit, onChange, login, password, sForm, sRegBtn }) => {
         name="password"
         value={password}
         onChange={onChange}
+        required
         placeholder="Enter your password..."
       />
       <button type="submit">Увiйти</button>
-      <button type="button" className={sRegBtn}>
+      <button onClick={onOpenModal} type="button" className={s.reg_btn}>
         Реєстрація
       </button>
     </form>
@@ -27,16 +30,15 @@ const LoginForm = ({ onSubmit, onChange, login, password, sForm, sRegBtn }) => {
 };
 
 LoginForm.defaultProps = {
-  sRegBtn: '',
+  email: '',
 };
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  login: PropTypes.string.isRequired,
+  email: PropTypes.string,
   password: PropTypes.string.isRequired,
-  sForm: PropTypes.string.isRequired,
-  sRegBtn: PropTypes.string,
+  onOpenModal: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

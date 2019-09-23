@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import windowSize from 'react-window-size';
 import PropTypes from 'prop-types';
+import { login } from '../../redux/sessionLogin/sessionLoginOperations';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
+
+// HTML & CSS
 import s from './LoginPage.module.css';
 import logo from '../../assets/images/login-page-logo@1X.png';
-import coverImg from '../../assets/images/login-page-cover@1X.png';
 import { ReactComponent as Party } from '../../assets/svg/party.svg';
 import LoginForm from '../../components/LoginPage/LoginForm';
 import LoginCover from '../../components/LoginPage/LoginCover';
@@ -11,29 +16,37 @@ import LoginGreeting from '../../components/LoginPage/LoginGreeting';
 import LoginGreetingTitle from '../../components/LoginPage/LoginGreetingTitle';
 import LoadingGreetingBtn from '../../components/LoginPage/LoadingGreetingBtn';
 import LoginFooter from '../../components/LoginPage/LoginFooter';
+import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
+import Backdrop from '../../components/Backdrop/Backdrop';
+import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
+import {
+  openModal,
+  closeModal,
+} from '../../redux/ModalRegistration/ModalRegistrationActions';
 
 class LoginPage extends Component {
   static propTypes = {
     windowWidth: PropTypes.number.isRequired,
+    isModalOpen: PropTypes.bool.isRequired,
+    onLogin: PropTypes.func.isRequired,
+    onOpenModal: PropTypes.func.isRequired,
+    onCloseModal: PropTypes.func.isRequired,
   };
 
   state = {
-    login: '',
+    email: '',
     password: '',
   };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-
     this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    // const { login, password } = this.state;
-
-    // this.props.onSubmit({ ...this.state });
+    this.props.onLogin({ ...this.state });
     this.reset();
   };
 
@@ -45,75 +58,94 @@ class LoginPage extends Component {
   };
 
   render() {
-    const { login, password } = this.state;
-    const { windowWidth } = this.props;
+    const { email, password } = this.state;
+    const { windowWidth, isModalOpen, onOpenModal, onCloseModal } = this.props;
     return (
       <div className={s.login_page}>
-        {/* MOBILE */}
+        {isModalOpen && (
+          <Backdrop onClose={onCloseModal}>
+            <ModalRegistration onClose={onCloseModal} />
+          </Backdrop>
+        )}
+        {/* MOBILE || LOGO */}
         {windowWidth < 768 && (
           <img src={logo} alt="logo" width="104" className={s.logo} />
         )}
 
-        {/* TABLET & DESKTOP */}
+        {/* TABLET & DESKTOP || FORM */}
         {windowWidth > 767 && (
           <header className={s.header}>
             <div className={s.header_form}>
               <img src={logo} alt="logo" width="104" className={s.logo} />
               <LoginForm
+                onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
-                login={login}
+                email={email}
                 password={password}
-                sForm={s.form}
               />
             </div>
           </header>
         )}
         <main className={s.main}>
-          {/* TABLET & DESKTOP */}
-          {windowWidth > 767 && (
-            <LoginCover
-              sCover={s.cover}
-              coverImg={coverImg}
-              sBgCover={s.bg_cover}
-            />
-          )}
+          {/* TABLET & DESKTOP || COVER */}
+          {windowWidth > 767 && <LoginCover />}
+          <div className={s.greeting}>
+            {/* ALL || TITLE */}
+            <LoginGreetingTitle />
 
-          {/* ALL */}
-          <LoginGreetingTitle sTitle={s.title} />
+            {/* MOBILE ||FORM */}
+            {windowWidth < 768 && (
+              <LoginForm
+                onOpenModal={onOpenModal}
+                onSubmit={this.handleSubmit}
+                onChange={this.handleChange}
+                login={email}
+                password={password}
+              />
+            )}
 
-          {/* MOBILE */}
-          {windowWidth < 768 && (
-            <LoginForm
-              onSubmit={this.handleSubmit}
-              onChange={this.handleChange}
-              login={login}
-              password={password}
-              sForm={s.form}
-              sRegBtn={s.reg_btn}
-            />
-          )}
+            {/* TABLET & DESKTOP ||GREETING */}
+            {windowWidth > 767 && <LoginGreeting />}
+            {windowWidth > 767 && <Party className={s.decor} />}
 
-          {/* TABLET & DESKTOP */}
-          {windowWidth > 767 && (
-            <LoginGreeting
-              sGreeting={s.greeting}
-              sGreetingText={s.greeting_text}
-            />
-          )}
-          {windowWidth > 767 && <Party className={s.decor} />}
-
-          {/* ALL */}
-          <LoadingGreetingBtn sGreetingBtn={s.greeting_btn} />
+            {/* ALL || BTN REG */}
+            <LoadingGreetingBtn onOpenModal={onOpenModal} />
+          </div>
         </main>
 
-        {/* TABLET & DESKTOP */}
-        {windowWidth > 767 && (
-          <LoginFooter sFooter={s.footer} sFooterText={s.footer_text} />
-        )}
+        {/* TABLET & DESKTOP || FOOTER */}
+        {windowWidth > 767 && <LoginFooter />}
       </div>
     );
   }
 }
 
-export default windowSize(LoginPage);
+const mapStateToProps = state => ({
+  isModalOpen: getIsOpenModalRegister(state),
+});
+
+const mapDispatchToProps = {
+  onLogin: login,
+  onOpenModal: openModal,
+  onCloseModal: closeModal,
+};
+
+// const qwe = withAuthRedirect(LoginPage);
+
+// export default compose(
+//   connect(
+//     mapStateToProps,
+//     mapDispatchToProps,
+//   ),
+//   windowSize,
+// )(qwe);
+
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  withAuthRedirect,
+  windowSize,
+)(LoginPage);
