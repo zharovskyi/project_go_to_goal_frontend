@@ -1,12 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import s from '../../pages/LoginPage/LoginPage.module.css';
 
-const LoginGreetingTitle = ({ sTitle }) => {
-  return <h2 className={sTitle}>Вітаємо вас у нашій програмі!</h2>;
-};
-
-LoginGreetingTitle.propTypes = {
-  sTitle: PropTypes.string.isRequired,
+const LoginGreetingTitle = () => {
+  return <h2 className={s.title}>Вітаємо вас у нашій програмі!</h2>;
 };
 
 export default LoginGreetingTitle;

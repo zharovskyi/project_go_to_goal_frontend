@@ -30,6 +30,7 @@ export const getGoalOperation = token => dispatch => {
   apiServices
     .getGoal('goals', token)
     .then(response => {
+      console.log(response);
       dispatch(
         getGoalSuccess(
           response.data.goals

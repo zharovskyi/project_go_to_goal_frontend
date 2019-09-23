@@ -1,3 +1,3 @@
-const getIsAuthenticated = store => store.session.authenticated;
+export const getIsAuthenticated = store => store.session.authenticated;
 
-export default getIsAuthenticated;
+export const getToken = store => store.session.token;
