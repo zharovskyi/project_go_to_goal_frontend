@@ -21,7 +21,11 @@ class DoneTaskList extends Component {
     const { showCloseButton } = this.state;
 
     if (donePosts.length === 0) {
-      return <li className={styles.doneTaskCard}> </li>;
+      return (
+        <ul className={styles.doneCards}>
+          <li className={styles.doneTaskCard}> </li>
+        </ul>
+      );
     }
     return (
       <>

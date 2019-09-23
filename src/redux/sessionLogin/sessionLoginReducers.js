@@ -11,6 +11,7 @@ const returnValue = {
 const user = (prevState = null, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
+    case ActionType.REFRESH_SUCCESS:
       return payload.response.data.user.userData;
 
     case ActionType.LOGOUT:
@@ -30,6 +31,7 @@ const user = (prevState = null, { type, payload }) => {
 const authenticated = (prevState = false, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
+    case ActionType.REFRESH_SUCCESS:
       return true;
 
     case ActionType.LOGOUT:

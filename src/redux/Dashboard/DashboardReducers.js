@@ -4,24 +4,28 @@ import { Type } from './DashboardActions';
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.TASKLIST_GET_SUCCESS:
-      return action.payload.tasks;
+      return action.payload.tasks === undefined
+        ? prevState
+        : action.payload.tasks;
 
     default:
       return prevState;
   }
 };
 
-export const goalReducer = (prevState = [], action) => {
+export const goalReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
-      return action.payload.goal;
+      return action.payload.goal === undefined
+        ? prevState
+        : action.payload.goal;
 
     default:
       return prevState;
   }
 };
 
-export const isLoadingReducer = (prevState = [], action) => {
+export const isLoadingReducer = (prevState = false, action) => {
   switch (action.type) {
     case Type.GOAL_GET_START:
     case Type.TASKLIST_GET_START:
