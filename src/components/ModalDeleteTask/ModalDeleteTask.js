@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { closeModal } from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
 import { deleteTaskOperation } from '../../redux/ModalDeleteTask/ModalDeleteTaskOperations';
 import {
   getIdForDeleteTaskSelector,
@@ -45,6 +46,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   deleteTask: id => dispatch(deleteTaskOperation(id)),
+  onClose: () => dispatch(closeModal()),
 });
 
 export default connect(
