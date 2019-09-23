@@ -7,6 +7,7 @@ import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
 import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg';
 import * as modalDeleteActions from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
 import { removeCardsSuccess } from '../../redux/Dashboard/DashboardActions';
+import { cardStatus } from '../../redux/Dashboard/DashboardSelectors';
 
 // const pointsS = 500;
 
@@ -37,7 +38,7 @@ const CardBodyActive = ({
           <p className={styles.points_txt_number}>{points}</p>
           <p className={styles.points_txt_p}>балів</p>
         </div>
-        <ToggleButton onChangeToggle={onChangeToggle} />
+        <ToggleButton onChangeToggle={onChangeToggle} checked={isDone} />
       </div>
     </>
   );
@@ -46,6 +47,10 @@ const CardBodyActive = ({
 // const mapDispatchToProps = {
 //   openModal: modalDeleteActions.openModal,
 // };
+
+// const mapStateToProps = (store, _id) => ({
+//   isDone: cardStatus(store, _id),
+// });
 
 const mapDispatchToProps = dispatch => ({
   getID: id => dispatch(removeCardsSuccess(id)),

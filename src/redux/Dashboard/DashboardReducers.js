@@ -4,13 +4,6 @@ import { Type } from './DashboardActions';
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.DELETE_TASK_LOCALLY: {
-      const updState = prevState.filter(el => {
-        console.log('action', action);
-        console.log('el._id', el._id, action.payload._id);
-        return el._id !== action.payload._id;
-      });
-      console.log(updState, 'updState');
-      console.log(prevState, 'prevState');
       return prevState.filter(el => el._id !== action.payload._id);
     }
 
@@ -19,10 +12,17 @@ export const tasksReducer = (prevState = [], action) => {
         ? prevState
         : action.payload.tasks;
 
+    case Type.TASK_TOGGLE:
+      return prevState.map(el => {
+        if (el._id === action.payload._id) {
+          el.isComplete = !el.isComplete;
+        }
+      });
     default:
       return prevState;
   }
 };
+
 export const errorsModalDeleteReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.DELETE_CARD_ERROR:

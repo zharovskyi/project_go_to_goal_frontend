@@ -8,6 +8,7 @@ export const Type = {
   TASKLIST_GET_START: 'TASKLIST_GET_START',
   TASKLIST_GET_SUCCESS: 'TASKLIST_GET_SUCCESS',
   TASKLIST_GET_ERROR: 'TASKLIST_GET_ERROR',
+  TASK_TOGGLE: 'TASK_TOGGLE',
 
   GOAL_GET_START: 'GOAL_GET_START',
   GOAL_GET_SUCCESS: 'GOAL_GET_SUCCESS',
@@ -80,5 +81,12 @@ export const deleteTaskLocally = _id => ({
   type: Type.DELETE_TASK_LOCALLY,
   payload: {
     _id,
+  },
+});
+
+export const taskStatusToggle = id => ({
+  type: Type.TASK_TOGGLE_DONE,
+  payload: {
+    id,
   },
 });

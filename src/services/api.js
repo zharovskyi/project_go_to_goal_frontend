@@ -3,6 +3,7 @@ import axios from 'axios';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.get['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
+axios.defaults.headers.patch['Content-Type'] = 'application/json';
 
 axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 
@@ -30,6 +31,9 @@ export const setToken = Token => ({
 export const deleteTask = id => axios.delete(`tasks/${id}`, setToken(token));
 export const addNewGoal = goal => axios.post('goals', goal, setToken(token));
 export const addTask = task => axios.post('tasks', task, setToken(token));
+
+export const toggleTask = (id, status) =>
+  axios.patch(`tasks/${id}`, status, setToken(token));
 
 export const signUpUser = credentials => {
   return axios.post('auth/register', credentials);
