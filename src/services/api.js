@@ -17,8 +17,8 @@ axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 //   axios.defaults.headers.common['Authorization'] = null;
 // };
 
-const token =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2OTE1OTkyOH0.PiBNEXKF8MPQ4ehVxyGVJDIB7yy3zuVjiSB8sR4sYcI';
+// const token =
+//   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2OTE1OTkyOH0.PiBNEXKF8MPQ4ehVxyGVJDIB7yy3zuVjiSB8sR4sYcI';
 
 export const setTokenLoginPage = options => axios.get('tests', options);
 
@@ -29,8 +29,19 @@ export const setToken = Token => ({
 });
 
 export const deleteTask = id => axios.delete(`tasks/${id}`, setToken(token));
-export const addNewGoal = goal => axios.post('goals', goal, setToken(token));
-export const addTask = task => axios.post('tasks', task, setToken(token));
+export const addNewGoal = (goal, token) =>
+  axios.post('goals', goal, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
+
+export const addTask = (task, token) =>
+  axios.post('tasks', task, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
 
 export const toggleTask = (id, status) =>
   axios.patch(`tasks/${id}`, status, setToken(token));

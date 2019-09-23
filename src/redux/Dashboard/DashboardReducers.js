@@ -1,5 +1,7 @@
 // import { combineReducers } from 'redux';
 import { Type } from './DashboardActions';
+import { TypeAddTask } from '../ModalAddTask/ModalAddTaskActions';
+import { TypeAddGoal } from '../ModalCreateGoal/ModalCreateGoalActions';
 
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
@@ -11,6 +13,9 @@ export const tasksReducer = (prevState = [], action) => {
       return action.payload.tasks === undefined
         ? prevState
         : action.payload.tasks;
+
+    case TypeAddTask.ADD_TASK_SUCCESS:
+      return [...prevState, action.payload.task];
 
     case Type.TASK_TOGGLE:
       return prevState.map(el => {
@@ -36,6 +41,8 @@ export const errorsModalDeleteReducer = (prevState = null, action) => {
 export const goalReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
+    case TypeAddGoal.ADD_GOAL_SUCCESS:
+      console.log(action.payload);
       return action.payload.goal === undefined
         ? prevState
         : action.payload.goal;
@@ -74,6 +81,8 @@ export const errorsReducer = (prevState = [], action) => {
   switch (action.type) {
     case Type.GOAL_GET_ERROR:
     case Type.TASKLIST_GET_ERROR:
+    case TypeAddTask.ADD_TASK_ERROR:
+    case TypeAddGoal.ADD_GOAL_ERROR:
       return [...prevState, action.payload.error];
 
     case Type.GOAL_GET_START:
