@@ -1,17 +1,20 @@
 import React from 'react';
 import { Progress } from 'react-sweet-progress';
+import { connect } from 'react-redux';
+
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
 import css from './ProgressBar.module.css';
 
-const ProgressBar = () => {
+const ProgressBar = ({ goalPoints, userPoints }) => {
   return (
     <div className={css.progress}>
       <p className={css.progressScore}>
-        999 / <span className={css.total}> 1000</span>
+        {userPoints} / <span className={css.total}> {goalPoints}</span>
       </p>
       <Progress
         className={css.progresBar}
-        percent={(500 / 1000) * 100}
+        percent={(userPoints / goalPoints) * 100}
         symbol="none"
         theme={{
           success: {
@@ -32,4 +35,13 @@ const ProgressBar = () => {
   );
 };
 
-export default ProgressBar;
+const mapStateToProps = store => ({
+  goalPoints: dashboardSelectors.getGoalPoints(store),
+  userPoints: dashboardSelectors.getUserPoints(store),
+});
+const mapDispatchToProps = {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProgressBar);

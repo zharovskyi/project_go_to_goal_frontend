@@ -1,30 +1,42 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import {
   tasksReducer,
   errorsModalDeleteReducer,
   idForDeleteTaskReducer,
 } from './Dashboard/DashboardReducers';
 
+// импортируем сюда свои редюсеры
+import sessionLoginReducers from './sessionLogin/sessionLoginReducers';
 import modalsReducers from './modalsReducers';
 import * as dashboardReducers from './Dashboard/DashboardReducers';
 
+const sessionPersistConfig = {
+  key: 'session',
+  storage,
+  whitelist: ['token'],
+};
+
 const rootReducer = combineReducers({
-  session: (prevState = {}, action) => {
-    return { a: 1 };
-  },
+  session: persistReducer(sessionPersistConfig, sessionLoginReducers),
   goal: dashboardReducers.goalReducer,
   tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
   idForDeleteTask: idForDeleteTaskReducer,
   errorsModalDelete: errorsModalDeleteReducer,
   isLoading: dashboardReducers.isLoadingReducer,
-  dashboardError: dashboardReducers.errorsReducer,
+  dashboardErrors: dashboardReducers.errorsReducer,
 });
 
-const enhancer = applyMiddleware(ReduxThunk);
+const middleware = [ReduxThunk];
+const enhancer = applyMiddleware(...middleware);
 
-const store = createStore(rootReducer, {}, composeWithDevTools(enhancer));
-
-export default store;
+export const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools(enhancer),
+);
+export const persistor = persistStore(store);
