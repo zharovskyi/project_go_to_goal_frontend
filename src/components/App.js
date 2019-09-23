@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import DashboardContainer from '../pages/DashboardPage/DashboardContainer';
+import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import { refresh } from '../redux/sessionLogin/sessionLoginOperations';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={LoginPage} />
           <Route path="/dashboard" component={DashboardContainer} />
+          <Route path="/contacts" component={ContactsPage} />
         </Switch>
       </>
     );

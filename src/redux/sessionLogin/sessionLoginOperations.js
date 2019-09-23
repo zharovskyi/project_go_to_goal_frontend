@@ -15,6 +15,7 @@ export const login = credentials => dispatch => {
 
   setLogin(credentials)
     .then(response => {
+      console.log('response', response);
       // setAuthToken(response.data.token);
       dispatch(loginSuccess(response));
     })
