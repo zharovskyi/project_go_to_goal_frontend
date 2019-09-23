@@ -19,6 +19,8 @@ const LoginForm = ({ onOpenModal, onSubmit, onChange, email, password }) => {
         value={password}
         onChange={onChange}
         required
+        minLength="6"
+        maxLength="12"
         placeholder="Enter your password..."
       />
       <button type="submit">Увiйти</button>

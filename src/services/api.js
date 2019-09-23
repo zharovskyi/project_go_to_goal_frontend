@@ -19,7 +19,8 @@ axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 const token =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2OTE1OTkyOH0.PiBNEXKF8MPQ4ehVxyGVJDIB7yy3zuVjiSB8sR4sYcI';
 
-export const setTokenLoginPage = options => axios.get('tests', options);
+export const setTokenLoginPage = options =>
+  axios.get('put/user/update', options);
 
 export const setToken = Token => ({
   headers: {
