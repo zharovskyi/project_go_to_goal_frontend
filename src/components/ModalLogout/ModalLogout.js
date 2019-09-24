@@ -16,4 +16,5 @@ const ModalLogout = ({ onClose }) => {
     </div>
   );
 };
+
 export default ModalLogout;
