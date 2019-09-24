@@ -1,7 +1,6 @@
 .goal {
   display: flex;
   justify-content: space-between;
-  /* width:  260px; */
   margin: 0 auto;
 }
 
@@ -60,15 +59,16 @@
 
 .goalBtnActive::after {
   display: block;
+  color: #000;
   content: 'Натисни мене !';
   width: 85px;
   height: 45px;
   background-image: url(../../assets/images/arrow.png);
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 25px;
+  margin-top: 15px;
   padding-top: 40px;
-  transform: translateX(150px) rotate(45deg);
+  transform: translateX(200px);
 }
 
 .progresBar {

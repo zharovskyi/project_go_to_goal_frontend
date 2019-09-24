@@ -26,13 +26,13 @@ class Card extends Component {
         {task.inActive ? (
           <CardBodyActive
             // onChangeToggle={handleCheckedToggle}
-            isDone={task.isDone}
+            isDone={task.isComplete}
             points={task.points}
             _id={task._id}
           />
         ) : (
           <CardBodyDone
-            isDone={task.isDone}
+            isDone={task.isComplete}
             points={task.points}
             createdAt={task.createdAt}
           />

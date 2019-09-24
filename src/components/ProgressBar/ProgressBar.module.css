@@ -13,6 +13,11 @@
   margin: 0;
 }
 
+.progresBar {
+  width: 250px;
+  color: #000;
+}
+
 .total {
   color: #000;
 }
