@@ -1,6 +1,7 @@
 import React from 'react';
 // import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './CardBodyActive.module.css';
 import ToggleButton from '../ToggleButton/ToggleButton';
 import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
@@ -13,7 +14,7 @@ import { removeCardsSuccess } from '../../redux/Dashboard/DashboardActions';
 
 const CardBodyActive = ({
   points,
-  onChangeToggle,
+  // onChangeToggle,
   isDone,
   openModal,
   _id,
@@ -39,7 +40,7 @@ const CardBodyActive = ({
           <p className={styles.points_txt_p}>балів</p>
         </div>
         <ToggleButton
-          onChangeToggle={onChangeToggle}
+          // onChangeToggle={onChangeToggle}
           checked={isDone}
           id={_id}
         />
@@ -48,13 +49,13 @@ const CardBodyActive = ({
   );
 };
 
-// const mapDispatchToProps = {
-//   openModal: modalDeleteActions.openModal,
-// };
-
-// const mapStateToProps = (store, _id) => ({
-//   isDone: cardStatus(store, _id),
-// });
+CardBodyActive.propTypes = {
+  points: PropTypes.number.isRequired,
+  isDone: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired,
+  _id: PropTypes.string.isRequired,
+  getID: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = dispatch => ({
   getID: id => dispatch(removeCardsSuccess(id)),

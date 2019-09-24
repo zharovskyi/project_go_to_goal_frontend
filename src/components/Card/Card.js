@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Card.module.css';
 import CardBodyActive from '../CardBodyActive/CardBodyActive';
 import CardBodyDone from '../CardBodyDone/CardBodyDone';
@@ -41,5 +42,17 @@ class Card extends Component {
     );
   }
 }
+
+Card.propTypes = {
+  task: PropTypes.shape({
+    inActive: PropTypes.bool.isRequired,
+    isDone: PropTypes.bool.isRequired,
+    points: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    deadline: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Card;
