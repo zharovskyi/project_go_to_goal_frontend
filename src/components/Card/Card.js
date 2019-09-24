@@ -1,32 +1,42 @@
 import React, { Component } from 'react';
 import styles from './Card.module.css';
-import CardBody from '../CardBody/CardBody';
+import CardBodyActive from '../CardBodyActive/CardBodyActive';
+import CardBodyDone from '../CardBodyDone/CardBodyDone';
 import CardFooter from '../CardFooter/CardFooter';
 
 class Card extends Component {
   constructor(props) {
     super(props);
-    this.state = { isChecked: false };
+    this.state = { isDone: false };
   }
 
   handleCheckedToggle = () => {
     this.setState(prevState => ({
-      isChecked: !prevState.isChecked,
-      // className: 'bodyCard.checked',
+      isDone: !prevState.isDone,
     }));
   };
 
   render() {
-    console.log(this.state);
-    const { isChecked } = this.state;
+    const { isDone } = this.state;
+    // const { isActive, title, deadline, points, createdAt, _id } = this.props;
+    const { task } = this.props;
     return (
       <li className={styles.cardLi}>
-        <CardBody
-          onChangeToggle={this.handleCheckedToggle}
-          isChecked={isChecked}
-          // className={isChecked ? 'bodyCard' : 'bodyCard checked'}
-        />
-        <CardFooter />
+        {task.inActive ? (
+          <CardBodyActive
+            onChangeToggle={this.handleCheckedToggle}
+            isDone={task.isDone}
+            points={task.points}
+            _id={task._id}
+          />
+        ) : (
+          <CardBodyDone
+            isDone={isDone}
+            points={task.points}
+            createdAt={task.createdAt}
+          />
+        )}
+        <CardFooter title={task.title} deadline={task.deadline} />
       </li>
     );
   }

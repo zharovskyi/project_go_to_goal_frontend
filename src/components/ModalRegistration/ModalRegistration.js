@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import s from './ModalRegistration.module.css';
 import logo from '../../assets/images/zaglushka.PNG';
+import * as sessionOperations from '../../redux/session/sessionOperations';
+import { closeModal } from '../../redux/ModalRegistration/ModalRegistrationActions';
 // import passwordValidation from './signUpValidations';
 
 class ModalRegistration extends Component {
@@ -17,11 +21,27 @@ class ModalRegistration extends Component {
     e.preventDefault();
     if (this.state.password === this.state.correctPassword) {
       // тут запускать операцию
+      const { onSignUp } = this.props;
+      const { username, password, email, age } = this.state;
+      onSignUp({
+        email,
+        password,
+        name: username,
+        age,
+        avatar: 'https://gravatar.com/asgklasgw',
+        isChild: true,
+      });
     } else {
       this.setState({
-        errorPassword: 'Different password!',
+        errorPassword: 'Пароли не совпадают!!!',
       });
     }
+  };
+
+  handleCloseModal = () => {
+    const { closeModal } = this.props;
+
+    closeModal();
   };
 
   HandleChange = e => {
@@ -100,7 +120,11 @@ class ModalRegistration extends Component {
               />
             </div>
             <div className={s.buttonDiv}>
-              <button className={s.button} type="button">
+              <button
+                className={s.button}
+                onClick={this.handleCloseModal}
+                type="button"
+              >
                 Назад
               </button>
               <button className={s.button} type="submit">
@@ -108,7 +132,7 @@ class ModalRegistration extends Component {
               </button>
             </div>
           </div>
-          <p>{errorPassword || ''}</p>
+          <p className={s.passwordError}>{errorPassword || ''}</p>
 
           {/* ------------------img------------------------------- */}
           <div className={s.image}>
@@ -121,4 +145,19 @@ class ModalRegistration extends Component {
   }
 }
 
-export default ModalRegistration;
+ModalRegistration.propTypes = {
+  onSignUp: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
+
+// export default ModalRegistration;
+
+const mapDispatchToProps = {
+  onSignUp: sessionOperations.signupOperation,
+  closeModal,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(ModalRegistration);

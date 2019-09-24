@@ -1,6 +1,7 @@
 .div {
   align-self: stretch;
   text-align: center;
+  margin-bottom: 15px;
 }
 .div:not(:last-of-type) {
   border-bottom: 1px solid #ccc;
