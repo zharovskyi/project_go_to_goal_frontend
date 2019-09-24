@@ -45,6 +45,7 @@ class DashboardPage extends Component {
 
   render() {
     const {
+      goal,
       isModalAddTaskOpen,
       isModalCongratsOpen,
       isModalCreateGoalOpen,
@@ -65,7 +66,10 @@ class DashboardPage extends Component {
       <div className={styles.dashboardBody}>
         {isLoading && <Loader />}
         <Header />
-        {windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />}
+        {goal !== null &&
+          (windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />)}
+
+        {/* {windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />} */}
         <TaskList />
         <Footer />
         {isModalAddTaskOpen && (

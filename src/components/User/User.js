@@ -18,8 +18,8 @@ const User = ({ user, openModalLogout }) => {
           <span className={style.userName}>{name}</span>
           <span className={style.userAge}>{age} років</span>
         </div>
+        <button type="button" className={style.btn} onClick={openModalLogout} />
       </div>
-      <button type="button" className={style.btn} onClick={openModalLogout} />
     </>
   );
 };
