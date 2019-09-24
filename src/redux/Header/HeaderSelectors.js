@@ -1,6 +1,4 @@
-export const getTitle = s =>
-  s.session.user !== null ? s.session.user.title : '';
-
+export const getTitle = s => (s.goal !== null ? s.goal.title : '');
 // ProgressBar
 export const getGoalPoints = s => (s.goal !== null ? s.goal.points : 0);
 //
@@ -21,5 +19,6 @@ export const getPercent = s => {
 
 // /user
 
-export const userName = s => s.session.user.name;
+export const userName = s =>
+  s.session.user !== null ? s.session.user.name : '';
 export const userAge = s => s.session.user.age;

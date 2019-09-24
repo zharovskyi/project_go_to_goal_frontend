@@ -5,6 +5,10 @@ import { TypeAddGoal } from '../ModalCreateGoal/ModalCreateGoalActions';
 
 export const tasksReducer = (prevState = [], action) => {
   switch (action.type) {
+    case Type.DELETE_TASK_LOCALLY: {
+      return prevState.filter(el => el._id !== action.payload._id);
+    }
+
     case Type.TASKLIST_GET_SUCCESS:
       return action.payload.tasks === undefined
         ? prevState
@@ -13,6 +17,23 @@ export const tasksReducer = (prevState = [], action) => {
     case TypeAddTask.ADD_TASK_SUCCESS:
       return [...prevState, action.payload.task];
 
+    case Type.TASK_TOGGLE:
+      return prevState.map(el => {
+        if (el._id === action.payload._id) {
+          return { ...el, isDone: !el.isDone };
+        }
+        return el;
+      });
+    default:
+      return prevState;
+  }
+};
+
+export const errorsModalDeleteReducer = (prevState = null, action) => {
+  switch (action.type) {
+    case Type.DELETE_CARD_ERROR:
+      return action.payload.error;
+    // case Type.DELETE_CARD_SUCCESS
     default:
       return prevState;
   }
@@ -27,6 +48,14 @@ export const goalReducer = (prevState = null, action) => {
         ? prevState
         : action.payload.goal;
 
+    default:
+      return prevState;
+  }
+};
+export const idForDeleteTaskReducer = (prevState = null, action) => {
+  switch (action.type) {
+    case Type.DELETE_CARD_SUCCESS:
+      return action.payload._id;
     default:
       return prevState;
   }

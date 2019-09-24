@@ -6,8 +6,9 @@ import style from './User.module.css';
 import { ReactComponent as LogoOut } from '../../assets/images/logout.svg';
 import Avatar from '../../assets/images/avatar.jpeg';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
+import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
 
-const User = ({ handleOpen, user }) => {
+const User = ({ user, openModalLogout }) => {
   const { name, age } = user;
   return (
     <>
@@ -18,7 +19,7 @@ const User = ({ handleOpen, user }) => {
           <span className={style.userAge}>{age} років</span>
         </div>
       </div>
-      <button type="button" className={style.btn} onClick={handleOpen}>
+      <button type="button" className={style.btn} onClick={openModalLogout}>
         <LogoOut />
       </button>
     </>
@@ -29,12 +30,19 @@ const MSTP = s => ({
   user: dashboardSelectors.getUser(s),
 });
 
+const MDTP = dispatch => ({
+  openModalLogout: e => dispatch(logoutActions.openModal(e)),
+});
+
 User.propTypes = {
-  user: PropTypes.object.isRequired,
-  handleOpen: PropTypes.func.isRequired,
+  openModalLogout: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    age: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default connect(
   MSTP,
-  null,
+  MDTP,
 )(User);

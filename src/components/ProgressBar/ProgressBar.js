@@ -40,6 +40,7 @@ const ProgressBar = ({ goalPoints, taskPoints, percent }) => {
       </>
     );
   }
+  return '';
 };
 
 const MSTP = store => ({
@@ -56,6 +57,5 @@ ProgressBar.propTypes = {
 
 export default connect(
   MSTP,
-  // null,
   null,
 )(ProgressBar);

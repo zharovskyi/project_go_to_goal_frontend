@@ -3,6 +3,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import {
+  errorsModalDeleteReducer,
+  idForDeleteTaskReducer,
+} from './Dashboard/DashboardReducers';
 
 // импортируем сюда свои редюсеры
 import sessionLoginReducers from './sessionLogin/sessionLoginReducers';
@@ -20,6 +24,8 @@ const rootReducer = combineReducers({
   goal: dashboardReducers.goalReducer,
   tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
+  idForDeleteTask: idForDeleteTaskReducer,
+  errorsModalDelete: errorsModalDeleteReducer,
   isLoading: dashboardReducers.isLoadingReducer,
   dashboardErrors: dashboardReducers.errorsReducer,
 });

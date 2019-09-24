@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // style & npm
@@ -13,62 +11,19 @@ import Goal from '../Goal/Goal';
 import User from '../User/User';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
-// redux
-import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
-import * as headerSelectors from '../../redux/Header/HeaderSelectors';
-import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
-import * as congratsActions from '../../redux/ModalCongrats/ModalCongratsActions';
-
-class Header extends Component {
-  state = {};
-
-  render() {
-    const {
-      windowWidth,
-      goalTitle,
-      percent,
-      openModalLogout,
-      openModalCongrats,
-    } = this.props;
-    return (
-      <header className={css.header}>
-        <Logo />
-        {windowWidth > 320 && (
-          <Goal
-            title={goalTitle}
-            handleOpen={openModalCongrats}
-            percent={percent}
-          />
-        )}
-        {windowWidth > 1279 && <ProgressBar />}
-        <User handleOpen={openModalLogout} />
-      </header>
-    );
-  }
-}
-
-const MSTP = store => ({
-  percent: headerSelectors.getPercent(store),
-  goalTitle: headerSelectors.getTitle(store),
-});
-
-const MDTP = dispatch => ({
-  openModalLogout: e => dispatch(logoutActions.openModal(e)),
-  openModalCongrats: e => dispatch(congratsActions.openModal(e)),
-});
-
-Header.propTypes = {
-  goalTitle: PropTypes.string.isRequired,
-  windowWidth: PropTypes.number.isRequired,
-  percent: PropTypes.number.isRequired,
-  openModalLogout: PropTypes.func.isRequired,
-  openModalCongrats: PropTypes.func.isRequired,
+const Header = ({ windowWidth }) => {
+  return (
+    <header className={css.header}>
+      <Logo />
+      {windowWidth > 320 && <Goal />}
+      {windowWidth > 1279 && <ProgressBar />}
+      <User />
+    </header>
+  );
 };
 
-export default compose(
-  connect(
-    MSTP,
-    MDTP,
-  ),
-  windowSize,
-)(Header);
+Header.propTypes = {
+  windowWidth: PropTypes.number.isRequired,
+};
+
+export default windowSize(Header);
