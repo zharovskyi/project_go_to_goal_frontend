@@ -45,7 +45,6 @@ class DashboardPage extends Component {
 
   render() {
     const {
-      windowWidth,
       isModalAddTaskOpen,
       isModalCongratsOpen,
       isModalCreateGoalOpen,
@@ -58,6 +57,8 @@ class DashboardPage extends Component {
       onCloseModalLogout,
       isLoading,
     } = this.props;
+
+    const windowWidth = document.documentElement.clientWidth;
 
     return (
       <div className={styles.dashboardBody}>
@@ -98,7 +99,6 @@ class DashboardPage extends Component {
 }
 
 DashboardPage.propTypes = {
-  windowWidth: PropTypes.number.isRequired,
   isModalAddTaskOpen: PropTypes.bool.isRequired,
   isModalCongratsOpen: PropTypes.bool.isRequired,
   isModalCreateGoalOpen: PropTypes.bool.isRequired,
