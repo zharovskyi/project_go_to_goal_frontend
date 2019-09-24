@@ -9,6 +9,7 @@ import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
 const User = ({ user }) => {
   const { name, age } = user;
+
   return (
     <>
       <div className={style.userInfo}>
