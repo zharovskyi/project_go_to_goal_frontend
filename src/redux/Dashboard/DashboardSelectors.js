@@ -23,3 +23,8 @@ export const getUserPoints = store =>
   store.tasks
     .filter(task => task.isDone)
     .reduce((total, task) => total + task.points, 0);
+
+export const cardStatus = (store, _id) =>
+  store.tasks.length > 0
+    ? store.tasks.find(el => el._id === _id).isDone
+    : false;

@@ -10,42 +10,23 @@ const withAuthRedirect = BaseComponent => {
       history: PropTypes.shape({
         replace: PropTypes.func.isRequired,
       }).isRequired,
-      // location: PropTypes.func.isRequired,
+      location: PropTypes.shape({}).isRequired,
     };
 
     componentDidMount() {
       const { authenticated, history } = this.props;
-      if (authenticated) {
-        history.replace('/dashboard');
-      }
+      if (!authenticated) return;
+      history.replace('/dashboard');
     }
 
     componentDidUpdate() {
-      const { authenticated, history } = this.props;
-      if (authenticated) {
-        history.replace('/dashboard');
-      }
+      const { authenticated, history, location } = this.props;
+      if (!authenticated) return;
+      if (location.state && location.state.from)
+        return history.replace(location.state.from);
+
+      history.replace('/dashboard');
     }
-
-    // componentDidMount() {
-    //   const { authenticated, history } = this.props;
-    //   if (!authenticated) return;
-
-    //   history.replace('/');
-    // }
-
-    // componentDidUpdate() {
-    //   const { authenticated, history, location } = this.props;
-    //   if (!authenticated) return;
-
-    //   console.log('WithAuthRedirect: ', this.props);
-
-    //   if (location.state && location.state.from)
-    //     // eslint-disable-next-line consistent-return
-    //     return history.replace(location.state.from);
-
-    //   history.replace('/');
-    // }
 
     render() {
       // eslint-disable-next-line react/jsx-props-no-spreading
