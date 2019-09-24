@@ -21,7 +21,7 @@ export const getGoalPoints = store =>
 
 export const getUserPoints = store =>
   store.tasks
-    .filter(task => task.isDone)
+    .filter(task => task.isComplete)
     .reduce((total, task) => total + task.points, 0);
 
 export const getPercent = store => {
@@ -29,6 +29,7 @@ export const getPercent = store => {
   const task = getUserPoints(store);
   return (task / goal) * 100;
 };
+
 export const cardStatus = (store, _id) =>
   store.tasks.length > 0
     ? store.tasks.find(el => el._id === _id).isDone
