@@ -27,7 +27,6 @@ import {
 
 class LoginPage extends Component {
   static propTypes = {
-    windowWidth: PropTypes.number.isRequired,
     isModalOpen: PropTypes.bool.isRequired,
     onLogin: PropTypes.func.isRequired,
     onOpenModal: PropTypes.func.isRequired,
@@ -43,18 +42,18 @@ class LoginPage extends Component {
     email: '',
     password: '',
     showPassword: 'password',
-    windowWidth: null,
+    // windowWidth: null,
   };
 
-  componentDidMount() {
-    window.addEventListener('resize', this.windowWidth());
-  }
+  // componentDidMount() {
+  //   window.addEventListener('resize', this.windowWidth());
+  // }
 
-  windowWidth = () => {
-    this.setState({
-      windowWidth: document.documentElement.clientWidth,
-    });
-  };
+  // windowWidth = () => {
+  //   this.setState({
+  //     windowWidth: document.documentElement.clientWidth,
+  //   });
+  // };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -83,17 +82,11 @@ class LoginPage extends Component {
   };
 
   render() {
-    const { email, password, showPassword, windowWidth } = this.state;
-    const {
-      // windowWidth,
-      isModalOpen,
-      onOpenModal,
-      onCloseModal,
-      errorMessage,
-    } = this.props;
-    // const windowWidth = document.documentElement.clientWidth;
+    const { email, password, showPassword } = this.state;
+    const { isModalOpen, onOpenModal, onCloseModal, errorMessage } = this.props;
+    const windowWidth = document.documentElement.clientWidth;
     // const windowWidth = window.screen.clientWidth;
-    console.log('windowWidth :', windowWidth);
+    // console.log('windowWidth :', windowWidth);
     return (
       <div className={s.login_page}>
         {isModalOpen && (
