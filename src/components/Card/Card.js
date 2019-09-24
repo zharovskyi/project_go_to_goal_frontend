@@ -24,14 +24,14 @@ class Card extends Component {
       <li className={styles.cardLi}>
         {task.inActive ? (
           <CardBodyActive
-            onChangeToggle={this.handleCheckedToggle}
+            // onChangeToggle={handleCheckedToggle}
             isDone={task.isDone}
             points={task.points}
             _id={task._id}
           />
         ) : (
           <CardBodyDone
-            isDone={isDone}
+            isDone={task.isDone}
             points={task.points}
             createdAt={task.createdAt}
           />

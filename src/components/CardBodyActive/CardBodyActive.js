@@ -6,16 +6,28 @@ import ToggleButton from '../ToggleButton/ToggleButton';
 import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
 import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg';
 import * as modalDeleteActions from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
+import { removeCardsSuccess } from '../../redux/Dashboard/DashboardActions';
+import { cardStatus } from '../../redux/Dashboard/DashboardSelectors';
 
 // const pointsS = 500;
 
-const CardBodyActive = ({ points, onChangeToggle, isDone, openModal, _id }) => {
+const CardBodyActive = ({
+  points,
+  onChangeToggle,
+  isDone,
+  openModal,
+  _id,
+  getID,
+}) => {
   return (
     <>
       <div className={isDone ? styles.isDone : styles.bodyCard}>
         <button
           type="button"
-          onClick={openModal}
+          onClick={() => {
+            getID(_id);
+            openModal();
+          }}
           className={styles.SVG_close_btn}
         >
           <CloseSVG className={styles.SVG_close} />
@@ -26,15 +38,28 @@ const CardBodyActive = ({ points, onChangeToggle, isDone, openModal, _id }) => {
           <p className={styles.points_txt_number}>{points}</p>
           <p className={styles.points_txt_p}>балів</p>
         </div>
-        <ToggleButton onChangeToggle={onChangeToggle} />
+        <ToggleButton
+          onChangeToggle={onChangeToggle}
+          checked={isDone}
+          id={_id}
+        />
       </div>
     </>
   );
 };
 
-const mapDispatchToProps = {
-  openModal: modalDeleteActions.openModal,
-};
+// const mapDispatchToProps = {
+//   openModal: modalDeleteActions.openModal,
+// };
+
+// const mapStateToProps = (store, _id) => ({
+//   isDone: cardStatus(store, _id),
+// });
+
+const mapDispatchToProps = dispatch => ({
+  getID: id => dispatch(removeCardsSuccess(id)),
+  openModal: () => dispatch(modalDeleteActions.openModal()),
+});
 
 export default connect(
   null,
