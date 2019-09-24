@@ -22,7 +22,6 @@ export const goalReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
     case TypeAddGoal.ADD_GOAL_SUCCESS:
-      console.log(action.payload);
       return action.payload.goal === undefined
         ? prevState
         : action.payload.goal;
