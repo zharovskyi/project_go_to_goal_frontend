@@ -12,6 +12,7 @@ import {
 import sessionLoginReducers from './sessionLogin/sessionLoginReducers';
 import modalsReducers from './modalsReducers';
 import * as dashboardReducers from './Dashboard/DashboardReducers';
+import { errorModalCongratsReducer } from './ModalCongrats/ModalCongratsReducers';
 
 const sessionPersistConfig = {
   key: 'session',
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   errorsModalDelete: errorsModalDeleteReducer,
   isLoading: dashboardReducers.isLoadingReducer,
   dashboardErrors: dashboardReducers.errorsReducer,
+  modalCongratsError: errorModalCongratsReducer,
 });
 
 const middleware = [ReduxThunk];

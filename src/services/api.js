@@ -67,3 +67,14 @@ export const getGoal = (goalAlias, token) =>
       Authorization: token,
     },
   });
+
+export const patchGoal = (goalId, token) =>
+  axios.patch(
+    `goals/${goalId}`,
+    { isDone: true },
+    {
+      headers: {
+        Authorization: `${token}`,
+      },
+    },
+  );
