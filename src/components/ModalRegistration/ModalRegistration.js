@@ -9,6 +9,11 @@ import IconsAvatar from '../IconAvatar/IconAvatar';
 // import passwordValidation from './signUpValidations';
 
 class ModalRegistration extends Component {
+  static propTypes = {
+    onSignUp: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired,
+  };
+
   state = {
     username: '',
     age: '',
@@ -16,6 +21,7 @@ class ModalRegistration extends Component {
     password: '',
     correctPassword: '',
     errorPassword: '',
+    avatar: 'https://go-to-goal.goit.co.ua/image/avatar_008.png',
   };
 
   HandleSubmitForm = e => {
@@ -23,13 +29,13 @@ class ModalRegistration extends Component {
     if (this.state.password === this.state.correctPassword) {
       // тут запускать операцию
       const { onSignUp } = this.props;
-      const { username, password, email, age } = this.state;
+      const { username, password, email, age, avatar } = this.state;
       onSignUp({
         email,
         password,
         name: username,
         age,
-        avatar: 'https://gravatar.com/asgklasgw',
+        avatar,
         isChild: true,
       });
     } else {
@@ -40,6 +46,7 @@ class ModalRegistration extends Component {
   };
 
   handleCloseModal = () => {
+    // eslint-disable-next-line no-shadow
     const { closeModal } = this.props;
 
     closeModal();
@@ -47,6 +54,10 @@ class ModalRegistration extends Component {
 
   HandleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  changeUserPic = avatar => {
+    return this.setState({ avatar });
   };
 
   render() {
@@ -66,7 +77,10 @@ class ModalRegistration extends Component {
         </div>
         <div className={s.image_form}>
           <div className={s.image}>
-            <IconsAvatar className={s.user_image_component} />
+            <IconsAvatar
+              className={s.user_image_component}
+              changeAvatar={this.changeUserPic}
+            />
           </div>
           <form className={s.form} onSubmit={this.HandleSubmitForm}>
             <div className={s.wrapper}>
@@ -143,13 +157,6 @@ class ModalRegistration extends Component {
     );
   }
 }
-
-ModalRegistration.propTypes = {
-  onSignUp: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
-};
-
-// export default ModalRegistration;
 
 const mapDispatchToProps = {
   onSignUp: sessionOperations.signupOperation,
