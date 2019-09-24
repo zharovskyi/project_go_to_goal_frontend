@@ -3,13 +3,21 @@
   border: none;
   cursor: pointer;
   outline: none;
+  width: 20px;
+  height: 20px;
 }
 
 .userInfo {
   font-family: 'Monserrat';
   display: flex;
   align-items: center;
-  max-width: 200px;
+  min-width: 100px;
+}
+
+.colum {
+  display: flex;
+  flex-flow: column;
+  margin: 0 15px;
 }
 
 @media screen and (max-width: 767px) {
