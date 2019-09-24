@@ -7,7 +7,7 @@ import { Progress } from 'react-sweet-progress';
 import css from './ProgressBar.module.css';
 
 // redux
-import * as headerSelectors from '../../redux/Header/HeaderSelectors';
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
 const ProgressBar = ({ goalPoints, taskPoints, percent }) => {
   if ((percent, taskPoints, goalPoints !== null)) {
@@ -44,9 +44,9 @@ const ProgressBar = ({ goalPoints, taskPoints, percent }) => {
 };
 
 const MSTP = store => ({
-  goalPoints: headerSelectors.getGoalPoints(store),
-  taskPoints: headerSelectors.getTasksPoints(store),
-  percent: headerSelectors.getPercent(store),
+  goalPoints: dashboardSelectors.getGoalPoints(store),
+  taskPoints: dashboardSelectors.getUserPoints(store),
+  percent: dashboardSelectors.getPercent(store),
 });
 
 ProgressBar.propTypes = {
