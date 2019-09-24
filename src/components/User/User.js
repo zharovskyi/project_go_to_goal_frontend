@@ -14,7 +14,7 @@ const User = ({ user, openModalLogout }) => {
   return (
     <>
       <div className={style.userInfo}>
-        <img src={Avatar} width="55" height="55" alt="Вася Пупкін" />
+        <img src={Avatar} width="25" height="25" alt="Вася Пупкін" />
         <div className={style.colum}>
           <span className={style.userName}>{name}</span>
           <span className={style.userAge}>{age} років</span>
