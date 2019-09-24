@@ -54,15 +54,29 @@ export const getGoalOperation = token => dispatch => {
 export const getErrorOperation = errors => {
   errors.map(error =>
     toast.error(
-      <div>
-        {error.name}: {error.message}
-        <br />
-        <br />
-        METHOD: {error.config.method}
-        <br />
-        <br />
-        URL: {error.config.url}
-      </div>,
+      error !== null ? (
+        <div>
+          {error.name}: {error.message}
+          <br />
+          <br />
+          {error.config !== undefined && (
+            <div>
+              <br />
+              <br />
+              METHOD: `${error.config.method}`
+            </div>
+          )}
+          {error.config !== undefined && (
+            <div>
+              <br />
+              <br />
+              `URL: ${error.config.url}`
+            </div>
+          )}
+        </div>
+      ) : (
+        ''
+      ),
       {
         autoClose: false,
         position: toast.POSITION.BOTTOM_RIGHT,

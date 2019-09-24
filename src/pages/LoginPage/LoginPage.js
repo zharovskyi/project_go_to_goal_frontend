@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import windowSize from 'react-window-size';
+// import windowSize from 'react-window-size';
 import PropTypes from 'prop-types';
 import { login } from '../../redux/sessionLogin/sessionLoginOperations';
-import getIsAuthenticated from '../../redux/sessionLogin/sessionLoginSelectors';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 
 // HTML & CSS
 import s from './LoginPage.module.css';
 import logo from '../../assets/images/login-page-logo@1X.png';
-import coverImg from '../../assets/images/login-page-cover@1X.png';
 import { ReactComponent as Party } from '../../assets/svg/party.svg';
 import LoginForm from '../../components/LoginPage/LoginForm';
 import LoginCover from '../../components/LoginPage/LoginCover';
@@ -20,6 +19,7 @@ import LoginFooter from '../../components/LoginPage/LoginFooter';
 import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
+import { getErrorMessage } from '../../redux/sessionLogin/sessionLoginSelectors';
 import {
   openModal,
   closeModal,
@@ -27,30 +27,33 @@ import {
 
 class LoginPage extends Component {
   static propTypes = {
-    windowWidth: PropTypes.number.isRequired,
     isModalOpen: PropTypes.bool.isRequired,
+    onLogin: PropTypes.func.isRequired,
     onOpenModal: PropTypes.func.isRequired,
     onCloseModal: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string,
+  };
+
+  static defaultProps = {
+    errorMessage: '',
   };
 
   state = {
     email: '',
     password: '',
+    showPassword: 'password',
+    // windowWidth: null,
   };
 
-  componentDidMount() {
-    const { authenticated, history } = this.props;
-    if (authenticated) {
-      history.replace('/dashboard');
-    }
-  }
+  // componentDidMount() {
+  //   window.addEventListener('resize', this.windowWidth());
+  // }
 
-  componentDidUpdate() {
-    const { authenticated, history } = this.props;
-    if (authenticated) {
-      history.replace('/dashboard');
-    }
-  }
+  // windowWidth = () => {
+  //   this.setState({
+  //     windowWidth: document.documentElement.clientWidth,
+  //   });
+  // };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -60,22 +63,30 @@ class LoginPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    // const { login, password } = this.state;
-
     this.props.onLogin({ ...this.state });
     this.reset();
+  };
+
+  onShowPassword = () => {
+    this.setState(prevState => ({
+      showPassword: prevState.showPassword === 'password' ? 'text' : 'password',
+    }));
   };
 
   reset = () => {
     this.setState({
       login: '',
       password: '',
+      showPassword: 'password',
     });
   };
 
   render() {
-    const { email, password } = this.state;
-    const { windowWidth, isModalOpen, onOpenModal, onCloseModal } = this.props;
+    const { email, password, showPassword } = this.state;
+    const { isModalOpen, onOpenModal, onCloseModal, errorMessage } = this.props;
+    const windowWidth = document.documentElement.clientWidth;
+    // const windowWidth = window.screen.clientWidth;
+    // console.log('windowWidth :', windowWidth);
     return (
       <div className={s.login_page}>
         {isModalOpen && (
@@ -93,69 +104,85 @@ class LoginPage extends Component {
           <header className={s.header}>
             <div className={s.header_form}>
               <img src={logo} alt="logo" width="104" className={s.logo} />
+              {errorMessage &&
+                (errorMessage.includes('40') ||
+                  errorMessage.includes('41')) && (
+                  <p className={s.error}>
+                    Вибачте, але ви вiдправили некоректнi даннi...
+                  </p>
+                )}
+              {errorMessage && errorMessage.includes('50') && (
+                <p className={s.error}>
+                  Вибачте, але у нас виникли деякi труднощi. Спробуйте
+                  пiзнiше...
+                </p>
+              )}
               <LoginForm
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
+                onShowPassword={this.onShowPassword}
+                showPassword={showPassword}
                 email={email}
                 password={password}
-                sForm={s.form}
               />
             </div>
           </header>
         )}
         <main className={s.main}>
           {/* TABLET & DESKTOP || COVER */}
-          {windowWidth > 767 && (
-            <LoginCover
-              sCover={s.cover}
-              coverImg={coverImg}
-              sBgCover={s.bg_cover}
-            />
-          )}
+          {windowWidth > 767 && <LoginCover />}
           <div className={s.greeting}>
             {/* ALL || TITLE */}
-            <LoginGreetingTitle sTitle={s.title} />
+            <LoginGreetingTitle />
 
             {/* MOBILE ||FORM */}
             {windowWidth < 768 && (
-              <LoginForm
-                onOpenModal={onOpenModal}
-                onSubmit={this.handleSubmit}
-                onChange={this.handleChange}
-                login={email}
-                password={password}
-                sForm={s.form}
-                sRegBtn={s.reg_btn}
-              />
+              <>
+                <LoginForm
+                  onOpenModal={onOpenModal}
+                  onSubmit={this.handleSubmit}
+                  onChange={this.handleChange}
+                  onShowPassword={this.onShowPassword}
+                  showPassword={showPassword}
+                  email={email}
+                  password={password}
+                />
+                {errorMessage &&
+                  (errorMessage.includes('40') ||
+                    errorMessage.includes('41')) && (
+                    <p className={s.error}>
+                      Вибачте, але ви вiдправили некоректнi даннi...
+                    </p>
+                  )}
+                {errorMessage && errorMessage.includes('50') && (
+                  <p className={s.error}>
+                    Вибачте, але у нас виникли деякi труднощi. Спробуйте
+                    пiзнiше...
+                  </p>
+                )}
+              </>
             )}
 
             {/* TABLET & DESKTOP ||GREETING */}
-            {windowWidth > 767 && (
-              <LoginGreeting sGreetingText={s.greeting_text} />
-            )}
+            {windowWidth > 767 && <LoginGreeting />}
             {windowWidth > 767 && <Party className={s.decor} />}
 
             {/* ALL || BTN REG */}
-            <LoadingGreetingBtn
-              onOpenModal={onOpenModal}
-              sGreetingBtn={s.greeting_btn}
-            />
+            <LoadingGreetingBtn onOpenModal={onOpenModal} />
           </div>
         </main>
 
         {/* TABLET & DESKTOP || FOOTER */}
-        {windowWidth > 767 && (
-          <LoginFooter sFooter={s.footer} sFooterText={s.footer_text} />
-        )}
+        {windowWidth > 767 && <LoginFooter />}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  authenticated: getIsAuthenticated(state),
   isModalOpen: getIsOpenModalRegister(state),
+  errorMessage: getErrorMessage(state),
 });
 
 const mapDispatchToProps = {
@@ -169,5 +196,6 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-  windowSize,
+  withAuthRedirect,
+  // windowSize,
 )(LoginPage);

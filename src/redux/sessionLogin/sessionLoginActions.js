@@ -3,7 +3,12 @@ export const ActionType = {
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
   LOGIN_ERROR: 'LOGIN_ERROR',
   LOGOUT: 'LOGOUT',
+  REFRESH_REQUEST: 'REFRESH_REQUEST',
+  REFRESH_SUCCESS: 'REFRESH_SUCCESS',
+  REFRESH_ERROR: 'REFRESH_ERROR',
 };
+
+// LOGIN
 
 export const loginRequest = () => ({
   type: ActionType.LOGIN_REQUEST,
@@ -19,6 +24,24 @@ export const loginError = error => ({
   payload: { error },
 });
 
+// REFRESH
+
+export const refreshRequest = () => ({
+  type: ActionType.REFRESH_REQUEST,
+});
+
+export const refreshSuccess = response => ({
+  type: ActionType.REFRESH_SUCCESS,
+  payload: { response },
+});
+
+export const refreshError = error => ({
+  type: ActionType.REFRESH_ERROR,
+  payload: { error },
+});
+
+// LOGOUT
+
 export const logout = () => ({
-  type: ActionType.LOGIN_ERROR,
+  type: ActionType.LOGOUT,
 });

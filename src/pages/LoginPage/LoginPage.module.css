@@ -21,6 +21,16 @@
   background-color: var(--color-white);
 }
 
+.form {
+  display: flex;
+}
+
+.form div {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
 .form input {
   margin: 0;
   padding: 0;
@@ -42,6 +52,33 @@
   font-weight: 600;
 }
 
+.form input:valid:not(:placeholder-shown) {
+  /* border-bottom: 2px solid #94cf4b; */
+  color: #94cf4b;
+}
+
+.form input:invalid:not(:placeholder-shown) {
+  /* border-bottom: 2px solid #ff3561; */
+  color: #ff3561;
+}
+
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus,
+.form input:-webkit-autofill:active {
+  /* border-bottom: 2px solid #94cf4b; */
+  -webkit-text-fill-color: #94cf4b;
+  box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 174, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0) 51%,
+    rgba(0, 174, 255, 0.03) 100%
+  );
+}
+
 .form input:focus {
   outline: none;
 }
@@ -50,7 +87,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  margin-left: 20px;
+  margin-left: 30px;
   font-size: 12px;
   letter-spacing: 1px;
   background-color: var(--color-white);
@@ -59,15 +96,39 @@
   font-weight: 600;
 }
 
+.btn_eye[type='button'] {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--color-gray);
+}
+
+.eye {
+  width: 12px;
+  height: 12px;
+  fill: var(--color-gray);
+}
+
 .form button:focus {
   outline: none;
+}
+
+.error {
+  color: #ff3561;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 /* MAIN */
 
 .main {
   position: relative;
-  /* padding: 50px 0; */
 }
 
 .cover {
@@ -80,7 +141,8 @@
 }
 
 .bg_cover {
-  width: 52vw;
+  width: auto;
+  height: 27vh;
 }
 
 .greeting {
@@ -94,13 +156,11 @@
 
 .title {
   width: 40.85vw;
-  display: block;
+  height: 3vh;
   margin: 0 auto;
-  /* margin-top: 50px; */
   margin-bottom: 26px;
   font-size: 27px;
   letter-spacing: 2px;
-  line-height: 45px;
   color: var(--color-dark-blue);
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
@@ -109,16 +169,16 @@
 }
 
 .greeting_text {
-  width: 737px;
+  width: 60vw;
+  height: 7vh;
   font-size: 14px;
   letter-spacing: 1px;
-  line-height: 23px;
   color: var(--color-gray);
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .greeting_btn {
@@ -185,41 +245,37 @@
     padding: 0 15px 0 10px;
   }
 
-  .header input {
+  .form input {
     width: 150px;
     margin-left: 10px;
   }
 
-  .header input::placeholder {
+  .form input::placeholder {
     font-size: 10px;
   }
 
-  .header button {
+  .form button {
     font-size: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
   }
 
-  .bg_cover {
-    width: 64vw;
+  .title {
+    width: 100vw;
+    margin-bottom: 30px;
+  }
+
+  .greeting_text {
+    width: 100vh;
+    margin-bottom: 10px;
+  }
+
+  .greeting_btn {
+    margin-top: 10px;
   }
 
   .decor {
     width: 18.88vw;
     height: 18.88vh;
-  }
-
-  .title {
-    width: 65vw;
-    margin-bottom: 10px;
-  }
-
-  .greeting_text {
-    width: 77vh;
-    margin-bottom: 10px;
-  }
-
-  .greeting_btn {
-    margin-top: 0;
   }
 }
 
@@ -229,7 +285,7 @@
   .login_page {
     width: 100vw;
     height: 100vh;
-    padding: 74px 40px 40px;
+    padding: 74px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -241,7 +297,7 @@
     margin-bottom: 30px;
   }
 
-  .main {
+  .greeting {
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -252,7 +308,7 @@
   .title {
     width: 60vw;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     line-height: 30px;
   }
 
@@ -266,6 +322,28 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .form input {
+    width: 50vw;
+    font-size: 18px;
+  }
+
+  /* .form input[name="password"] {
+    width: 200px;
+  } */
+
+  .form input::placeholder {
+    font-size: 18px;
+  }
+
+  .eye {
+    width: 25px;
+    height: 25px;
+  }
+
+  .form button {
+    font-size: 20px;
   }
 
   .reg_btn {

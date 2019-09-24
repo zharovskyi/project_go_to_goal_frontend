@@ -20,6 +20,8 @@ const rootReducer = combineReducers({
   goal: dashboardReducers.goalReducer,
   tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
+  idForDeleteTask: dashboardReducers.idForDeleteTaskReducer,
+  errorsModalDelete: dashboardReducers.errorsModalDeleteReducer,
   isLoading: dashboardReducers.isLoadingReducer,
   dashboardErrors: dashboardReducers.errorsReducer,
 });
