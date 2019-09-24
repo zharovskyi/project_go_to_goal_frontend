@@ -20,7 +20,7 @@ export const tasksReducer = (prevState = [], action) => {
     case Type.TASK_TOGGLE:
       return prevState.map(el => {
         if (el._id === action.payload._id) {
-          return { ...el, isDone: !el.isDone };
+          return { ...el, isComplete: !el.isComplete };
         }
         return el;
       });
@@ -43,7 +43,6 @@ export const goalReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
     case TypeAddGoal.ADD_GOAL_SUCCESS:
-      console.log(action.payload);
       return action.payload.goal === undefined
         ? prevState
         : action.payload.goal;
