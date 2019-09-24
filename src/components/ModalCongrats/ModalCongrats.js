@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // import PropTypes from 'prop-types';
 import styles from './ModalCongrats.module.css';
@@ -14,11 +14,13 @@ const ModalCongrats = () => {
           <p className={styles.textPrise}>Велосипед</p>
           <p className={styles.textNewTask}>Час вибирати нову ціль!</p>
         </div>
-        <Link to="/dashboard">
-          <button className={styles.button} type="button">
-            Так!
-          </button>
-        </Link>
+        <button
+          className={styles.button}
+          // onClick={e => handleClick(e)}
+          type="button"
+        >
+          Так!
+        </button>
       </div>
     </div>
   );
