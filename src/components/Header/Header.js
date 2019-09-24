@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 // style & npm
-import windowSize from 'react-window-size';
 import css from './Header.module.css';
 
 // components
@@ -10,20 +9,23 @@ import Logo from '../Logo/Logo';
 import Goal from '../Goal/Goal';
 import User from '../User/User';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
-const Header = ({ windowWidth }) => {
+const Header = ({ goal }) => {
+  const windowWidth = document.documentElement.clientWidth;
   return (
     <header className={css.header}>
       <Logo />
-      {windowWidth > 320 && <Goal />}
-      {windowWidth > 1279 && <ProgressBar />}
+      {goal !== null && (windowWidth > 320 && <Goal />)}
+      {goal !== null && (windowWidth > 1279 && <ProgressBar />)}
       <User />
     </header>
   );
 };
-
-Header.propTypes = {
-  windowWidth: PropTypes.number.isRequired,
-};
-
-export default windowSize(Header);
+const MSTP = s => ({
+  goal: dashboardSelectors.getGoal(s),
+});
+export default connect(
+  MSTP,
+  null,
+)(Header);

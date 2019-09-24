@@ -13,15 +13,23 @@ class ActiveTaskList extends Component {
   render() {
     const { activePosts, getGoal } = this.props;
 
-    if (getGoal === null) {
+    if (getGoal === '' || getGoal === null) {
       return <NewGoal />;
     }
 
     if (activePosts.length === 0) {
-      return <li className={styles.activeTaskCard}> </li>;
+      return (
+        <>
+          <h2 className={styles.dailyTasks}>Мої завдання:</h2>
+          <h2 className={styles.blocksTitles}>Сьогодні</h2>
+          <li className={styles.activeTaskCard}> </li>
+        </>
+      );
     }
     return (
       <>
+        <h2 className={styles.dailyTasks}>Мої завдання:</h2>
+        <h2 className={styles.blocksTitles}>Сьогодні</h2>
         <ul className={styles.activeCards}>
           {activePosts.map(activePost => (
             <Card key={activePost._id} task={activePost} />
