@@ -1,39 +1,24 @@
-import React, { Component } from 'react';
-import windowSize from 'react-window-size';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import React from 'react';
+
+// style & npm
 import css from './Header.module.css';
+
+// components
 import Logo from '../Logo/Logo';
 import Goal from '../Goal/Goal';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import User from '../User/User';
-import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
-class Header extends Component {
-  state = {};
+const Header = () => {
+  const windowWidth = document.documentElement.clientWidth;
+  return (
+    <header className={css.header}>
+      <Logo />
+      {windowWidth > 320 && <Goal />}
+      {windowWidth > 1279 && <ProgressBar />}
+      <User />
+    </header>
+  );
+};
 
-  render() {
-    const { windowWidth, goal } = this.props;
-    return (
-      <header className={css.header}>
-        <Logo />
-        {windowWidth > 320 && goal && <Goal />}
-        {windowWidth > 1279 && goal && <ProgressBar />}
-        <User />
-      </header>
-    );
-  }
-}
-
-const mapStateToProps = store => ({
-  goal: dashboardSelectors.getGoal(store),
-});
-const mapDispatchToProps = {};
-
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-  windowSize,
-)(Header);
+export default Header;
