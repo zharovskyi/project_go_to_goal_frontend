@@ -1,6 +1,4 @@
-import windowSize from 'react-window-size';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 
 // ACTIONS
 import * as modalAddTaskActions from '../../redux/ModalAddTask/ModalAddTaskActions';
@@ -39,10 +37,7 @@ const mapDispatchToProps = dispatch => ({
   onDashboardErrors: errors => dashboardOperations.getErrorOperation(errors),
 });
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-  windowSize,
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
 )(DashboardPage);
