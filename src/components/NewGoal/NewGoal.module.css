@@ -1,6 +1,6 @@
 .new_goal_section {
   width: 840px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   padding-top: 50px;
   font-family: 'Montserrat';
 }
@@ -103,6 +103,7 @@
     background-repeat: no-repeat;
     background-position: 0% 50%;
     padding: 120px 0 0;
+    margin: 0 auto;
   }
   .container {
     width: 486px;
