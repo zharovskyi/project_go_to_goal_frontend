@@ -14,6 +14,7 @@ import User from '../User/User';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 // redux
+import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import * as headerSelectors from '../../redux/Header/HeaderSelectors';
 import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
 import * as congratsActions from '../../redux/ModalCongrats/ModalCongratsActions';
@@ -25,8 +26,6 @@ class Header extends Component {
     const {
       windowWidth,
       goalTitle,
-      userName,
-      userAge,
       percent,
       openModalLogout,
       openModalCongrats,
@@ -42,11 +41,7 @@ class Header extends Component {
           />
         )}
         {windowWidth > 1279 && <ProgressBar />}
-        <User
-          handleOpen={openModalLogout}
-          userName={userName}
-          userAge={userAge}
-        />
+        <User handleOpen={openModalLogout} />
       </header>
     );
   }
@@ -55,8 +50,6 @@ class Header extends Component {
 const MSTP = store => ({
   percent: headerSelectors.getPercent(store),
   goalTitle: headerSelectors.getTitle(store),
-  userName: headerSelectors.userName(store),
-  userAge: headerSelectors.userAge(store),
 });
 
 const MDTP = dispatch => ({
@@ -67,8 +60,6 @@ const MDTP = dispatch => ({
 Header.propTypes = {
   goalTitle: PropTypes.string.isRequired,
   windowWidth: PropTypes.number.isRequired,
-  userName: PropTypes.string.isRequired,
-  userAge: PropTypes.number.isRequired,
   percent: PropTypes.number.isRequired,
   openModalLogout: PropTypes.func.isRequired,
   openModalCongrats: PropTypes.func.isRequired,

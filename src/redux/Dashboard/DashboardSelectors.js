@@ -23,3 +23,9 @@ export const getUserPoints = store =>
   store.tasks
     .filter(task => task.isDone)
     .reduce((total, task) => total + task.points, 0);
+
+export const getPercent = store => {
+  const goal = getGoalPoints(store);
+  const task = getUserPoints(store);
+  return (task / goal) * 100;
+};

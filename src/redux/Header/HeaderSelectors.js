@@ -1,7 +1,8 @@
-export const getTitle = s => s.goal.title;
+export const getTitle = s =>
+  s.session.user !== null ? s.session.user.title : '';
 
 // ProgressBar
-export const getGoalPoints = s => s.goal.points;
+export const getGoalPoints = s => (s.goal !== null ? s.goal.points : 0);
 //
 export const getTasks = s => s.tasks;
 
