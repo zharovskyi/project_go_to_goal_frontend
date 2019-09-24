@@ -1,96 +1,100 @@
 .goal {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .goalLogo {
-    display: flex;
-    text-align: center;
-    align-items: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 
 .goalName {
-    font-family: 'Montserrat';
-    font-weight: bold;
-    color: #858598;
-    font-size: 12px;
-    line-height: 32px;
-    margin: 0;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: #858598;
+  font-size: 12px;
+  line-height: 32px;
+  margin: 0;
 }
 
 .goalBtn {
-    display: block;
-    font-family: 'Montserrat';
-    font-weight: bold;
-    text-transform: uppercase;
-    min-width: 180px;
-    height: 32px;
-    line-height: 32px;
-    background-color: #e0e0e0;
-    border-radius: 16px;
-    margin-left: 10px;
-    border: none;
-    pointer-events: none;
+  display: block;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-transform: uppercase;
+  min-width: 180px;
+  height: 32px;
+  line-height: 32px;
+  background-color: #e0e0e0;
+  border-radius: 16px;
+  margin-left: 10px;
+  border: none;
+  pointer-events: none;
 }
 
 .goalBtnActive {
-    display: block;
-    font-family: 'Montserrat';
-    font-weight: bold;
-    text-transform: uppercase;
-    min-width: 180px;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 16px;
-    margin-left: 10px;
-    padding: 0px 10px;
-    border: none;
-    background: linear-gradient( rgb(236, 177, 70) 0%, rgb(241, 195, 65) 55%, rgb(245, 213, 59) 100%);
-    box-shadow: 0px 8px 29px 0px rgba(178, 138, 61, 0.31);
-    transform: scale(1.05);
-    transition: all 0.5s ease-out;
-    outline: none;
+  display: block;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-transform: uppercase;
+  min-width: 180px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  margin-left: 10px;
+  padding: 0px 10px;
+  border: none;
+  background: linear-gradient(
+    rgb(236, 177, 70) 0%,
+    rgb(241, 195, 65) 55%,
+    rgb(245, 213, 59) 100%
+  );
+  box-shadow: 0px 8px 29px 0px rgba(178, 138, 61, 0.31);
+  transform: scale(1.05);
+  transition: all 0.5s ease-out;
+  outline: none;
 }
 
 .goalBtnActive::after {
-    display: block;
-    content: 'Натисни мене !';
-    width: 85px;
-    height: 45px;
-    background-image: url(../../assets/images/arrow.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-top: 40px;
-    transform: translateX(170px);
+  display: block;
+  content: 'Натисни мене !';
+  width: 85px;
+  height: 45px;
+  background-image: url(../../assets/images/arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 40px;
+  transform: translateX(170px);
 }
 
 .progresBar {
-    display: flex;
-    align-items: center;
-    min-width: 255px;
+  display: flex;
+  align-items: center;
+  min-width: 255px;
 }
 
 .progresScore {
-    color: #858598;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    font-size: 14px;
-    width: 100px;
+  color: #858598;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 14px;
+  width: 100px;
 }
 
 .total {
-    color: #000;
+  color: #000;
 }
 
 @media screen and (max-width: 1279px) {
-    .progress {
-        margin: 0 auto;
-    }
+  .progress {
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .progress {
-        max-width: 180px;
-    }
+  .progress {
+    max-width: 180px;
+  }
 }
