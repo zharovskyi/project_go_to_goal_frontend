@@ -10,6 +10,7 @@ export const patchGoalOperation = (goalId, token) => dispatch => {
     })
     .catch(err => {
       dispatch(congratsActions.modalError(err));
+      dispatch(congratsActions.closeModal());
     });
 };
 

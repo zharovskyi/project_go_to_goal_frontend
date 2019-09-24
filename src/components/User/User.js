@@ -18,8 +18,8 @@ const User = ({ user, openModalLogout }) => {
           <span className={style.userName}>{name}</span>
           <span className={style.userAge}>{age} років</span>
         </div>
+        <button type="button" className={style.btn} onClick={openModalLogout} />
       </div>
-      <button type="button" className={style.btn} onClick={openModalLogout} />
     </>
   );
 };
@@ -36,7 +36,7 @@ User.propTypes = {
   openModalLogout: PropTypes.func.isRequired,
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    age: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
   }).isRequired,
 };
 

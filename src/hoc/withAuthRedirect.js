@@ -13,6 +13,10 @@ const withAuthRedirect = BaseComponent => {
       location: PropTypes.shape({}).isRequired,
     };
 
+    state = {
+      isCdu: true,
+    };
+
     componentDidMount() {
       const { authenticated, history } = this.props;
       if (!authenticated) return;
@@ -22,10 +26,24 @@ const withAuthRedirect = BaseComponent => {
     componentDidUpdate() {
       const { authenticated, history, location } = this.props;
       if (!authenticated) return;
-      if (location.state && location.state.from)
-        return history.replace(location.state.from);
+      const { isCdu } = this.state;
+      if (isCdu) {
+        if (location.state && location.state.from) {
+          return history.replace(location.state.from);
+        }
 
-      history.replace('/dashboard');
+        history.replace('/dashboard');
+
+        this.setState({
+          isCdu: false,
+        });
+      }
+    }
+
+    componentWillUnmount() {
+      this.setState({
+        isCdu: true,
+      });
     }
 
     render() {

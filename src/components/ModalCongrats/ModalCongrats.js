@@ -5,7 +5,14 @@ import styles from './ModalCongrats.module.css';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import { patchGoalOperation } from '../../redux/ModalCongrats/ModalCongratsOperations';
 
-const ModalCongrats = ({ goalTitle, goalId, token, goalOperation }) => {
+const ModalCongrats = ({ goal, token, goalOperation }) => {
+  let goalId = '';
+  let goalTitle = '';
+  if (goal) {
+    const { _id, title } = goal;
+    goalId = _id;
+    goalTitle = title;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
@@ -28,15 +35,13 @@ const ModalCongrats = ({ goalTitle, goalId, token, goalOperation }) => {
 };
 
 ModalCongrats.propTypes = {
-  goalTitle: PropTypes.string.isRequired,
-  goalId: PropTypes.string.isRequired,
+  goal: PropTypes.shape().isRequired,
   token: PropTypes.string.isRequired,
   goalOperation: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
-  goalTitle: dashboardSelectors.getGoalTitle(store),
-  goalId: dashboardSelectors.getGoalId(store),
+  goal: dashboardSelectors.getGoal(store),
   token: dashboardSelectors.getToken(store),
 });
 
