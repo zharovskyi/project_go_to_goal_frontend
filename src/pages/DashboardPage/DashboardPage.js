@@ -27,7 +27,6 @@ class DashboardPage extends Component {
 
   componentDidMount() {
     const { onGetGoal, onGetTasks, token } = this.props;
-
     onGetGoal(token);
     onGetTasks(token);
   }
