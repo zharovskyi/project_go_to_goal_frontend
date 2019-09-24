@@ -15,18 +15,22 @@
   background-color: #fff;
   color: black;
   padding: 2%;
+  width: 400px;
   height: 200px;
   border-radius: 3%;
+  text-align: center;
 }
 
 .h2 {
   margin: 0;
-  margin-bottom: 25%;
+  margin-top: 5%;
+  margin-bottom: 15%;
 }
 
 .btnConteiner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  /* width: 30%; */
 }
 
 .btn {
@@ -37,6 +41,7 @@
   outline: none;
   cursor: pointer;
   position: relative;
+  margin: 0 20px;
 }
 
 .btn:hover {
@@ -54,18 +59,16 @@
 
 .btn:hover:before {
   content: '';
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -113,5 +116,11 @@
   }
   100% {
     background-position: 0 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .modalContent {
+    max-width: 320px;
   }
 }
