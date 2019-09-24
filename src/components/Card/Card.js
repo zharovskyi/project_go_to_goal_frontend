@@ -17,7 +17,7 @@ class Card extends Component {
   };
 
   render() {
-    const { isDone } = this.state;
+    // const { isDone } = this.state;
     // const { isActive, title, deadline, points, createdAt, _id } = this.props;
     const { task } = this.props;
     return (

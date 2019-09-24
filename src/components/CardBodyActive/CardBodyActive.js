@@ -7,7 +7,7 @@ import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
 import { ReactComponent as CloseSVG } from '../../assets/icons/close.svg';
 import * as modalDeleteActions from '../../redux/ModalDeleteTask/ModalDeleteTaskActions';
 import { removeCardsSuccess } from '../../redux/Dashboard/DashboardActions';
-import { cardStatus } from '../../redux/Dashboard/DashboardSelectors';
+// import { cardStatus } from '../../redux/Dashboard/DashboardSelectors';
 
 // const pointsS = 500;
 
