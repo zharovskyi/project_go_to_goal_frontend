@@ -1,7 +1,6 @@
 .goal {
   display: flex;
   justify-content: space-between;
-  /* width:  260px; */
   margin: 0 auto;
 }
 
@@ -66,9 +65,8 @@
   background-image: url(../../assets/images/arrow.png);
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 25px;
   padding-top: 40px;
-  transform: translateX(150px) rotate(45deg);
+  transform: translateX(170px);
 }
 
 .progresBar {
