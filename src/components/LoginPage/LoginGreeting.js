@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LoginGreeting = ({ sGreeting, sGreetingText }) => (
-  <div className={sGreeting}>
+const LoginGreeting = ({ sGreetingText }) => (
+  <>
     <p className={sGreetingText}>
       Тут ви зможете чітко сформулювати ваші бажання - чого ви хочете досягти чи
       отримати у якості винагороди. Вам потрібно поставити собі мету, а згодом -
@@ -18,11 +18,10 @@ const LoginGreeting = ({ sGreeting, sGreetingText }) => (
       Так, так, все саме так, як у дорослому житті &#9786; Тоді не зважайте, а
       швидко зареєструйтеся, або заходьте на свій аккаунт.
     </p>
-  </div>
+  </>
 );
 
 LoginGreeting.propTypes = {
-  sGreeting: PropTypes.string.isRequired,
   sGreetingText: PropTypes.string.isRequired,
 };
 

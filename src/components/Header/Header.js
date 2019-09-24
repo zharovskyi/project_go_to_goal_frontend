@@ -51,6 +51,7 @@ class Header extends Component {
     );
   }
 }
+
 const MSTP = store => ({
   percent: headerSelectors.getPercent(store),
   goalTitle: headerSelectors.getTitle(store),

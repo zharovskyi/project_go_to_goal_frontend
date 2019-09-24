@@ -9,6 +9,7 @@
 }
 
 .doneTaskCard {
+  list-style: none;
   border-radius: 6px;
   background-color: rgb(224, 224, 224);
   width: 280px;
@@ -58,6 +59,10 @@
   background-color: #e0e0e0;
   top: 12px;
   right: -454px;
+}
+
+.buttonNone {
+  display: none;
 }
 
 @media (max-width: 1279px) {

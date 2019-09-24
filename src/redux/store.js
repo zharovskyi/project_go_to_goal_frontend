@@ -1,79 +1,35 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 // импортируем сюда свои редюсеры
+import sessionLoginReducers from './sessionLogin/sessionLoginReducers';
 import modalsReducers from './modalsReducers';
+import * as dashboardReducers from './Dashboard/DashboardReducers';
+
+const sessionPersistConfig = {
+  key: 'session',
+  storage,
+  whitelist: ['token'],
+};
 
 const rootReducer = combineReducers({
-  session: (prevState = {}, action) => {
-    return {
-      a: 1,
-      user: {
-        name: 'asdfg',
-        age: 8,
-      },
-    };
-  },
-  goal: (prevState = {}, action) => {
-    return {
-      title: 'asdf',
-      description: '',
-      _id: '',
-      points: 100,
-    };
-  },
-  tasks: (prevState = {}, action) => {
-    return [
-      // {
-      //   title: 'string',
-      //   description: 'string',
-      //   _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-      //   points: 15,
-      //   isDone: true,
-      // },
-      {
-        title: 'string',
-        description: 'string',
-        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-        points: 15,
-        isDone: true,
-      },
-      {
-        title: 'string',
-        description: 'string',
-        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-        points: 15,
-        isDone: true,
-      },
-      {
-        title: 'string',
-        description: 'string',
-        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-        points: 15,
-        isDone: true,
-      },
-      {
-        title: 'string',
-        description: 'string',
-        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-        points: 15,
-        isDone: true,
-      },
-      {
-        title: 'string',
-        description: 'string',
-        _id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-        points: 25,
-        isDone: true,
-      },
-    ];
-  },
+  session: persistReducer(sessionPersistConfig, sessionLoginReducers),
+  goal: dashboardReducers.goalReducer,
+  tasks: dashboardReducers.tasksReducer,
   modals: modalsReducers,
+  isLoading: dashboardReducers.isLoadingReducer,
+  dashboardErrors: dashboardReducers.errorsReducer,
 });
 
-const enhancer = applyMiddleware(ReduxThunk);
+const middleware = [ReduxThunk];
+const enhancer = applyMiddleware(...middleware);
 
-const store = createStore(rootReducer, {}, composeWithDevTools(enhancer));
-
-export default store;
+export const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools(enhancer),
+);
+export const persistor = persistStore(store);

@@ -2,7 +2,7 @@ export const getTitle = s => s.goal.title;
 
 // ProgressBar
 export const getGoalPoints = s => s.goal.points;
-
+//
 export const getTasks = s => s.tasks;
 
 export const getTasksPoints = s => {
