@@ -2,6 +2,10 @@
   display: none;
 }
 
+.test {
+  display: none;
+}
+
 .price {
   display: none;
 }
@@ -62,6 +66,14 @@
   font-family: 'Montserrat';
 }
 
+.input_task:valid {
+  border-color: green;
+}
+
+.input_task:invalid {
+  border-color: red;
+}
+
 .input_options_section {
   display: flex;
   justify-content: space-between;
@@ -100,6 +112,14 @@
   border-color: white;
 }
 
+.input_options_input:valid {
+  border-color: green;
+}
+
+.input_options_input:invalid {
+  border-color: red;
+}
+
 .button {
   border-radius: 20px 20px 20px 20px;
   font-family: 'Montserrat';
@@ -108,12 +128,10 @@
   font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgb(245, 213, 59) 0%,
-    rgb(241, 195, 65) 55%,
-    rgb(236, 177, 70) 100%
-  );
+  background-image: -webkit-linear-gradient(90deg,
+      rgb(245, 213, 59) 0%,
+      rgb(241, 195, 65) 55%,
+      rgb(236, 177, 70) 100%);
 }
 
 @media (max-width: 1279px) {
@@ -128,6 +146,9 @@
     margin-bottom: 0px;
     color: gray;
     font-weight: 900;
+    font-family: 'Montserrat';
+    font-size: 20px;
+
   }
 
   .modal_container {
@@ -225,12 +246,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
   }
 }
 
@@ -341,12 +360,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
     margin: 0 auto;
   }
 }

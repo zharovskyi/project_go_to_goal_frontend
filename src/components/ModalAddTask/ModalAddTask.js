@@ -52,7 +52,7 @@ class ModalAddTask extends Component {
     this.setState({
       inputValue: '',
       inputPoint: '',
-      selectData: null,
+      selectData: '',
     });
   };
 
@@ -74,6 +74,7 @@ class ModalAddTask extends Component {
             <p className={style.title_form}>Що зробити?</p>
             <input
               maxLength="20"
+              minLength="4"
               name="inputValue"
               type="text"
               className={style.input_task}
@@ -88,6 +89,7 @@ class ModalAddTask extends Component {
                 value={findOption(selectData)}
                 options={options}
                 onChange={this.onChangeSelect}
+                required
               >
                 Час
               </Select>
@@ -100,6 +102,7 @@ class ModalAddTask extends Component {
                 onChange={this.handleChange}
                 className={style.input_options_input}
                 placeholder="Винагорода (макс. 1000)"
+                required
               />
             </div>
             <button type="submit" className={style.button}>
@@ -107,6 +110,7 @@ class ModalAddTask extends Component {
             </button>
           </form>
           <img className={style.price} src={modalPresent} alt="present" />
+          <p className={style.test}>ERROR!!!!!!</p>
         </div>
       </div>
     );
