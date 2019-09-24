@@ -5,7 +5,6 @@ import {
   refreshRequest,
   refreshSuccess,
   refreshError,
-  // setAuthToken,
 } from './sessionLoginActions';
 import { setLogin, setTokenLoginPage } from '../../services/api';
 import { getToken } from './sessionLoginSelectors';
@@ -15,7 +14,7 @@ export const login = credentials => dispatch => {
 
   setLogin(credentials)
     .then(response => {
-      // setAuthToken(response.data.token);
+      console.log('login :', response);
       dispatch(loginSuccess(response));
     })
     .catch(error => {
@@ -37,11 +36,10 @@ export const refresh = () => (dispatch, getState) => {
 
   setTokenLoginPage(options)
     .then(response => {
-      // console.log('token response :', response);
+      console.log('refresh :', response);
       dispatch(refreshSuccess(response));
     })
     .catch(error => {
-      // console.log('token error :', error);
       dispatch(refreshError(error));
     });
 };

@@ -4,6 +4,8 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 import { postSuccess } from '../../redux/ModalAddTask/ModalAddTaskOperations';
 import style from './ModalAddTask.module.css';
+import modalPresent from '../../assets/images/modal_present.png';
+import * as dashBoardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
 const options = [
   { value: '8.00-10.00', label: '8.00-10.00' },
@@ -33,16 +35,19 @@ class ModalAddTask extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { postfunc } = this.props;
+    const { postfunc, token } = this.props;
     const { inputValue, inputPoint, selectData } = this.state;
 
-    postfunc({
-      title: inputValue,
-      description: 'task descr',
-      points: inputPoint,
-      deadline: selectData,
-      dates: [new Date().toISOString()],
-    });
+    postfunc(
+      {
+        title: inputValue,
+        description: 'task descr',
+        points: inputPoint,
+        deadline: selectData,
+        dates: [new Date().toISOString()],
+      },
+      token,
+    );
 
     this.setState({
       inputValue: '',
@@ -94,13 +99,14 @@ class ModalAddTask extends Component {
                 value={inputPoint}
                 onChange={this.handleChange}
                 className={style.input_options_input}
-                placeholder="Бали (до 1000)"
+                placeholder="Винагорода (макс. 1000)"
               />
             </div>
             <button type="submit" className={style.button}>
               OK
             </button>
           </form>
+          <img className={style.price} src={modalPresent} alt="present" />
         </div>
       </div>
     );
@@ -109,13 +115,18 @@ class ModalAddTask extends Component {
 
 ModalAddTask.propTypes = {
   postfunc: PropTypes.func.isRequired,
+  token: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  postfunc: task => dispatch(postSuccess(task)),
+  postfunc: (task, token) => dispatch(postSuccess(task, token)),
+});
+
+const mapStateToProps = store => ({
+  token: dashBoardSelectors.getToken(store),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ModalAddTask);

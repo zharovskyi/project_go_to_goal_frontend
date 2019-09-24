@@ -1,5 +1,6 @@
 import React from 'react';
 // import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import styles from './CardBodyDone.module.css';
 // import ToggleButton from '../ToggleButton/ToggleButton';
 import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
@@ -7,7 +8,7 @@ import { ReactComponent as GiftIMG } from '../../assets/icons/gift.svg';
 
 // const pointsS = 500;
 
-const CardBody = ({ points, isDone, createdAt, isChecked }) => {
+const CardBody = ({ points, createdAt, isChecked }) => {
   return (
     <>
       <div className={isChecked ? styles.isChecked : styles.bodyCard}>
@@ -24,6 +25,14 @@ const CardBody = ({ points, isDone, createdAt, isChecked }) => {
   );
 };
 
-export default CardBody;
+CardBody.defaultProps = {
+  isChecked: false,
+};
 
-// createdAt - for date completed
+CardBody.propTypes = {
+  points: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  isChecked: PropTypes.bool,
+};
+
+export default CardBody;
