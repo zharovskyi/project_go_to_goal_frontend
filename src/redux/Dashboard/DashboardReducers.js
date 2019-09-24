@@ -22,6 +22,7 @@ export const tasksReducer = (prevState = [], action) => {
         if (el._id === action.payload._id) {
           return { ...el, isDone: !el.isDone };
         }
+        return el;
       });
     default:
       return prevState;
