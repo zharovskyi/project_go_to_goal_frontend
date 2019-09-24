@@ -9,6 +9,7 @@ import * as modalCreateGoalSelectors from '../../redux/ModalCreateGoal/ModalCrea
 
 const idForInputGoal = shortid.generate();
 const idForInputPoints = shortid.generate();
+const keyForErrors = shortid.generate();
 const date = new Date().toISOString();
 
 class ModalCreateGoal extends Component {
@@ -88,12 +89,17 @@ class ModalCreateGoal extends Component {
           </button>
         </form>
         {errorMessage.map(
-          el => el.includes(50) && <p className={styles.error}>G</p>,
+          el =>
+            el.includes(50) && (
+              <p key={keyForErrors} className={styles.error}>
+                Вибачте за технічні проблеми. Спробуйте, будь ласка, повторно.
+              </p>
+            ),
         )}
         {errorMessage.map(
           el =>
             el.includes(40) && (
-              <p className={styles.error}>
+              <p key={keyForErrors} className={styles.error}>
                 Ви ввели неповні дані. Будь ласка, заповніть всі поля.
               </p>
             ),
@@ -115,6 +121,7 @@ const mapStateToProps = store => ({
 ModalCreateGoal.propTypes = {
   postGoal: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
+  errorMessage: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
 export default connect(
