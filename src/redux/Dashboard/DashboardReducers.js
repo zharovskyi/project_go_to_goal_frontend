@@ -2,6 +2,7 @@
 import { Type } from './DashboardActions';
 import { TypeAddTask } from '../ModalAddTask/ModalAddTaskActions';
 import { TypeAddGoal } from '../ModalCreateGoal/ModalCreateGoalActions';
+import { TypeModalCongrats } from '../ModalCongrats/ModalCongratsActions';
 import { ActionType } from '../sessionLogin/sessionLoginActions';
 
 export const tasksReducer = (prevState = [], action) => {
@@ -52,11 +53,11 @@ export const goalReducer = (prevState = null, action) => {
   switch (action.type) {
     case Type.GOAL_GET_SUCCESS:
     case TypeAddGoal.ADD_GOAL_SUCCESS:
-      // console.log(action.payload);
       return action.payload.goal === undefined
         ? prevState
         : action.payload.goal;
 
+    case TypeModalCongrats.MODAL_CONGRATS_SUCCESS:
     case ActionType.LOGOUT:
       return null;
 

@@ -2,6 +2,10 @@
   display: none;
 }
 
+.test {
+  display: none;
+}
+
 .price {
   display: none;
 }
@@ -13,6 +17,7 @@
   height: 500px;
   text-align: center;
   font-weight: 700;
+  color: gray;
 }
 
 .title_modal {
@@ -40,6 +45,27 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  position: relative;
+}
+
+.errorParagraph {
+  color: red;
+  border-color: red;
+  border: solid 3px rgb(199, 183, 183);
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+  bottom: 20px;
+  font-size: 30px;
+}
+
+.errorParagraphServer {
+  color: red;
+  border-color: red;
+  border: solid 3px red;
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+  bottom: 60px;
+  font-size: 30px;
 }
 
 .input_task {
@@ -60,6 +86,14 @@
   font-size: 14px;
   font-weight: 900;
   font-family: 'Montserrat';
+}
+
+.input_task:valid {
+  border-color: green;
+}
+
+.input_task:invalid {
+  border-color: red;
 }
 
 .input_options_section {
@@ -100,6 +134,14 @@
   border-color: white;
 }
 
+.input_options_input:valid {
+  border-color: green;
+}
+
+.input_options_input:invalid {
+  border-color: red;
+}
+
 .button {
   border-radius: 20px 20px 20px 20px;
   font-family: 'Montserrat';
@@ -128,6 +170,8 @@
     margin-bottom: 0px;
     color: gray;
     font-weight: 900;
+    font-family: 'Montserrat';
+    font-size: 20px;
   }
 
   .modal_container {
@@ -273,7 +317,13 @@
   }
 
   .title_form {
-    display: block;
+    margin-right: auto;
+    height: 10px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    color: gray;
+    font-weight: 900;
   }
 
   .input_task {
@@ -307,8 +357,19 @@
     display: none;
   }
 
-  .input_options {
+  .form {
+    border-radius: 6px;
+    background-color: white;
+    width: 300px;
+    height: 400px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .input_options {
+    display: block;
     flex-flow: column;
     justify-content: space-between;
     width: 270px;
@@ -347,6 +408,6 @@
       rgb(241, 195, 65) 55%,
       rgb(236, 177, 70) 100%
     );
-    margin: 0 auto;
+    margin: 20px auto;
   }
 }
