@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import styles from './ModalCreateGoal.module.css';
 import { addGoal } from '../../redux/ModalCreateGoal/ModalCreateGoalOperations';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
+import * as modalCreateGoalSelectors from '../../redux/ModalCreateGoal/ModalCreateGoalSelectors';
 
 const idForInputGoal = shortid.generate();
 const idForInputPoints = shortid.generate();
@@ -45,49 +46,58 @@ class ModalCreateGoal extends Component {
 
   render() {
     const { valueInputGoal, valueInputPoints } = this.state;
+    const { errorMessage } = this.props;
     return (
-      <div className={styles.overlay}>
-        <div className={styles.modal}>
-          <form onSubmit={this.onSubmitForm} className={styles.form}>
-            <label htmlFor={idForInputGoal} className={styles.label}>
-              Що я хочу
-              <input
-                minLength="3"
-                maxLength="20"
-                name="valueInputGoal"
-                value={valueInputGoal}
-                onChange={this.handleChange}
-                id={idForInputGoal}
-                className={styles.input}
-                type="text"
-                placeholder="Дай своїй цілі назву"
-                required
-              />
-            </label>
-            <label htmlFor={idForInputPoints} className={styles.label}>
-              Скільки балів треба набрати
-              <input
-                min="1"
-                max="9999"
-                name="valueInputPoints"
-                value={valueInputPoints}
-                onChange={this.handleChange}
-                id={idForInputPoints}
-                className={styles.input}
-                type="number"
-                placeholder="Наприклад: 1000"
-                required
-              />
-            </label>
-            <p className={styles.text}>
-              Дай цілі назву та вибери при якій кількості балів ціль буде
-              вважатися досягнутою
-            </p>
-            <button className={styles.button} type="submit">
-              Ok
-            </button>
-          </form>
-        </div>
+      <div className={styles.modal}>
+        <form onSubmit={this.onSubmitForm} className={styles.form}>
+          <label htmlFor={idForInputGoal} className={styles.label}>
+            Що я хочу
+            <input
+              minLength="3"
+              maxLength="20"
+              name="valueInputGoal"
+              value={valueInputGoal}
+              onChange={this.handleChange}
+              id={idForInputGoal}
+              className={styles.input}
+              type="text"
+              placeholder="Дай своїй цілі назву"
+            />
+          </label>
+          <label htmlFor={idForInputPoints} className={styles.label}>
+            Скільки балів треба набрати
+            <input
+              min="1"
+              max="9999"
+              name="valueInputPoints"
+              value={valueInputPoints}
+              onChange={this.handleChange}
+              id={idForInputPoints}
+              className={styles.input}
+              type="number"
+              placeholder="Наприклад: 1000"
+              required
+            />
+          </label>
+          <p className={styles.text}>
+            Дай цілі назву та вибери при якій кількості балів ціль буде
+            вважатися досягнутою
+          </p>
+          <button className={styles.button} type="submit">
+            Ok
+          </button>
+        </form>
+        {errorMessage.map(
+          el => el.includes(50) && <p className={styles.error}>G</p>,
+        )}
+        {errorMessage.map(
+          el =>
+            el.includes(40) && (
+              <p className={styles.error}>
+                Ви ввели неповні дані. Будь ласка, заповніть всі поля.
+              </p>
+            ),
+        )}
       </div>
     );
   }
@@ -99,6 +109,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = store => ({
   token: dashboardSelectors.getToken(store),
+  errorMessage: modalCreateGoalSelectors.getMessageErr(store),
 });
 
 ModalCreateGoal.propTypes = {
