@@ -1,11 +1,10 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import styles from './ModalCongrats.module.css';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
-const ModalCongrats = ({ goal }) => {
+const ModalCongrats = ({ goal, onClose }) => {
   const { title } = goal;
   return (
     <div className={styles.container}>
@@ -16,7 +15,7 @@ const ModalCongrats = ({ goal }) => {
           <p className={styles.textPrise}>{title}</p>
           <p className={styles.textNewTask}>Час вибирати нову ціль!</p>
         </div>
-        <button className={styles.button} type="button">
+        <button className={styles.button} onClick={onClose} type="button">
           Так!
         </button>
       </div>

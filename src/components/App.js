@@ -6,7 +6,6 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import DashboardContainer from '../pages/DashboardPage/DashboardContainer';
 import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import { refresh } from '../redux/sessionLogin/sessionLoginOperations';
-import ModalCongrats from './ModalCongrats/ModalCongrats';
 
 class App extends Component {
   static propTypes = {
@@ -24,7 +23,6 @@ class App extends Component {
   render() {
     return (
       <>
-        <ModalCongrats />
         <Switch>
           <Route path="/" exact component={LoginPage} />
           <Route path="/dashboard" component={DashboardContainer} />
