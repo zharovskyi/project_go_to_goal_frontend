@@ -25,9 +25,7 @@ class DashboardPage extends Component {
   state = {};
 
   componentDidMount() {
-    console.log('dashboard');
     const { onGetGoal, onGetTasks, token } = this.props;
-    // refresh();
     onGetGoal(token);
     onGetTasks(token);
   }

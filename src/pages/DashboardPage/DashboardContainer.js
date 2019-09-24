@@ -10,7 +10,6 @@ import * as modalDeleteTaskActions from '../../redux/ModalDeleteTask/ModalDelete
 import * as modalLogoutActions from '../../redux/ModalLogout/ModalLogoutActions';
 import * as dashboardOperations from '../../redux/Dashboard/DashboardOperations';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
-// import { refresh } from '../../redux/sessionLogin/sessionLoginOperations';
 
 //  COMPONENT TO WRAP
 import DashboardPage from './DashboardPage';
@@ -26,7 +25,6 @@ const mapStateToProps = store => ({
   token: dashboardSelectors.getToken(store),
   hasDashboardError: dashboardSelectors.hasDashboardError(store),
   dashboardErrors: dashboardSelectors.getDashboardErrors(store),
-  // refresh,
 });
 
 const mapDispatchToProps = dispatch => ({

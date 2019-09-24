@@ -37,6 +37,7 @@ class LoginPage extends Component {
   state = {
     email: '',
     password: '',
+    showPassword: 'password',
   };
 
   handleChange = ({ target }) => {
@@ -51,15 +52,22 @@ class LoginPage extends Component {
     this.reset();
   };
 
+  onShowPassword = () => {
+    this.setState(prevState => ({
+      showPassword: prevState.showPassword === 'password' ? 'text' : 'password',
+    }));
+  };
+
   reset = () => {
     this.setState({
       login: '',
       password: '',
+      showPassword: 'password',
     });
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, showPassword } = this.state;
     const {
       windowWidth,
       isModalOpen,
@@ -89,6 +97,8 @@ class LoginPage extends Component {
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
+                onShowPassword={this.onShowPassword}
+                showPassword={showPassword}
                 email={email}
                 password={password}
               />
@@ -108,7 +118,9 @@ class LoginPage extends Component {
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
-                login={email}
+                onShowPassword={this.onShowPassword}
+                showPassword={showPassword}
+                email={email}
                 password={password}
               />
             )}

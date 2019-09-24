@@ -6,6 +6,7 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import DashboardContainer from '../pages/DashboardPage/DashboardContainer';
 import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import { refresh } from '../redux/sessionLogin/sessionLoginOperations';
+import ProtectedRoute from './ProtectedRoute';
 
 class App extends Component {
   static propTypes = {
@@ -18,7 +19,6 @@ class App extends Component {
     // eslint-disable-next-line no-shadow
     const { refresh } = this.props;
     refresh();
-    console.log('App componentDidMount');
   }
 
   render() {
@@ -26,7 +26,11 @@ class App extends Component {
       <>
         <Switch>
           <Route path="/" exact component={LoginPage} />
-          <Route path="/dashboard" component={DashboardContainer} />
+          <ProtectedRoute
+            path="/dashboard"
+            component={DashboardContainer}
+            redirectTo="/"
+          />
           <Route path="/contacts" component={ContactsPage} />
         </Switch>
       </>

@@ -8,23 +8,21 @@ import Avatar from '../../assets/images/avatar.jpeg';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
 const User = ({ user }) => {
-  if (user) {
-    const { name, age } = user;
+  const { name, age } = user;
 
-    return (
-      <>
-        <div className={style.userInfo}>
-          <img src={Avatar} width="55" height="55" alt="Вася Пупкін" />
-          <span className={style.userName}>{name}</span>
-          <span className={style.userAge}>{age} років</span>
-        </div>
-        <button type="button" className={style.btn}>
-          <LogoOut />
-          {/* <LogOutModal /> */}
-        </button>
-      </>
-    );
-  }
+  return (
+    <>
+      <div className={style.userInfo}>
+        <img src={Avatar} width="55" height="55" alt="Вася Пупкін" />
+        <span className={style.userName}>{name}</span>
+        <span className={style.userAge}>{age} років</span>
+      </div>
+      <button type="button" className={style.btn}>
+        <LogoOut />
+        {/* <LogOutModal /> */}
+      </button>
+    </>
+  );
 };
 
 const mapStateToProps = store => ({
