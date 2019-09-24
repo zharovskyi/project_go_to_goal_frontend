@@ -65,8 +65,9 @@
   background-image: url(../../assets/images/arrow.png);
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: 15px;
   padding-top: 40px;
-  transform: translateX(170px);
+  transform: translateX(200px);
 }
 
 .progresBar {
