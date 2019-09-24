@@ -4,7 +4,7 @@ export const getTasks = store => store.tasks;
 
 // export const getIsLoading = store => store.isLoading;
 
-export const getGoal = store => (store.goal !== null ? store.goal : '');
+export const getGoal = store => store.goal;
 
 export const getToken = store => store.session.token;
 

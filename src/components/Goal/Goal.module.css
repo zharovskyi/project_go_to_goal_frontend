@@ -59,6 +59,7 @@
 
 .goalBtnActive::after {
   display: block;
+  color: #000;
   content: 'Натисни мене !';
   width: 85px;
   height: 45px;
