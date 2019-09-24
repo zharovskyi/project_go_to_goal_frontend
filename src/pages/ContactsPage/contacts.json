@@ -1,56 +1,128 @@
-[
-  {
+[{
     "id": 1,
-    "avatar": "https://threeland.com/images/avatar/avatar-user.png",
-    "name": "Name Surname",
-    "position": "Position",
+    "avatar": "MaxSerebrennykov",
+    "name": "Максим Серебренников",
+    "position": "Project manager",
     "emaillink": "mailto:email@mail.com",
-    "email": "email@mail.com",
-    "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nesciunt quia quae voluptatem est commodi! Tempora excepturi ex veritatis, obcaecati sapiente sed laborum enim eius! Nam debitis accusamus quam. Nam."
+    "email": "serebrennykov.m@gmail.com",
+    "info": "Project manager"
   },
   {
     "id": 2,
-    "avatar": "https://threeland.com/images/avatar/avatar-user.png",
-    "name": "Name Surname",
-    "position": "Position",
+    "avatar": "AndriiKuznietsov",
+    "name": "Андрій Кузнецов",
+    "position": "front end developer",
     "emaillink": "mailto:email@mail.com",
-    "email": "email@mail.com",
-    "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nesciunt quia quae voluptatem est commodi! Tempora excepturi ex veritatis, obcaecati sapiente sed laborum enim eius! Nam debitis accusamus quam. Nam."
+    "email": "awesomeakm@gmail.com",
+    "info": "Team Lead Створив три компонента для роботи користувача із завданнями і сторінку контактів. Використовував стек технологій React, Redux, працював з Front End і взаємодіяв з Back End. Тимчасово займав позицію Team Lead."
   },
   {
     "id": 3,
-    "avatar": "https://threeland.com/images/avatar/avatar-user.png",
-    "name": "Name Surname",
-    "position": "Position",
+    "avatar": "OlegKhristenko",
+    "name": "Олег Христенко",
+    "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
-    "email": "email@mail.com",
-    "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nesciunt quia quae voluptatem est commodi! Tempora excepturi ex veritatis, obcaecati sapiente sed laborum enim eius! Nam debitis accusamus quam. Nam."
+    "email": "olegkhristenko@gmail.com",
+    "info": "Був відповідальний за сторінку логінізаціі. Верстка, логіка, спілкування з backend, валідація, а також була реалізована фіча залишатися залогіненним при перезавантаженні сторінки. Використовуваний стек технологій: React.js & Redux."
   },
   {
     "id": 4,
-    "avatar": "https://threeland.com/images/avatar/avatar-user.png",
-    "name": "Name Surname",
-    "position": "Position",
+    "avatar": "VolodymyrPotapenko",
+    "name": "Володимир Потапенко",
+    "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
-    "email": "email@mail.com",
-    "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nesciunt quia quae voluptatem est commodi! Tempora excepturi ex veritatis, obcaecati sapiente sed laborum enim eius! Nam debitis accusamus quam. Nam."
+    "email": "vlarus@ukr.net",
+    "info": "У проекті  Go 2 Goal був розробником компонента  Dashboard. Досвід front-end - починаючи з червня 2019 р. (с) Розробляти код - це ніби писати музику, тільки набагато цікавіше - маєш безліч нот для реалізації задумів."
   },
   {
     "id": 5,
-    "avatar": "https://threeland.com/images/avatar/avatar-user.png",
-    "name": "Name Surname",
-    "position": "Position",
+    "avatar": "RomanGruba",
+    "name": "Роман Груба",
+    "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
-    "email": "email@mail.com",
-    "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nesciunt quia quae voluptatem est commodi! Tempora excepturi ex veritatis, obcaecati sapiente sed laborum enim eius! Nam debitis accusamus quam. Nam."
+    "email": "rg0969246941@gmail.com",
+    "info": "На проекті застосовував Javascript, React, Redux."
   },
   {
     "id": 6,
-    "avatar": "https://threeland.com/images/avatar/avatar-user.png",
-    "name": "Name Surname",
-    "position": "Position",
+    "avatar": "OleksiiPushtaryk",
+    "name": "Пуштарик Олексій",
+    "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
-    "email": "email@mail.com",
-    "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nesciunt quia quae voluptatem est commodi! Tempora excepturi ex veritatis, obcaecati sapiente sed laborum enim eius! Nam debitis accusamus quam. Nam."
+    "email": "pushtarik@gmail.com",
+    "info": "Розробка модального вікна."
+  },
+  {
+    "id": 7,
+    "avatar": "OlexanderHavrylenko",
+    "name": "Гавриленко Олександр",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "olexander.o.havrylenko@gmail.com",
+    "info": ""
+  },
+  {
+    "id": 8,
+    "avatar": "ViktoriiaUshakova",
+    "name": "Ушакова Вікторія",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "iamviccyciccy@gmail.com",
+    "info": "Розробила картку завдань, додала чарівні аватарки."
+  },
+  {
+    "id": 9,
+    "avatar": "OlgaSavytska",
+    "name": "Ольга Савицька",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "о.savytska77@gmail.com",
+    "info": "Привіт! Я писала модальне віконце, яке створює таски. Використовувала React JS, Redux, CSS. Гарного тобі дня, і посміхайся частіше😉"
+  },
+  {
+    "id": 10,
+    "avatar": "EvgenyBorisenko",
+    "name": "Євгеній Борисенко",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "borisenkoevgeny1991@gmail.com",
+    "info": "В данному проекті розробляв поле для реєстріції."
+  },
+  {
+    "id": 11,
+    "avatar": "IanaMatrosova",
+    "name": "Яна Матросова",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "iana.matrosova@gmail.com",
+    "info": ""
+  },
+  {
+    "id": 12,
+    "avatar": "DmitriyVelkov",
+    "name": "Дмитро Велков",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "Velkov55@gmail.com",
+    "info": ""
+  },
+  {
+    "id": 13,
+    "avatar": "OlegZharovskyi",
+    "name": "Олег Жаровський",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "olehzharovskyi@gmail.com",
+    "info": ""
+  },
+
+  {
+    "id": 14,
+    "avatar": "VitaliiKalinbet",
+    "name": "Віталій Калінбет",
+    "position": "TEAM LEAD",
+    "emaillink": "mailto:email@mail.com",
+    "email": "bosssvit@gmail.com",
+    "info": "Продумав структуру проекту, зробив initial build, організував роботу командиб, приймав pull request від розробників"
   }
 ]
