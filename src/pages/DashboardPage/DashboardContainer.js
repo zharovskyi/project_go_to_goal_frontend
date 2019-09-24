@@ -29,11 +29,11 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onCloseModalAddTask: modalAddTaskActions.closeModal,
-  onCloseModalCongrats: modalCongratsActions.closeModal,
-  onCloseModalCreateGoal: modalCreateGoalActions.closeModal,
-  onCloseModalDeleteTask: modalDeleteTaskActions.closeModal,
-  onCloseModalLogout: modalLogoutActions.closeModal,
+  onCloseModalAddTask: () => dispatch(modalAddTaskActions.closeModal()),
+  onCloseModalCongrats: () => dispatch(modalCongratsActions.closeModal()),
+  onCloseModalCreateGoal: () => dispatch(modalCreateGoalActions.closeModal()),
+  onCloseModalDeleteTask: () => dispatch(modalDeleteTaskActions.closeModal()),
+  onCloseModalLogout: () => dispatch(modalLogoutActions.closeModal()),
   onGetGoal: token => dispatch(dashboardOperations.getGoalOperation(token)),
   onGetTasks: token => dispatch(dashboardOperations.getTasksOperation(token)),
   onDashboardErrors: errors => dashboardOperations.getErrorOperation(errors),
