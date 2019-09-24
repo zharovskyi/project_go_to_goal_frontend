@@ -46,7 +46,7 @@ class Card extends Component {
 Card.propTypes = {
   task: PropTypes.shape({
     inActive: PropTypes.bool.isRequired,
-    isDone: PropTypes.bool.isRequired,
+    isComplete: PropTypes.bool.isRequired,
     points: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
