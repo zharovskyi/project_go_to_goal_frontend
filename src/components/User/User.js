@@ -36,7 +36,7 @@ User.propTypes = {
   openModalLogout: PropTypes.func.isRequired,
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    age: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
   }).isRequired,
 };
 
