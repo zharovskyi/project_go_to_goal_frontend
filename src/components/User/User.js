@@ -10,6 +10,7 @@ import * as logoutActions from '../../redux/ModalLogout/ModalLogoutActions';
 
 const User = ({ user, openModalLogout }) => {
   const { name, age } = user;
+
   return (
     <>
       <div className={style.userInfo}>

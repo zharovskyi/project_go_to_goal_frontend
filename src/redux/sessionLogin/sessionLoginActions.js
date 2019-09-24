@@ -41,5 +41,5 @@ export const refreshError = error => ({
 });
 
 export const logout = () => ({
-  type: ActionType.LOGIN_ERROR,
+  type: ActionType.LOGOUT,
 });
