@@ -19,6 +19,7 @@ import LoginFooter from '../../components/LoginPage/LoginFooter';
 import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
+import { getErrorMessage } from '../../redux/sessionLogin/sessionLoginSelectors';
 import {
   openModal,
   closeModal,
@@ -36,6 +37,7 @@ class LoginPage extends Component {
   state = {
     email: '',
     password: '',
+    showPassword: 'password',
   };
 
   handleChange = ({ target }) => {
@@ -50,18 +52,32 @@ class LoginPage extends Component {
     this.reset();
   };
 
+  onShowPassword = () => {
+    this.setState(prevState => ({
+      showPassword: prevState.showPassword === 'password' ? 'text' : 'password',
+    }));
+  };
+
   reset = () => {
     this.setState({
       login: '',
       password: '',
+      showPassword: 'password',
     });
   };
 
   render() {
-    const { email, password } = this.state;
-    const { windowWidth, isModalOpen, onOpenModal, onCloseModal } = this.props;
+    const { email, password, showPassword } = this.state;
+    const {
+      windowWidth,
+      isModalOpen,
+      onOpenModal,
+      onCloseModal,
+      errorMessage,
+    } = this.props;
     return (
       <div className={s.login_page}>
+        {errorMessage && <p>{errorMessage}</p>}
         {isModalOpen && (
           <Backdrop onClose={onCloseModal}>
             <ModalRegistration onClose={onCloseModal} />
@@ -81,6 +97,8 @@ class LoginPage extends Component {
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
+                onShowPassword={this.onShowPassword}
+                showPassword={showPassword}
                 email={email}
                 password={password}
               />
@@ -100,7 +118,9 @@ class LoginPage extends Component {
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
-                login={email}
+                onShowPassword={this.onShowPassword}
+                showPassword={showPassword}
+                email={email}
                 password={password}
               />
             )}
@@ -123,6 +143,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => ({
   isModalOpen: getIsOpenModalRegister(state),
+  errorMessage: getErrorMessage(state),
 });
 
 const mapDispatchToProps = {
@@ -130,16 +151,6 @@ const mapDispatchToProps = {
   onOpenModal: openModal,
   onCloseModal: closeModal,
 };
-
-// const qwe = withAuthRedirect(LoginPage);
-
-// export default compose(
-//   connect(
-//     mapStateToProps,
-//     mapDispatchToProps,
-//   ),
-//   windowSize,
-// )(qwe);
 
 export default compose(
   connect(
