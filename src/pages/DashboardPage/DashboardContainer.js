@@ -20,6 +20,7 @@ const mapStateToProps = store => ({
   isModalCreateGoalOpen: store.modals.isModalCreateGoalOpen,
   isModalDeleteTaskOpen: store.modals.isModalDeleteTaskOpen,
   isModalLogoutOpen: store.modals.isModalLogoutOpen,
+  isLoading: store.isLoading,
   goal: dashboardSelectors.getGoal(store),
   tasks: dashboardSelectors.getTasks(store),
   token: dashboardSelectors.getToken(store),

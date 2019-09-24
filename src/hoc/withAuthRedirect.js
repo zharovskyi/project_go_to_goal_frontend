@@ -1,39 +1,60 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import * as sessionSelectors from '../../redux/session/sessionSelectors';
+import PropTypes from 'prop-types';
+import { getIsAuthenticated } from '../redux/sessionLogin/sessionLoginSelectors';
 
 const withAuthRedirect = BaseComponent => {
   class WithAuthRedirect extends Component {
-    componentDidMount() {
-      if (!this.props.authenticated) {
-        return;
-      }
+    static propTypes = {
+      authenticated: PropTypes.bool.isRequired,
+      history: PropTypes.shape({
+        replace: PropTypes.func.isRequired,
+      }).isRequired,
+      // location: PropTypes.func.isRequired,
+    };
 
-      this.props.history.replace('/');
+    componentDidMount() {
+      const { authenticated, history } = this.props;
+      if (authenticated) {
+        history.replace('/dashboard');
+      }
     }
 
     componentDidUpdate() {
-      if (!this.props.authenticated) {
-        return;
+      const { authenticated, history } = this.props;
+      if (authenticated) {
+        history.replace('/dashboard');
       }
-
-      console.log('WithAuthRedirect: ', this.props);
-
-      if (this.props.location.state && this.props.location.state.from) {
-        return this.props.history.replace(this.props.location.state.from);
-      }
-
-      this.props.history.replace('/');
     }
 
+    // componentDidMount() {
+    //   const { authenticated, history } = this.props;
+    //   if (!authenticated) return;
+
+    //   history.replace('/');
+    // }
+
+    // componentDidUpdate() {
+    //   const { authenticated, history, location } = this.props;
+    //   if (!authenticated) return;
+
+    //   console.log('WithAuthRedirect: ', this.props);
+
+    //   if (location.state && location.state.from)
+    //     // eslint-disable-next-line consistent-return
+    //     return history.replace(location.state.from);
+
+    //   history.replace('/');
+    // }
+
     render() {
+      // eslint-disable-next-line react/jsx-props-no-spreading
       return <BaseComponent {...this.props} />;
     }
   }
 
   const mapStateToProps = state => ({
-    authenticated: sessionSelectors.getIsAuthenticated(state),
+    authenticated: getIsAuthenticated(state),
   });
 
   return connect(mapStateToProps)(WithAuthRedirect);
