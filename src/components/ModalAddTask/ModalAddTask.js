@@ -110,7 +110,6 @@ class ModalAddTask extends Component {
             </button>
           </form>
           <img className={style.price} src={modalPresent} alt="present" />
-          <p className={style.test}>ERROR!!!!!!</p>
         </div>
       </div>
     );
