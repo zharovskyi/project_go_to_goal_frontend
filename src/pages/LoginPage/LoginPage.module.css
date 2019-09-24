@@ -118,6 +118,13 @@
   outline: none;
 }
 
+.error {
+  color: #ff3561;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 /* MAIN */
 
 .main {

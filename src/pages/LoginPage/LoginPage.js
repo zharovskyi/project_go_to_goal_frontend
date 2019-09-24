@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import windowSize from 'react-window-size';
+// import windowSize from 'react-window-size';
 import PropTypes from 'prop-types';
 import { login } from '../../redux/sessionLogin/sessionLoginOperations';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
@@ -32,12 +32,28 @@ class LoginPage extends Component {
     onLogin: PropTypes.func.isRequired,
     onOpenModal: PropTypes.func.isRequired,
     onCloseModal: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string,
+  };
+
+  static defaultProps = {
+    errorMessage: '',
   };
 
   state = {
     email: '',
     password: '',
     showPassword: 'password',
+    windowWidth: null,
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.windowWidth());
+  }
+
+  windowWidth = () => {
+    this.setState({
+      windowWidth: document.documentElement.clientWidth,
+    });
   };
 
   handleChange = ({ target }) => {
@@ -67,17 +83,19 @@ class LoginPage extends Component {
   };
 
   render() {
-    const { email, password, showPassword } = this.state;
+    const { email, password, showPassword, windowWidth } = this.state;
     const {
-      windowWidth,
+      // windowWidth,
       isModalOpen,
       onOpenModal,
       onCloseModal,
       errorMessage,
     } = this.props;
+    // const windowWidth = document.documentElement.clientWidth;
+    // const windowWidth = window.screen.clientWidth;
+    console.log('windowWidth :', windowWidth);
     return (
       <div className={s.login_page}>
-        {errorMessage && <p>{errorMessage}</p>}
         {isModalOpen && (
           <Backdrop onClose={onCloseModal}>
             <ModalRegistration onClose={onCloseModal} />
@@ -93,6 +111,19 @@ class LoginPage extends Component {
           <header className={s.header}>
             <div className={s.header_form}>
               <img src={logo} alt="logo" width="104" className={s.logo} />
+              {errorMessage &&
+                (errorMessage.includes('40') ||
+                  errorMessage.includes('41')) && (
+                  <p className={s.error}>
+                    Вибачте, але ви вiдправили некоректнi даннi...
+                  </p>
+                )}
+              {errorMessage && errorMessage.includes('50') && (
+                <p className={s.error}>
+                  Вибачте, але у нас виникли деякi труднощi. Спробуйте
+                  пiзнiше...
+                </p>
+              )}
               <LoginForm
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
@@ -114,15 +145,30 @@ class LoginPage extends Component {
 
             {/* MOBILE ||FORM */}
             {windowWidth < 768 && (
-              <LoginForm
-                onOpenModal={onOpenModal}
-                onSubmit={this.handleSubmit}
-                onChange={this.handleChange}
-                onShowPassword={this.onShowPassword}
-                showPassword={showPassword}
-                email={email}
-                password={password}
-              />
+              <>
+                <LoginForm
+                  onOpenModal={onOpenModal}
+                  onSubmit={this.handleSubmit}
+                  onChange={this.handleChange}
+                  onShowPassword={this.onShowPassword}
+                  showPassword={showPassword}
+                  email={email}
+                  password={password}
+                />
+                {errorMessage &&
+                  (errorMessage.includes('40') ||
+                    errorMessage.includes('41')) && (
+                    <p className={s.error}>
+                      Вибачте, але ви вiдправили некоректнi даннi...
+                    </p>
+                  )}
+                {errorMessage && errorMessage.includes('50') && (
+                  <p className={s.error}>
+                    Вибачте, але у нас виникли деякi труднощi. Спробуйте
+                    пiзнiше...
+                  </p>
+                )}
+              </>
             )}
 
             {/* TABLET & DESKTOP ||GREETING */}
@@ -158,5 +204,5 @@ export default compose(
     mapDispatchToProps,
   ),
   withAuthRedirect,
-  windowSize,
+  // windowSize,
 )(LoginPage);
