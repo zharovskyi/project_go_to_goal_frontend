@@ -21,7 +21,6 @@ class Card extends Component {
     const { task } = this.props;
     const dateStarted = task.createdAt;
     const dateFinished = new Date(dateStarted).toLocaleDateString('ru');
-    console.log(dateFinished);
     return (
       <li className={styles.cardLi}>
         {task.inActive ? (
