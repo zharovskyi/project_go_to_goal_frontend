@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import windowSize from 'react-window-size';
+// import windowSize from 'react-window-size';
 import PropTypes from 'prop-types';
 import { login } from '../../redux/sessionLogin/sessionLoginOperations';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
@@ -19,6 +19,7 @@ import LoginFooter from '../../components/LoginPage/LoginFooter';
 import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
+import { getErrorMessage } from '../../redux/sessionLogin/sessionLoginSelectors';
 import {
   openModal,
   closeModal,
@@ -26,17 +27,33 @@ import {
 
 class LoginPage extends Component {
   static propTypes = {
-    windowWidth: PropTypes.number.isRequired,
     isModalOpen: PropTypes.bool.isRequired,
     onLogin: PropTypes.func.isRequired,
     onOpenModal: PropTypes.func.isRequired,
     onCloseModal: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string,
+  };
+
+  static defaultProps = {
+    errorMessage: '',
   };
 
   state = {
     email: '',
     password: '',
+    showPassword: 'password',
+    // windowWidth: null,
   };
+
+  // componentDidMount() {
+  //   window.addEventListener('resize', this.windowWidth());
+  // }
+
+  // windowWidth = () => {
+  //   this.setState({
+  //     windowWidth: document.documentElement.clientWidth,
+  //   });
+  // };
 
   handleChange = ({ target }) => {
     const { name, value } = target;
@@ -50,16 +67,26 @@ class LoginPage extends Component {
     this.reset();
   };
 
+  onShowPassword = () => {
+    this.setState(prevState => ({
+      showPassword: prevState.showPassword === 'password' ? 'text' : 'password',
+    }));
+  };
+
   reset = () => {
     this.setState({
       login: '',
       password: '',
+      showPassword: 'password',
     });
   };
 
   render() {
-    const { email, password } = this.state;
-    const { windowWidth, isModalOpen, onOpenModal, onCloseModal } = this.props;
+    const { email, password, showPassword } = this.state;
+    const { isModalOpen, onOpenModal, onCloseModal, errorMessage } = this.props;
+    const windowWidth = document.documentElement.clientWidth;
+    // const windowWidth = window.screen.clientWidth;
+    // console.log('windowWidth :', windowWidth);
     return (
       <div className={s.login_page}>
         {isModalOpen && (
@@ -77,10 +104,25 @@ class LoginPage extends Component {
           <header className={s.header}>
             <div className={s.header_form}>
               <img src={logo} alt="logo" width="104" className={s.logo} />
+              {errorMessage &&
+                (errorMessage.includes('40') ||
+                  errorMessage.includes('41')) && (
+                  <p className={s.error}>
+                    Вибачте, але ви вiдправили некоректнi даннi...
+                  </p>
+                )}
+              {errorMessage && errorMessage.includes('50') && (
+                <p className={s.error}>
+                  Вибачте, але у нас виникли деякi труднощi. Спробуйте
+                  пiзнiше...
+                </p>
+              )}
               <LoginForm
                 onOpenModal={onOpenModal}
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
+                onShowPassword={this.onShowPassword}
+                showPassword={showPassword}
                 email={email}
                 password={password}
               />
@@ -96,13 +138,30 @@ class LoginPage extends Component {
 
             {/* MOBILE ||FORM */}
             {windowWidth < 768 && (
-              <LoginForm
-                onOpenModal={onOpenModal}
-                onSubmit={this.handleSubmit}
-                onChange={this.handleChange}
-                login={email}
-                password={password}
-              />
+              <>
+                <LoginForm
+                  onOpenModal={onOpenModal}
+                  onSubmit={this.handleSubmit}
+                  onChange={this.handleChange}
+                  onShowPassword={this.onShowPassword}
+                  showPassword={showPassword}
+                  email={email}
+                  password={password}
+                />
+                {errorMessage &&
+                  (errorMessage.includes('40') ||
+                    errorMessage.includes('41')) && (
+                    <p className={s.error}>
+                      Вибачте, але ви вiдправили некоректнi даннi...
+                    </p>
+                  )}
+                {errorMessage && errorMessage.includes('50') && (
+                  <p className={s.error}>
+                    Вибачте, але у нас виникли деякi труднощi. Спробуйте
+                    пiзнiше...
+                  </p>
+                )}
+              </>
             )}
 
             {/* TABLET & DESKTOP ||GREETING */}
@@ -123,6 +182,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => ({
   isModalOpen: getIsOpenModalRegister(state),
+  errorMessage: getErrorMessage(state),
 });
 
 const mapDispatchToProps = {
@@ -131,21 +191,11 @@ const mapDispatchToProps = {
   onCloseModal: closeModal,
 };
 
-// const qwe = withAuthRedirect(LoginPage);
-
-// export default compose(
-//   connect(
-//     mapStateToProps,
-//     mapDispatchToProps,
-//   ),
-//   windowSize,
-// )(qwe);
-
 export default compose(
   connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
   withAuthRedirect,
-  windowSize,
+  // windowSize,
 )(LoginPage);

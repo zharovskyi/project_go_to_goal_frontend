@@ -1,4 +1,16 @@
 .title_form {
+  margin-right: auto;
+  height: 10px;
+  margin-left: 15px;
+  margin-bottom: 0px;
+  color: gray;
+  font-weight: 900;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.test {
   display: none;
 }
 
@@ -8,15 +20,18 @@
 
 .modal_title {
   border-radius: 6px;
-  /* background-color: rgb(255, 255, 255); */
-  /* box-shadow: 2px 3.464px 23.2px 5.8px rgba(29, 29, 27, 0.1); */
-  margin: 0 auto;
+  margin: 20px auto;
   width: 849px;
   height: 500px;
-  /* display: flex; */
-  /* justify-content: space-evenly; */
   text-align: center;
   font-weight: 700;
+  color: gray;
+}
+
+.title_modal {
+  margin: 20px auto;
+  font-weight: 900;
+  font-family: 'Montserrat';
 }
 
 .modal_container {
@@ -38,13 +53,41 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  position: relative;
+}
+
+.errorParagraph {
+  color: red;
+  border-color: red;
+  border: solid 3px rgb(199, 183, 183);
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+  bottom: 20px;
+  font-size: 30px;
+  background-color: white;
+}
+
+.errorParagraphServer {
+  color: red;
+  border-color: red;
+  border: solid 3px red;
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+  bottom: 5px;
+  left: -200px;
+  font-size: 30px;
+  background-color: white;
 }
 
 .input_task {
-  margin: 20px auto;
+  margin: 40px auto;
+  margin-bottom: 20px;
   border-width: 0px 0px 2px 0px;
   border-color: rgb(224, 224, 224);
   border-style: solid;
+  font-size: 14px;
+  font-weight: 900;
+  font-family: 'Montserrat';
   width: 569px;
   height: 37px;
   outline: none;
@@ -56,37 +99,58 @@
   font-family: 'Montserrat';
 }
 
+.input_task:focus:valid {
+  border-color: green;
+}
+
+.input_task:focus:invalid {
+  border-color: red;
+}
+
 .input_options_section {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   width: 580px;
   margin: 0 auto;
   font-family: 'Montserrat';
 }
 
 .input_options {
-  width: 264px;
-  height: 37px;
-  border-width: 0px 0px 2px 0px;
-  border-color: rgb(224, 224, 224);
-  border-style: solid;
+  width: 250px;
+  height: 10px;
+  padding: 2px;
+  font-size: 16px;
   font-family: 'Montserrat';
+  font-weight: 900;
+  color: black;
 }
 
 .input_options_input {
   width: 264px;
   height: 37px;
   border-width: 0px 0px 2px 0px;
-  border-color: rgb(224, 224, 224);
-  border-style: solid;
+  border-style: solid black 5px;
   font-family: 'Montserrat';
   outline: none;
+  font-weight: 900;
+  color: black;
 }
 
 .input_options::placeholder {
   font-size: 14px;
   font-weight: 900;
   font-family: 'Montserrat';
+  border-style: solid;
+  border-color: white;
+}
+
+.input_options_input:valid {
+  border-color: green;
+}
+
+.input_options_input:invalid {
+  border-color: red;
 }
 
 .button {
@@ -117,6 +181,8 @@
     margin-bottom: 0px;
     color: gray;
     font-weight: 900;
+    font-family: 'Montserrat';
+    font-size: 20px;
   }
 
   .modal_container {
@@ -128,9 +194,9 @@
     height: 831px;
     display: flex;
     justify-content: space-evenly;
-    background: url('/src//assets/images/modal_present.png');
     background-position: center;
     position: relative;
+    overflow: hidden;
   }
 
   .form {
@@ -147,10 +213,8 @@
   .price {
     display: block;
     position: absolute;
-    width: 300px;
-    left: -30px;
-    height: 300px;
-    bottom: -30px;
+    left: -68px;
+    bottom: -75px;
   }
 
   .title_form {
@@ -164,6 +228,9 @@
     border-style: solid;
     width: 569px;
     height: 37px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Montserrat';
   }
 
   .input_task::placeholder {
@@ -182,11 +249,12 @@
 
   .input_options {
     width: 264px;
-    height: 37px;
-    border-width: 0px 0px 2px 0px;
-    border-color: rgb(224, 224, 224);
-    border-style: solid;
+    height: 20px;
+    border-color: #ffffff;
+    border-style: none;
     font-family: 'Montserrat';
+    color: black;
+    font-weight: 900;
   }
 
   .input_options_input {
@@ -222,6 +290,10 @@
 }
 
 @media (max-width: 767px) {
+  .modal_title {
+    width: 320px;
+  }
+
   .title_form {
     margin-right: auto;
     height: 10px;
@@ -256,7 +328,13 @@
   }
 
   .title_form {
-    display: block;
+    margin-right: auto;
+    height: 10px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    color: gray;
+    font-weight: 900;
   }
 
   .input_task {
@@ -266,6 +344,9 @@
     border-style: solid;
     width: 270px;
     height: 37px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Montserrat';
   }
 
   .input_task::placeholder {
@@ -287,14 +368,28 @@
     display: none;
   }
 
-  .input_options {
+  .form {
+    border-radius: 6px;
+    background-color: white;
+    width: 300px;
+    height: 400px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .input_options {
+    display: block;
     flex-flow: column;
     justify-content: space-between;
     width: 270px;
     margin: 0 auto;
     font-family: 'Montserrat';
     margin-bottom: 50px;
+    color: black;
+    font-weight: 900;
+    font-size: 14px;
   }
 
   .input_options::placeholder {
@@ -305,6 +400,9 @@
 
   .input_options_input {
     margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Montserrat';
   }
 
   .button {
@@ -321,6 +419,6 @@
       rgb(241, 195, 65) 55%,
       rgb(236, 177, 70) 100%
     );
-    margin: 0 auto;
+    margin: 20px auto;
   }
 }

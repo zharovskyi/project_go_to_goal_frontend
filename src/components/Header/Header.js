@@ -1,39 +1,35 @@
-import React, { Component } from 'react';
-import windowSize from 'react-window-size';
+import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
+
+// style & npm
 import css from './Header.module.css';
+
+// components
 import Logo from '../Logo/Logo';
 import Goal from '../Goal/Goal';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import User from '../User/User';
+import ProgressBar from '../ProgressBar/ProgressBar';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 
-class Header extends Component {
-  state = {};
-
-  render() {
-    const { windowWidth, goal } = this.props;
-    return (
+const Header = ({ goal }) => {
+  const windowWidth = document.documentElement.clientWidth;
+  return (
+    <div className={css.bg}>
       <header className={css.header}>
         <Logo />
-        {windowWidth > 320 && goal && <Goal />}
-        {windowWidth > 1279 && goal && <ProgressBar />}
+        <div className={css.center}>
+          {goal !== null && (windowWidth > 320 && <Goal />)}
+          {goal !== null && (windowWidth > 1279 && <ProgressBar />)}
+        </div>
         <User />
       </header>
-    );
-  }
-}
-
-const mapStateToProps = store => ({
-  goal: dashboardSelectors.getGoal(store),
+    </div>
+  );
+};
+const MSTP = s => ({
+  goal: dashboardSelectors.getGoal(s),
 });
-const mapDispatchToProps = {};
-
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-  windowSize,
+export default connect(
+  MSTP,
+  null,
 )(Header);

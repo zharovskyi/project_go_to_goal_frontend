@@ -4,6 +4,9 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 import { postSuccess } from '../../redux/ModalAddTask/ModalAddTaskOperations';
 import style from './ModalAddTask.module.css';
+import modalPresent from '../../assets/images/modal_present.png';
+import * as dashBoardSelectors from '../../redux/Dashboard/DashboardSelectors';
+import * as getTaskError from '../../redux/ModalAddTask/ModalAddTaskSelectors';
 
 const options = [
   { value: '8.00-10.00', label: '8.00-10.00' },
@@ -21,7 +24,7 @@ class ModalAddTask extends Component {
   state = {
     inputValue: '',
     inputPoint: '',
-    selectData: null,
+    selectData: '',
   };
 
   handleChange = e => {
@@ -33,21 +36,24 @@ class ModalAddTask extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { postfunc } = this.props;
+    const { postfunc, token } = this.props;
     const { inputValue, inputPoint, selectData } = this.state;
 
-    postfunc({
-      title: inputValue,
-      description: 'task descr',
-      points: inputPoint,
-      deadline: selectData,
-      dates: [new Date().toISOString()],
-    });
+    postfunc(
+      {
+        title: inputValue,
+        description: 'task descr',
+        points: inputPoint,
+        deadline: selectData,
+        dates: [new Date().toISOString()],
+      },
+      token,
+    );
 
     this.setState({
       inputValue: '',
       inputPoint: '',
-      selectData: null,
+      selectData: '',
     });
   };
 
@@ -59,16 +65,15 @@ class ModalAddTask extends Component {
 
   render() {
     const { inputValue, inputPoint, selectData } = this.state;
+    const { errorTask } = this.props;
     return (
       <div className={style.modal_title}>
-        <p className={style.title_modal}>
-          Немає завдань? Тоді їх треба створити!
-        </p>
         <div className={style.modal_container}>
           <form className={style.form} onSubmit={this.handleSubmit}>
             <p className={style.title_form}>Що зробити?</p>
             <input
               maxLength="20"
+              minLength="3"
               name="inputValue"
               type="text"
               className={style.input_task}
@@ -86,6 +91,24 @@ class ModalAddTask extends Component {
               >
                 Час
               </Select>
+              {errorTask.map(
+                el =>
+                  el.includes('40') && (
+                    <p className={style.errorParagraph}>Заповни поле Select</p>
+                  ),
+              )}
+              {errorTask.map(
+                el =>
+                  el.includes('20') && <p className={style.errorParagraph} />,
+              )}
+              {errorTask.map(
+                el =>
+                  el.includes('50') && (
+                    <p className={style.errorParagraphServer}>
+                      Сервер спить. Завітай пізніше
+                    </p>
+                  ),
+              )}
               <input
                 name="inputPoint"
                 type="number"
@@ -94,13 +117,15 @@ class ModalAddTask extends Component {
                 value={inputPoint}
                 onChange={this.handleChange}
                 className={style.input_options_input}
-                placeholder="Бали (до 1000)"
+                placeholder="Винагорода (макс. 1000)"
+                required
               />
             </div>
             <button type="submit" className={style.button}>
               OK
             </button>
           </form>
+          <img className={style.price} src={modalPresent} alt="present" />
         </div>
       </div>
     );
@@ -109,13 +134,20 @@ class ModalAddTask extends Component {
 
 ModalAddTask.propTypes = {
   postfunc: PropTypes.func.isRequired,
+  token: PropTypes.func.isRequired,
+  errorTask: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  postfunc: task => dispatch(postSuccess(task)),
+  postfunc: (task, token) => dispatch(postSuccess(task, token)),
+});
+
+const mapStateToProps = store => ({
+  token: dashBoardSelectors.getToken(store),
+  errorTask: getTaskError.getTaskError(store),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ModalAddTask);
