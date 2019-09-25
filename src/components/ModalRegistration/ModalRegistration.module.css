@@ -10,6 +10,13 @@
   background-color: white;
 }
 
+.error {
+  color: #ff3561;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .textContainer {
   display: flex;
   flex-flow: column;
@@ -25,11 +32,6 @@
 .form {
   display: flex;
   width: 400px;
-}
-.user_image_component {
-  /* width: 200px;
-  align-items: center;
-  justify-content: center; */
 }
 
 .inputContant {

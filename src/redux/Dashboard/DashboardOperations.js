@@ -83,5 +83,4 @@ export const getErrorOperation = errors => {
       },
     ),
   );
-  // dispatch([]);
 };

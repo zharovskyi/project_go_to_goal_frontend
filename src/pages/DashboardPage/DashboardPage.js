@@ -69,7 +69,6 @@ class DashboardPage extends Component {
         {goal !== null &&
           (windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />)}
 
-        {/* {windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />} */}
         <TaskList />
         <Footer />
         {isModalAddTaskOpen && (
@@ -118,11 +117,9 @@ DashboardPage.propTypes = {
     points: PropTypes.number.isRequired,
     createdAt: PropTypes.string.isRequired,
   }),
-  // tasks: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   token: PropTypes.string.isRequired,
   hasDashboardError: PropTypes.bool.isRequired,
   dashboardErrors: PropTypes.arrayOf(PropTypes.object),
-  // ---------------------
   onCloseModalAddTask: PropTypes.func.isRequired,
   onCloseModalCongrats: PropTypes.func.isRequired,
   onCloseModalCreateGoal: PropTypes.func.isRequired,

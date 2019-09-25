@@ -19,7 +19,7 @@ import LoginFooter from '../../components/LoginPage/LoginFooter';
 import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
-import { getErrorMessage } from '../../redux/sessionLogin/sessionLoginSelectors';
+import { getErrorMessageLogin } from '../../redux/sessionLogin/sessionLoginSelectors';
 import {
   openModal,
   closeModal,
@@ -50,7 +50,7 @@ class LoginPage extends Component {
   // }
 
   // windowWidth = () => {
-  //   this.setState({
+  //   return this.setState({
   //     windowWidth: document.documentElement.clientWidth,
   //   });
   // };
@@ -85,7 +85,6 @@ class LoginPage extends Component {
     const { email, password, showPassword } = this.state;
     const { isModalOpen, onOpenModal, onCloseModal, errorMessage } = this.props;
     const windowWidth = document.documentElement.clientWidth;
-    // const windowWidth = window.screen.clientWidth;
     // console.log('windowWidth :', windowWidth);
     return (
       <div className={s.login_page}>
@@ -182,7 +181,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => ({
   isModalOpen: getIsOpenModalRegister(state),
-  errorMessage: getErrorMessage(state),
+  errorMessage: getErrorMessageLogin(state),
 });
 
 const mapDispatchToProps = {

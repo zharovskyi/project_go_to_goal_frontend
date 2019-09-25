@@ -1,8 +1,4 @@
-// import { createSelector } from 'reselect';
-
 export const getTasks = store => store.tasks;
-
-// export const getIsLoading = store => store.isLoading;
 
 export const getGoal = store => store.goal;
 
@@ -16,8 +12,6 @@ export const getUser = store => store.session.user;
 
 export const getGoalPoints = store =>
   store.goal !== null ? store.goal.points : 0;
-
-// export const getUserPoints = store => store.user.scores;
 
 export const getUserPoints = store =>
   store.tasks

@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { ActionType } from './sessionLoginActions';
-// import Sign UP  actions
 import { Type } from '../session/sessionActions';
 
 const returnValue = {
@@ -11,21 +10,14 @@ const returnValue = {
 const user = (prevState = null, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
+    case Type.SIGNUP_USER_SUCCESS:
     case ActionType.REFRESH_SUCCESS:
       return payload.response.data.user.userData;
 
-    // case ActionType.REFRESH_SUCCESS:
-    //   return payload.response.data.user;
-
+    case Type.SIGNUP_USER_ERROR:
     case ActionType.LOGOUT:
       return null;
-    // ----------SIGN UP ACTIONS---------
-    case Type.SIGNUP_USER_SUCCESS:
-      return payload.response.user.userData;
 
-    case Type.SIGNUP_USER_ERROR:
-      return null;
-    //-----------------------------------
     default:
       return prevState;
   }
@@ -37,17 +29,15 @@ const authenticated = (prevState = false, { type, payload }) => {
     case ActionType.REFRESH_SUCCESS:
       return true;
 
-    case ActionType.LOGOUT:
-      return false;
-    // ----------SIGN UP ACTIONS---------
     case Type.SIGNUP_USER_SUCCESS:
-      return payload.response.status === 'success'
+      return payload.response.data.status === 'success'
         ? returnValue.TRUE
         : returnValue.FALSE;
 
     case Type.SIGNUP_USER_ERROR:
+    case ActionType.LOGOUT:
       return false;
-    //-----------------------------------
+
     default:
       return prevState;
   }
@@ -56,38 +46,44 @@ const authenticated = (prevState = false, { type, payload }) => {
 const token = (prevState = null, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_SUCCESS:
+    case Type.SIGNUP_USER_SUCCESS:
       return payload.response.data.user.token;
 
+    case Type.SIGNUP_USER_ERROR:
     case ActionType.LOGOUT:
       return null;
-    // ----------SIGN UP ACTIONS---------
-    case Type.SIGNUP_USER_SUCCESS:
-      return payload.response.user.token;
 
-    case Type.SIGNUP_USER_ERROR:
-      return null;
-    //-----------------------------------
     default:
       return prevState;
   }
 };
 
-const error = (prevState = null, { type, payload }) => {
+const errorLogin = (prevState = null, { type, payload }) => {
   switch (type) {
     case ActionType.LOGIN_ERROR:
       return payload.error;
-    // ----------SIGN UP ACTIONS---------
+
+    case Type.SIGNUP_USER_SUCCESS:
+      return null;
+
+    default:
+      return prevState;
+  }
+};
+
+const errorRegistration = (prevState = null, { type, payload }) => {
+  switch (type) {
     case Type.SIGNUP_USER_ERROR:
       return payload.error;
 
     case Type.SIGNUP_USER_SUCCESS:
       return null;
-    //-----------------------------------
+
     default:
       return prevState;
   }
 };
-// ----------SIGN UP ACTIONS---------
+
 const loadingReducer = (prevState = false, { type }) => {
   switch (type) {
     case Type.LOGIN_REQUEST:
@@ -107,12 +103,12 @@ const loadingReducer = (prevState = false, { type }) => {
       return prevState;
   }
 };
-//-----------------------------------
 
 export default combineReducers({
   user,
   authenticated,
   token,
-  error,
+  errorLogin,
+  errorRegistration,
   loadingReducer,
 });

@@ -1,6 +1,6 @@
-@import './libs/normalize.css';
-@import './fonts.css';
-@import './vars.css';
+@import "./libs/normalize.css";
+@import "./fonts.css";
+@import "./vars.css";
 ​ html {
   box-sizing: border-box;
 }
@@ -15,4 +15,12 @@
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
