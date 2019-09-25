@@ -43,6 +43,7 @@ ModalCongrats.propTypes = {
 const mapStateToProps = store => ({
   goal: dashboardSelectors.getGoal(store),
   token: dashboardSelectors.getToken(store),
+  tasks: dashboardSelectors.getTasks(store),
 });
 
 const mapDispatchToProps = dispatch => ({

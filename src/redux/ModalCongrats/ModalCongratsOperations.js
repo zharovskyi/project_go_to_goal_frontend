@@ -1,7 +1,21 @@
 import * as api from '../../services/api';
 import * as congratsActions from './ModalCongratsActions';
 
-export const patchGoalOperation = (goalId, token) => dispatch => {
+export const patchGoalOperation = (goalId, tasks, token) => dispatch => {
+  const tasksToDelete = tasks.filter(
+    task => task.inActive && !tasks.isComplete,
+  );
+
+  tasksToDelete.map(task => api.deleteTask(task.id, token));
+
+  const tasksToToggleDone = tasks.filter(
+    task => task.inActive && tasks.isComplete,
+  );
+
+  tasksToToggleDone.map(task =>
+    api.toggleTask(task.id, `{"isDone": true`, token),
+  );
+
   api
     .patchGoal(goalId, token)
     .then(() => {
