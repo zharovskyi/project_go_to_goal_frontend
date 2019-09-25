@@ -10,12 +10,13 @@ class Card extends Component {
     task: PropTypes.shape({
       inActive: PropTypes.bool.isRequired,
       isDone: PropTypes.bool.isRequired,
+      isComplete: PropTypes.bool.isRequired,
+      createdAt: PropTypes.string.isRequired,
       points: PropTypes.number.isRequired,
       _id: PropTypes.string.isRequired,
-      createdAt: PropTypes.string.isRequired,
+      dateFinished: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       deadline: PropTypes.string.isRequired,
-      isComplete: PropTypes.bool.isRequired,
     }).isRequired,
   };
 

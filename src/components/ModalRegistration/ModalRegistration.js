@@ -6,6 +6,8 @@ import * as sessionOperations from '../../redux/session/sessionOperations';
 import { closeModal } from '../../redux/ModalRegistration/ModalRegistrationActions';
 import { getErrorMessageRegistration } from '../../redux/sessionLogin/sessionLoginSelectors';
 import IconsAvatar from '../IconAvatar/IconAvatar';
+import { ReactComponent as OpenEye } from '../../assets/svg/openEye.svg';
+import { ReactComponent as CloseEye } from '../../assets/svg/closeEye.svg';
 
 class ModalRegistration extends Component {
   static propTypes = {
@@ -23,6 +25,7 @@ class ModalRegistration extends Component {
     age: '',
     email: '',
     password: '',
+    showPassword: 'password',
     correctPassword: '',
     errorPassword: '',
     avatar: 'https://go-to-goal.goit.co.ua/image/avatar_008.png',
@@ -64,12 +67,19 @@ class ModalRegistration extends Component {
     return this.setState({ avatar });
   };
 
+  onShowPassword = () => {
+    this.setState(prevState => ({
+      showPassword: prevState.showPassword === 'password' ? 'text' : 'password',
+    }));
+  };
+
   render() {
     const {
       username,
       age,
       email,
       password,
+      showPassword,
       correctPassword,
       errorPassword,
     } = this.state;
@@ -132,9 +142,10 @@ class ModalRegistration extends Component {
                   name="email"
                   onChange={this.HandleChange}
                 />
+                {/* <div> */}
                 <input
                   className={s.inputText}
-                  type="password"
+                  type={showPassword}
                   placeholder="Пароль"
                   value={password}
                   name="password"
@@ -142,9 +153,22 @@ class ModalRegistration extends Component {
                   minLength="6"
                   maxLength="12"
                 />
+                {/* <button
+                    type="button"
+                    onClick={this.onShowPassword}
+                    className={s.btn_eye}
+                  >
+                    {showPassword === 'text' ? (
+                      <OpenEye className={s.eye} />
+                    ) : (
+                      <CloseEye className={s.eye} />
+                    )}
+                  </button> */}
+                {/* </div>
+                <div> */}
                 <input
                   className={s.inputText}
-                  type="password"
+                  type={showPassword}
                   placeholder="Підтвердити пароль"
                   value={correctPassword}
                   name="correctPassword"
@@ -152,6 +176,18 @@ class ModalRegistration extends Component {
                   minLength="6"
                   maxLength="12"
                 />
+                {/* </div> */}
+                <button
+                  type="button"
+                  onClick={this.onShowPassword}
+                  className={s.btn_eye}
+                >
+                  {showPassword === 'text' ? (
+                    <OpenEye className={s.eye} />
+                  ) : (
+                    <CloseEye className={s.eye} />
+                  )}
+                </button>
               </div>
               <div className={s.buttonDiv}>
                 <button
