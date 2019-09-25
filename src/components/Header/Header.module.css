@@ -1,5 +1,9 @@
 .header {
   display: flex;
+  width: 1250px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
   max-width: 1250px;
   background-color: #fff;
   height: 54px;
@@ -11,6 +15,20 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  z-index: 111;
+}
+
+@media screen and (max-width: 1279px) {
+  .header {
+    width: 738px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    width: 300px;
+  }
 }
 
 .bg {

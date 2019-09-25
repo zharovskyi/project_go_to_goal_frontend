@@ -15,7 +15,8 @@ import LoginCover from '../../components/LoginPage/LoginCover';
 import LoginGreeting from '../../components/LoginPage/LoginGreeting';
 import LoginGreetingTitle from '../../components/LoginPage/LoginGreetingTitle';
 import LoadingGreetingBtn from '../../components/LoginPage/LoadingGreetingBtn';
-import LoginFooter from '../../components/LoginPage/LoginFooter';
+// import LoginFooter from '../../components/LoginPage/LoginFooter';
+import Footer from '../../components/Footer/Footer';
 import ModalRegistration from '../../components/ModalRegistration/ModalRegistration';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import { getIsOpenModalRegister } from '../../redux/ModalRegistration/ModalRegistrationSelectors';
@@ -174,7 +175,7 @@ class LoginPage extends Component {
         </main>
 
         {/* TABLET & DESKTOP || FOOTER */}
-        {windowWidth > 767 && <LoginFooter />}
+        {windowWidth > 767 && <Footer />}
       </div>
     );
   }
