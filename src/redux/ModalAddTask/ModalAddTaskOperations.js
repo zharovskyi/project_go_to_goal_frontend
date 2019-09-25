@@ -6,8 +6,6 @@ export const postSuccess = (task, token) => dispatch => {
   postsAPI
     .addTask(task, token)
     .then(response => {
-      console.log('response :', response);
-      console.log(response.data.task);
       dispatch(postSuccessModal(response.data.task));
     })
     .catch(error => {
