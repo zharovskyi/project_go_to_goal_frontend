@@ -6,6 +6,16 @@
   padding: 20px 0;
   width: 1160px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toMainLink {
+  text-decoration: none;
+}
+
+.toMain {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .infoBlock {
