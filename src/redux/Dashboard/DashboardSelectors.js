@@ -34,3 +34,7 @@ export const cardStatus = (store, _id) =>
   store.tasks.length > 0
     ? store.tasks.find(el => el._id === _id).isDone
     : false;
+
+export const getGoalId = store => store.goal._id;
+
+export const getGoalTitle = store => store.goal.title;
