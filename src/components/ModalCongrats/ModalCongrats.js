@@ -5,7 +5,7 @@ import styles from './ModalCongrats.module.css';
 import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import { patchGoalOperation } from '../../redux/ModalCongrats/ModalCongratsOperations';
 
-const ModalCongrats = ({ goal, token, goalOperation }) => {
+const ModalCongrats = ({ goal, token, goalOperation, tasks }) => {
   let goalId = '';
   let goalTitle = '';
   if (goal) {
@@ -24,7 +24,7 @@ const ModalCongrats = ({ goal, token, goalOperation }) => {
         </div>
         <button
           className={styles.button}
-          onClick={() => goalOperation(goalId, token)}
+          onClick={() => goalOperation(goalId, tasks, token)}
           type="button"
         >
           Так!
@@ -35,9 +35,13 @@ const ModalCongrats = ({ goal, token, goalOperation }) => {
 };
 
 ModalCongrats.propTypes = {
-  goal: PropTypes.shape().isRequired,
+  goal: PropTypes.shape(),
   token: PropTypes.string.isRequired,
   goalOperation: PropTypes.func.isRequired,
+};
+
+ModalCongrats.defaultProps = {
+  goal: null,
 };
 
 const mapStateToProps = store => ({
@@ -47,7 +51,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  goalOperation: (goalId, token) => dispatch(patchGoalOperation(goalId, token)),
+  goalOperation: (goalId, tasks, token) =>
+    dispatch(patchGoalOperation(goalId, tasks, token)),
 });
 
 export default connect(

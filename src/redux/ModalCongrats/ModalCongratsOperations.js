@@ -13,7 +13,7 @@ export const patchGoalOperation = (goalId, tasks, token) => dispatch => {
   );
 
   tasksToToggleDone.map(task =>
-    api.toggleTask(task.id, `{"isDone": true`, token),
+    api.toggleTask(task.id, `{"isDone": true, "inActive": false}`, token),
   );
 
   api
