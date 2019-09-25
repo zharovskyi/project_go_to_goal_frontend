@@ -1,74 +1,73 @@
 .formContainer {
-  width: 850px;
-  height: 670px;
-  margin: 0 auto;
-  padding-top: 120px;
+  display: flex;
+  flex-flow: column;
+  align-items: space-around;
+  width: 700px;
+  height: fit-content;
+  padding: 100px;
+  margin: 0;
   border-radius: 5px;
   background-color: white;
 }
 
+.textContainer {
+  display: flex;
+  flex-flow: column;
+}
+
+.image_form {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
 .form {
   display: flex;
-  margin: 0;
-  padding: 0;
-  width: 630px;
-  height: auto;
-  margin: 0 auto;
+  width: 400px;
+}
+.user_image_component {
+  /* width: 200px;
+  align-items: center;
+  justify-content: center; */
 }
 
 .inputContant {
-  border: none;
-  width: 400px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+  border: none;
 }
 
-.userName {
-  margin-right: 40px;
-  width: 180px;
-}
-
+.userName,
 .userAge {
   width: 180px;
-}
-
-.nameSurname {
-  margin-bottom: 40px;
-}
-
-.inputText {
-  margin-bottom: 40px;
-}
-
-input {
   outline: none;
   border: none;
   border-bottom: 1px solid #999;
 }
 
-input::-webkit-input-placeholder {
-  color: #999;
+.nameSurname {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin: 0 0 15px 0;
 }
 
-.image {
-  width: 198px;
-  height: 336px;
+.inputText {
+  margin: 15px 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #999;
 }
 
 .text {
-  margin: 0;
   width: 200px;
-  margin-bottom: 30px;
+  padding: 15px 0;
+  margin: 0;
 }
-
-h1 {
-  color: black;
-  font-size: 18px;
-}
-
-h2 {
+.text_2 {
   color: grey;
+  padding-bottom: 5px;
 }
 
 .passwordError {
@@ -79,6 +78,7 @@ h2 {
   width: 435px;
   display: flex;
   justify-content: space-between;
+  padding-top: 15px;
 }
 
 .button {
@@ -101,63 +101,43 @@ h2 {
 }
 
 @media (max-width: 767px) {
-  .formContainer {
-    padding-top: 40px;
-    padding-bottom: 130px;
-    position: relative;
+  .formContainer,
+  .form,
+  .inputContant {
     max-width: 300px;
-    height: auto;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
-
-  .form {
-    width: 290px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  .image_form {
+    flex-flow: column;
+    max-width: 300px;
+    justify-content: center;
+    align-items: center;
   }
 
   .nameSurname {
     display: flex;
-    width: 300px;
-    flex-direction: column;
-  }
-
-  .inputContant {
-    margin-bottom: 0;
-    width: 250px;
-    margin: 0 auto;
-  }
-
-  input {
+    flex-flow: column;
+    padding: 10px 0;
     margin: 0;
-    width: 240px;
-    padding-bottom: 5px;
   }
 
-  .buttonDiv {
-    position: absolute;
-    left: 17px;
-    bottom: 60px;
-    width: 265px;
+  .userName,
+  .userAge,
+  .inputText {
+    width: 200px;
+    padding: 10px 0 10px 0;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
 
   .button {
-    width: 126px;
-    height: 45px;
+    width: 120px;
   }
-
-  .userName {
-    margin-bottom: 30px;
-    width: 240px;
-  }
-
-  .userAge {
-    width: 240px;
-  }
-
-  .image {
-    padding-bottom: 150px;
-    margin: 0 auto;
+  .buttonDiv {
+    max-width: 290px;
+    padding: 20px 0 0 0;
   }
 }
