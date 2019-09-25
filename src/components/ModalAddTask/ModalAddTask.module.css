@@ -1,5 +1,13 @@
 .title_form {
-  display: none;
+  margin-right: auto;
+  height: 10px;
+  margin-left: 15px;
+  margin-bottom: 0px;
+  color: gray;
+  font-weight: 900;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  margin-top: 15px;
 }
 
 .test {
@@ -56,6 +64,7 @@
   position: absolute;
   bottom: 20px;
   font-size: 30px;
+  background-color: white;
 }
 
 .errorParagraphServer {
@@ -64,13 +73,15 @@
   border: solid 3px red;
   padding: 10px 10px 10px 10px;
   position: absolute;
-  bottom: 60px;
+  bottom: 5px;
+  left: -200px;
   font-size: 30px;
+  background-color: white;
 }
 
 .input_task {
   margin: 40px auto;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   border-width: 0px 0px 2px 0px;
   border-color: rgb(224, 224, 224);
   border-style: solid;
@@ -88,11 +99,11 @@
   font-family: 'Montserrat';
 }
 
-.input_task:valid {
+.input_task:focus:valid {
   border-color: green;
 }
 
-.input_task:invalid {
+.input_task:focus:invalid {
   border-color: red;
 }
 
