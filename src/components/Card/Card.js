@@ -32,6 +32,8 @@ class Card extends Component {
 
   render() {
     const { task } = this.props;
+    const dateStarted = task.createdAt;
+    const dateFinished = new Date(dateStarted).toLocaleDateString('ru');
     return (
       <li className={styles.cardLi}>
         {task.inActive ? (
@@ -44,7 +46,7 @@ class Card extends Component {
           <CardBodyDone
             isDone={task.isComplete}
             points={task.points}
-            createdAt={task.createdAt}
+            dateFinished={dateFinished}
           />
         )}
         <CardFooter title={task.title} deadline={task.deadline} />

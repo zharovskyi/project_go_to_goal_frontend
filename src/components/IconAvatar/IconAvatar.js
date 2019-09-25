@@ -22,6 +22,7 @@ class IconsAvatar extends Component {
 
   state = {
     avatar: 'https://go-to-goal.goit.co.ua/image/avatar_001.png',
+    isActive: false,
   };
 
   componentDidMount() {
@@ -38,7 +39,7 @@ class IconsAvatar extends Component {
   }
 
   changeUserPic = e => {
-    this.setState({ avatar: e.target.src });
+    this.setState({ avatar: e.target.src, isActive: true });
   };
 
   render() {

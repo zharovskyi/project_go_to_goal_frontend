@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "avatar": "MaxSerebrennykov",
+    "avatar": "https://go-to-goal.goit.co.ua/image/MaxSerebrennykov.jpg",
     "name": "Максим Серебренников",
     "position": "Project manager",
     "emaillink": "mailto:email@mail.com",
     "email": "serebrennykov.m@gmail.com",
-    "info": "Project manager"
+    "info": "Ідея, Product Owner, Scrum Master"
   },
   {
     "id": 2,
-    "avatar": "AndriiKuznietsov",
+    "avatar": "https://go-to-goal.goit.co.ua/image/AndriiKuznietsov.jpg",
     "name": "Андрій Кузнецов",
     "position": "front end developer",
     "emaillink": "mailto:email@mail.com",
@@ -19,35 +19,35 @@
   },
   {
     "id": 3,
-    "avatar": "OlegKhristenko",
+    "avatar": "https://go-to-goal.goit.co.ua/image/OlegKhristenko.jpg",
     "name": "Олег Христенко",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "olegkhristenko@gmail.com",
-    "info": "Був відповідальний за сторінку логінізаціі. Верстка, логіка, спілкування з backend, валідація, а також була реалізована фіча залишатися залогіненним при перезавантаженні сторінки. Використовуваний стек технологій: React.js & Redux."
+    "info": "Був відповідальний за сторінку логінізації. Верстка, логіка, спілкування з backend, валідація, а також була реалізована фіча залишатися залогіненним при перезавантаженні сторінки. Використовуваний стек технологій: React.js & Redux."
   },
   {
     "id": 4,
-    "avatar": "VolodymyrPotapenko",
+    "avatar": "https://go-to-goal.goit.co.ua/image/VolodymyrPotapenko.png",
     "name": "Володимир Потапенко",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "vlarus@ukr.net",
-    "info": "У проекті  Go 2 Goal був розробником компонента  Dashboard. Досвід front-end - починаючи з червня 2019 р. (с) Розробляти код - це ніби писати музику, тільки набагато цікавіше - маєш безліч нот для реалізації задумів."
+    "info": "У проекті Go 2 Goal був розробником компонента Dashboard. Досвід front-end - починаючи з червня 2019 р. (с) Розробляти код - це ніби писати музику, тільки набагато цікавіше - маєш безліч нот для реалізації задумів."
   },
   {
     "id": 5,
-    "avatar": "RomanGruba",
+    "avatar": "https://go-to-goal.goit.co.ua/image/RomanGruba.jpg",
     "name": "Роман Груба",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "rg0969246941@gmail.com",
-    "info": "На проекті застосовував Javascript, React, Redux."
+    "info": "Розробив і реалізував HOC, що обертає всі модальні вікна та передає їм додатковий функціонал. Реалізував логіку взаємодії з сервером при видаленні або завершенні завдання. На проекті застосовував Javascript, React, Redux."
   },
   {
     "id": 6,
-    "avatar": "OleksiiPushtaryk",
-    "name": "Пуштарик Олексій",
+    "avatar": "https://go-to-goal.goit.co.ua/image/OleksiiPushtaryk.jpg",
+    "name": "Олексій Пуштарик",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "pushtarik@gmail.com",
@@ -55,17 +55,17 @@
   },
   {
     "id": 7,
-    "avatar": "OlexanderHavrylenko",
-    "name": "Гавриленко Олександр",
+    "avatar": "https://go-to-goal.goit.co.ua/image/OlexanderHavrylenko.jpg",
+    "name": "Олександр Гавриленко",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "olexander.o.havrylenko@gmail.com",
-    "info": ""
+    "info": "Всім привіт! Моє ім'я Олександр. На даному проекті я працював з компонентом модального вікна для створення нових цілей. За час проекту я здобув нові практичні навички роботи з React.js та Redux, а також зрозумів основні концепції роботи з ними. В подальшому маю намір брати участь в інших проектах для того, щоб покращувати здобуті навички та отримувати нові знання."
   },
   {
     "id": 8,
-    "avatar": "ViktoriiaUshakova",
-    "name": "Ушакова Вікторія",
+    "avatar": "https://go-to-goal.goit.co.ua/image/ViktoriiaUshakova.jpg",
+    "name": "Вікторія Ушакова",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "iamviccyciccy@gmail.com",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "avatar": "OlgaSavytska",
+    "avatar": "https://go-to-goal.goit.co.ua/image/OlgaSavytska.jpg",
     "name": "Ольга Савицька",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
@@ -82,7 +82,7 @@
   },
   {
     "id": 10,
-    "avatar": "EvgenyBorisenko",
+    "avatar": "https://go-to-goal.goit.co.ua/image/EvgenyBorisenko.jpg",
     "name": "Євгеній Борисенко",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
@@ -91,35 +91,43 @@
   },
   {
     "id": 11,
-    "avatar": "IanaMatrosova",
+    "avatar": "https://go-to-goal.goit.co.ua/image/IanaMatrosova.png",
     "name": "Яна Матросова",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "iana.matrosova@gmail.com",
-    "info": ""
+    "info": "На проекті використовувала стек технологій HTML, CSS, JavaScript, React.js. Була відповідальна за компонент нової мети і лоадера, при очікуванні завантаження."
   },
   {
     "id": 12,
-    "avatar": "DmitriyVelkov",
+    "avatar": "https://go-to-goal.goit.co.ua/image/DmitriyVelkov.jpg",
     "name": "Дмитро Велков",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "Velkov55@gmail.com",
-    "info": ""
+    "info": "Реалізував функціонал CreateTaskButton, допомога у створенні сторінки контактів розробників."
   },
   {
     "id": 13,
-    "avatar": "OlegZharovskyi",
+    "avatar": "https://go-to-goal.goit.co.ua/image/DemchenkoBoris.jpg",
+    "name": "Борис Демченко",
+    "position": "FrontEnd Developer",
+    "emaillink": "mailto:email@mail.com",
+    "email": "demchenko_boris86@gmail.com",
+    "info": "HTML, CSS, JS, React, Redux"
+  },
+  {
+    "id": 14,
+    "avatar": "https://go-to-goal.goit.co.ua/image/OlegZharovskyi.jpg",
     "name": "Олег Жаровський",
     "position": "FrontEnd Developer",
     "emaillink": "mailto:email@mail.com",
     "email": "olehzharovskyi@gmail.com",
     "info": ""
   },
-
   {
-    "id": 14,
-    "avatar": "VitaliiKalinbet",
+    "id": 15,
+    "avatar": "https://go-to-goal.goit.co.ua/image/VitaliiKalinbet.jpg",
     "name": "Віталій Калінбет",
     "position": "TEAM LEAD",
     "emaillink": "mailto:email@mail.com",

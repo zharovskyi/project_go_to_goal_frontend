@@ -8,6 +8,7 @@
   margin: 0;
   border-radius: 5px;
   background-color: white;
+  position: relative;
 }
 
 .error {
@@ -27,6 +28,7 @@
   flex-flow: row-reverse;
   justify-content: space-between;
   align-items: space-between;
+  margin-top: 20px;
 }
 
 .form {
@@ -91,6 +93,7 @@
   color: grey;
   width: 210px;
   height: 45px;
+  outline: none;
 }
 
 .button:nth-of-type(2) {
@@ -100,6 +103,14 @@
 
 .button:hover {
   background-color: #ffa500c9;
+}
+
+.passwordError {
+  position: absolute;
+  top: 85%;
+  left: 25%;
+  color: red;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width: 767px) {
@@ -136,10 +147,48 @@
   }
 
   .button {
-    width: 120px;
+    width: 100px;
+    outline: none;
   }
   .buttonDiv {
-    max-width: 290px;
+    max-width: 205px;
     padding: 20px 0 0 0;
+  }
+
+  .passwordError {
+    position: absolute;
+    top: 90%;
+    left: 30%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 857px) {
+  .formContainer {
+    max-width: 700px;
+    justify-content: center;
+  }
+
+  .form {
+    max-width: 400px;
+  }
+
+  .inputText {
+    max-width: 350px;
+  }
+
+  .userName,
+  .userAge {
+    max-width: 150px;
+  }
+
+  .nameSurname {
+    max-width: 350px;
+  }
+  .buttonDiv {
+    max-width: 350px;
+  }
+  .button {
+    max-width: 150px;
+    outline: none;
   }
 }

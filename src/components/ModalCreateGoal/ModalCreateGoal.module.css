@@ -47,14 +47,6 @@
   outline: none;
 }
 
-.input:focus:valid {
-  border: 1px solid green;
-}
-
-.input:focus:invalid {
-  border: 1px solid red;
-}
-
 .input::placeholder {
   color: #a8a8b5;
   font-family: Montserrat;
@@ -84,6 +76,7 @@
   background-color: #edb445;
   border-radius: 24px;
   box-shadow: 0 8px 29px rgba(178, 138, 61, 0.31);
+  outline: none;
   cursor: pointer;
 }
 
@@ -101,45 +94,40 @@
 @media (max-width: 1279px) {
   .modal {
     width: 630px;
-    height: 500px;
+    height: 480px;
     transform: translate(-50%, -50%);
   }
-
   .form {
     width: 520px;
     height: 330px;
     transform: translate(-50%, -60%);
   }
-
   .label {
     line-height: 30px;
   }
-
   .input {
     width: 512px;
   }
-
   .input::placeholder {
     letter-spacing: 0.45px;
+  }
+
+  .error {
+    bottom: 10%;
+    left: 18%;
   }
 }
 
 @media (max-width: 767px) {
   .modal {
-    width: 300px;
-    height: 470px;
+    width: 320px;
+    height: 500px;
   }
-
   .form {
     width: 250px;
-    transform: translate(-50%, -52%);
-    height: 380px;
+    transform: translate(-50%, -58%);
+    height: 365px;
   }
-
-  .label {
-    font-size: 22px;
-  }
-
   .input {
     width: 240px;
   }
@@ -147,8 +135,13 @@
     text-align: center;
     letter-spacing: 0.4px;
   }
-
   .button {
     margin: 0 auto;
+  }
+  .error {
+    text-align: center;
+    width: 200px;
+    bottom: 6%;
+    left: 18%;
   }
 }

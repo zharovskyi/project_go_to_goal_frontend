@@ -9,7 +9,6 @@ const TaskList = (activePosts, getGoal) => {
     <div className={styles.taskList}>
       <CreateTaskButton />
       <ActiveTaskList activePosts={activePosts} getGoal={getGoal} />
-      <h2 className={styles.blocksTitles}>Виконано</h2>
       <DoneTaskList />
     </div>
   );

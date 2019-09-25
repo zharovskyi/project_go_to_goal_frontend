@@ -63,6 +63,7 @@ class ModalCreateGoal extends Component {
               className={styles.input}
               type="text"
               placeholder="Дай своїй цілі назву"
+              required
             />
           </label>
           <label htmlFor={idForInputPoints} className={styles.label}>

@@ -110,7 +110,7 @@ class ModalRegistration extends Component {
                     name="username"
                     onChange={this.HandleChange}
                     required="Вкажіть Ім'я"
-                    maxLength="20"
+                    maxLength="16"
                   />
                   <input
                     className={s.userAge}

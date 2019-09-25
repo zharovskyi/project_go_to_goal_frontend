@@ -1,9 +1,10 @@
 .modalContent {
   background-color: #fff;
   color: black;
-  padding: 14px;
+  padding: 2%;
   width: 400px;
-  height: 152px;
+  height: 200px;
+  border-radius: 3%;
   text-align: center;
 }
 
@@ -98,11 +99,9 @@
   0% {
     background-position: 0 0;
   }
-
   50% {
     background-position: 400% 0;
   }
-
   100% {
     background-position: 0 0;
   }
