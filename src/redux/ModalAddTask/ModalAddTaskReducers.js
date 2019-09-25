@@ -3,6 +3,7 @@ import { TypeAddTask } from './ModalAddTaskActions';
 export const openCloseReducer = (prevState = false, action) => {
   switch (action.type) {
     case TypeAddTask.MODAL_ADD_TASK_OPEN:
+    case TypeAddTask.CLEAN_MODAL_TASK:
       return true;
 
     case TypeAddTask.ADD_TASK_SUCCESS:

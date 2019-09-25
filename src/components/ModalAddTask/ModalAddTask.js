@@ -77,7 +77,7 @@ class ModalAddTask extends Component {
               name="inputValue"
               type="text"
               className={style.input_task}
-              placeholder="Постав собі задачу"
+              placeholder="Обери завдання"
               value={inputValue}
               onChange={this.handleChange}
               required
@@ -91,12 +91,15 @@ class ModalAddTask extends Component {
               >
                 Час
               </Select>
-
               {errorTask.map(
                 el =>
                   el.includes('40') && (
                     <p className={style.errorParagraph}>Заповни поле Select</p>
                   ),
+              )}
+              {errorTask.map(
+                el =>
+                  el.includes('20') && <p className={style.errorParagraph} />,
               )}
               {errorTask.map(
                 el =>
@@ -110,7 +113,7 @@ class ModalAddTask extends Component {
                 name="inputPoint"
                 type="number"
                 max="1000"
-                min="1"
+                min="10"
                 value={inputPoint}
                 onChange={this.handleChange}
                 className={style.input_options_input}
