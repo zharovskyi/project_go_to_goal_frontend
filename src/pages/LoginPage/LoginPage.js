@@ -175,7 +175,7 @@ class LoginPage extends Component {
         </main>
 
         {/* TABLET & DESKTOP || FOOTER */}
-        {windowWidth > 767 && <LoginFooter />}
+        {windowWidth > 767 && <Footer />}
       </div>
     );
   }
