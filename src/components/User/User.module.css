@@ -23,9 +23,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .userAge {
-    display: none;
-  }
 
   .btn {
     display: none;
@@ -34,10 +31,6 @@
   .userInfo {
     flex-flow: row-reverse;
   }
-}
-
-.userAge {
-  display: none;
 }
 
 .userInfo {
@@ -50,5 +43,7 @@
 
 .avatar {
   order: 1;
+  width: 55px;
+  height: 50px;
   margin: 10px 0;
 }
