@@ -7,9 +7,6 @@ axios.defaults.headers.patch['Content-Type'] = 'application/json';
 
 axios.defaults.baseURL = 'https://go-to-goal.goit.co.ua/api/';
 
-// const token =
-//   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkODM0YjMzYTBhNjQyMjExYzNhNjIwYiIsImlhdCI6MTU2OTE1OTkyOH0.PiBNEXKF8MPQ4ehVxyGVJDIB7yy3zuVjiSB8sR4sYcI';
-
 export const setTokenLoginPage = options => axios.get('user', options);
 
 export const setToken = Token => ({
@@ -19,16 +16,11 @@ export const setToken = Token => ({
 });
 
 export const deleteTask = (id, token) =>
-  axios
-    .delete(`tasks/${id}`, {
-      headers: {
-        Authorization: `${token}`,
-      },
-    })
-    .then(res => {
-      console.log(res.data);
-      return res;
-    });
+  axios.delete(`tasks/${id}`, {
+    headers: {
+      Authorization: `${token}`,
+    },
+  });
 
 export const addNewGoal = (goal, token) =>
   axios.post('goals', goal, {
@@ -74,17 +66,12 @@ export const getGoal = (goalAlias, token) =>
   });
 
 export const patchGoal = (goalId, token) =>
-  axios
-    .patch(
-      `goals/${goalId}`,
-      { isDone: true },
-      {
-        headers: {
-          Authorization: `${token}`,
-        },
+  axios.patch(
+    `goals/${goalId}`,
+    { isDone: true },
+    {
+      headers: {
+        Authorization: `${token}`,
       },
-    )
-    .then(res => {
-      console.log(res.data);
-      return res;
-    });
+    },
+  );

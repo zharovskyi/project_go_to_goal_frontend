@@ -39,12 +39,16 @@ const MDTP = dispatch => ({
 });
 
 User.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   openModalLogout: PropTypes.func.isRequired,
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     age: PropTypes.number.isRequired,
   }).isRequired,
+};
+
+User.defaultProps = {
+  avatar: '',
 };
 
 export default connect(
