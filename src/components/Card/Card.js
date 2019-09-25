@@ -18,9 +18,10 @@ class Card extends Component {
   };
 
   render() {
-    // const { isDone } = this.state;
-    // const { isActive, title, deadline, points, createdAt, _id } = this.props;
     const { task } = this.props;
+    const dateStarted = task.createdAt;
+    const dateFinished = new Date(dateStarted).toLocaleDateString('ru');
+    console.log(dateFinished);
     return (
       <li className={styles.cardLi}>
         {task.inActive ? (
@@ -34,7 +35,7 @@ class Card extends Component {
           <CardBodyDone
             isDone={task.isComplete}
             points={task.points}
-            createdAt={task.createdAt}
+            dateFinished={dateFinished}
           />
         )}
         <CardFooter title={task.title} deadline={task.deadline} />
@@ -49,7 +50,7 @@ Card.propTypes = {
     isDone: PropTypes.bool.isRequired,
     points: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired,
+    dateFinished: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     deadline: PropTypes.string.isRequired,
   }).isRequired,
