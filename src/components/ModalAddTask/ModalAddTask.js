@@ -7,6 +7,7 @@ import style from './ModalAddTask.module.css';
 import modalPresent from '../../assets/images/modal_present.png';
 import * as dashBoardSelectors from '../../redux/Dashboard/DashboardSelectors';
 import * as getTaskError from '../../redux/ModalAddTask/ModalAddTaskSelectors';
+import { cleanModalTask } from '../../redux/ModalAddTask/ModalAddTaskActions';
 
 const options = [
   { value: '8.00-10.00', label: '8.00-10.00' },
@@ -65,7 +66,7 @@ class ModalAddTask extends Component {
 
   render() {
     const { inputValue, inputPoint, selectData } = this.state;
-    const { errorTask } = this.props;
+    const { errorTask, clearModal, modalAddTaskErrors } = this.props;
     return (
       <div className={style.modal_title}>
         <div className={style.modal_container}>
@@ -84,6 +85,7 @@ class ModalAddTask extends Component {
             />
             <div className={style.input_options_section}>
               <Select
+                required
                 className={style.input_options}
                 value={findOption(selectData)}
                 options={options}
@@ -94,13 +96,13 @@ class ModalAddTask extends Component {
               {errorTask.map(
                 el =>
                   el.includes('40') && (
-                    <p className={style.errorParagraph}>Заповни поле Select</p>
+                    <p className={style.errorParagraph}>
+                      Вибачте, але ви вiдправили некоректнi даннi...
+                    </p>
                   ),
+                modalAddTaskErrors.length > 0 ? clearModal() : null,
               )}
-              {errorTask.map(
-                el =>
-                  el.includes('20') && <p className={style.errorParagraph} />,
-              )}
+
               {errorTask.map(
                 el =>
                   el.includes('50') && (
@@ -135,16 +137,21 @@ class ModalAddTask extends Component {
 ModalAddTask.propTypes = {
   postfunc: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
+  modalAddTaskErrors: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  clearModal: PropTypes.func.isRequired,
   errorTask: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   postfunc: (task, token) => dispatch(postSuccess(task, token)),
+  clearModal: () => dispatch(cleanModalTask()),
 });
 
 const mapStateToProps = store => ({
   token: dashBoardSelectors.getToken(store),
   errorTask: getTaskError.getTaskError(store),
+  modalAddTaskErrors: store.modalAddTaskErrors,
+  // cleanModal: getModalCleanTask.getModalCleanTask(store),
 });
 
 export default connect(
