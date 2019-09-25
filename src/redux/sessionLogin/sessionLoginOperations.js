@@ -14,7 +14,6 @@ export const login = credentials => dispatch => {
 
   setLogin(credentials)
     .then(response => {
-      console.log('login :', response);
       dispatch(loginSuccess(response));
     })
     .catch(error => {
@@ -36,7 +35,6 @@ export const refresh = () => (dispatch, getState) => {
 
   setTokenLoginPage(options)
     .then(response => {
-      console.log('refresh :', response);
       dispatch(refreshSuccess(response));
     })
     .catch(error => {

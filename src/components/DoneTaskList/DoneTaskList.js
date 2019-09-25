@@ -29,6 +29,8 @@ class DoneTaskList extends Component {
     }
     return (
       <>
+        <h2 className={styles.blocksTitles}>Виконано</h2>
+
         <ul className={styles.doneCards}>
           {showCloseButton
             ? donePosts.map(donePost => (

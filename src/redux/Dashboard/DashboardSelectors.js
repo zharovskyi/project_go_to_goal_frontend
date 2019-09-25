@@ -14,8 +14,7 @@ export const getDashboardErrors = store => store.dashboardErrors;
 
 export const getUser = store => store.session.user;
 
-export const getGoalPoints = store =>
-  store.goal !== null ? store.goal.points : 0;
+export const getGoalPoints = store => store.goal.points;
 
 // export const getUserPoints = store => store.user.scores;
 
@@ -34,3 +33,7 @@ export const cardStatus = (store, _id) =>
   store.tasks.length > 0
     ? store.tasks.find(el => el._id === _id).isDone
     : false;
+
+export const getGoalId = store => store.goal._id;
+
+export const getGoalTitle = store => store.goal.title;
