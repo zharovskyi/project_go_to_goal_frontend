@@ -14,12 +14,16 @@ import * as dashboardSelectors from '../../redux/Dashboard/DashboardSelectors';
 const Header = ({ goal }) => {
   const windowWidth = document.documentElement.clientWidth;
   return (
-    <header className={css.header}>
-      <Logo />
-      {goal !== null && (windowWidth > 320 && <Goal />)}
-      {goal !== null && (windowWidth > 1279 && <ProgressBar />)}
-      <User />
-    </header>
+    <div className={css.bg}>
+      <header className={css.header}>
+        <Logo />
+        <div className={css.center}>
+          {goal !== null && (windowWidth > 320 && <Goal />)}
+          {goal !== null && (windowWidth > 1279 && <ProgressBar />)}
+        </div>
+        <User />
+      </header>
+    </div>
   );
 };
 const MSTP = s => ({

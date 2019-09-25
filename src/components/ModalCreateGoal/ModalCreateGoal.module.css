@@ -114,21 +114,21 @@
     height: 500px;
     transform: translate(-50%, -50%);
   }
-
   .form {
     width: 520px;
     height: 330px;
     transform: translate(-50%, -60%);
   }
-
   .label {
     line-height: 30px;
   }
-
   .input {
     width: 512px;
   }
-
+  .textarea {
+    width: 484px;
+  }
+  .textarea::placeholder,
   .input::placeholder {
     letter-spacing: 0.45px;
   }
@@ -139,17 +139,14 @@
     width: 300px;
     height: 470px;
   }
-
   .form {
     width: 250px;
     transform: translate(-50%, -52%);
     height: 380px;
   }
-
   .label {
     font-size: 22px;
   }
-
   .input {
     width: 240px;
   }
@@ -157,7 +154,6 @@
     text-align: center;
     letter-spacing: 0.4px;
   }
-
   .button {
     margin: 0 auto;
   }

@@ -68,8 +68,6 @@ class DashboardPage extends Component {
         <Header />
         {goal !== null &&
           (windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />)}
-
-        {/* {windowWidth >= 768 && windowWidth < 1280 && <ProgressBar />} */}
         <TaskList />
         <Footer />
         {isModalAddTaskOpen && (
