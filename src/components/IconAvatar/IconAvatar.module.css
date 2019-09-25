@@ -41,25 +41,10 @@
   padding: 10px 0;
 }
 
-@media (max-width: 767px) {
-  /* .user_avatar_big {
-    display: none;
-  }
-  .avatar_txt {
-    display: none;
-  }
-  .avatar_little_div {
-    flex-flow: column;
-    padding: 0;
-    margin: 0;
-    height: auto;
-  }
-
-  .avatar_choose {
-    width: 50px;
-  }
-
-  .user_avatar_small {
-    padding: 0 0 5px 0;
-  } */
+.active {
+  cursor: pointer;
+  outline: none;
+  transform: scale(1.1, 1.1);
+  translate: transform 0.4s ease;
+  border: 0.5px solid darkgreen;
 }

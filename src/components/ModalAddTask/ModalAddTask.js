@@ -24,7 +24,7 @@ class ModalAddTask extends Component {
   state = {
     inputValue: '',
     inputPoint: '',
-    selectData: null,
+    selectData: '',
   };
 
   handleChange = e => {
@@ -68,19 +68,16 @@ class ModalAddTask extends Component {
     const { errorTask } = this.props;
     return (
       <div className={style.modal_title}>
-        <p className={style.title_modal}>
-          Немає завдань? Тоді їх треба створити!
-        </p>
         <div className={style.modal_container}>
           <form className={style.form} onSubmit={this.handleSubmit}>
             <p className={style.title_form}>Що зробити?</p>
             <input
               maxLength="20"
-              minLength="4"
+              minLength="3"
               name="inputValue"
               type="text"
               className={style.input_task}
-              placeholder="Обери завдання або створи нове"
+              placeholder="Постав собі задачу"
               value={inputValue}
               onChange={this.handleChange}
               required
@@ -91,10 +88,10 @@ class ModalAddTask extends Component {
                 value={findOption(selectData)}
                 options={options}
                 onChange={this.onChangeSelect}
-                required
               >
                 Час
               </Select>
+
               {errorTask.map(
                 el =>
                   el.includes('40') && (
@@ -113,11 +110,11 @@ class ModalAddTask extends Component {
                 name="inputPoint"
                 type="number"
                 max="1000"
-                min="10"
+                min="1"
                 value={inputPoint}
                 onChange={this.handleChange}
                 className={style.input_options_input}
-                placeholder="Винагорода (макс. 1000)"
+                placeholder="Винагорода"
                 required
               />
             </div>
@@ -134,8 +131,8 @@ class ModalAddTask extends Component {
 
 ModalAddTask.propTypes = {
   postfunc: PropTypes.func.isRequired,
-  token: PropTypes.func.isRequired,
-  errorTask: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired,
+  errorTask: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

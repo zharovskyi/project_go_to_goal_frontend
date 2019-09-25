@@ -16,7 +16,10 @@ export const getDashboardErrors = store => store.dashboardErrors;
 
 export const getUser = store => store.session.user;
 
-export const getGoalPoints = store => store.goal.points;
+export const getAvatar = store => store.session.user.avatar;
+
+export const getGoalPoints = store =>
+  store.goal !== null ? store.goal.points : 0;
 
 // export const getUserPoints = store => store.user.scores;
 

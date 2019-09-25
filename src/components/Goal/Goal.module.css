@@ -17,6 +17,7 @@
   font-size: 12px;
   line-height: 32px;
   margin: 0;
+  width: 75px;
 }
 
 .goalBtn {
@@ -29,10 +30,10 @@
   line-height: 32px;
   background-color: #e0e0e0;
   border-radius: 16px;
-  margin-left: 10px;
+  margin: 0 20px;
   border: none;
   pointer-events: none;
-  padding: 0;
+  padding: 0 15px;
 }
 
 .goalBtnActive {
@@ -45,7 +46,8 @@
   line-height: 32px;
   border-radius: 16px;
   margin-left: 10px;
-  padding: 0px 10px;
+  padding: 0px 15px;
+  margin: 0 20px;
   border: none;
   background: linear-gradient(
     rgb(236, 177, 70) 0%,
