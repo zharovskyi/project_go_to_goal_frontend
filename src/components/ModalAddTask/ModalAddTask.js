@@ -100,10 +100,6 @@ class ModalAddTask extends Component {
               )}
               {errorTask.map(
                 el =>
-                  el.includes('20') && <p className={style.errorParagraph} />,
-              )}
-              {errorTask.map(
-                el =>
                   el.includes('50') && (
                     <p className={style.errorParagraphServer}>
                       Сервер спить. Завітай пізніше

@@ -55,26 +55,25 @@
 }
 
 .errorParagraph {
+  width: 500px;
   color: red;
-  border-color: red;
-  border: solid 3px rgb(199, 183, 183);
-  padding: 10px 10px 10px 10px;
   position: absolute;
-  bottom: 20px;
-  font-size: 30px;
-  background-color: white;
+  bottom: 18px;
+  left: 5%;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .errorParagraphServer {
+  width: 500px;
   color: red;
-  border-color: red;
-  border: solid 3px red;
-  padding: 10px 10px 10px 10px;
   position: absolute;
-  bottom: 5px;
-  left: -200px;
-  font-size: 30px;
-  background-color: white;
+  bottom: 18px;
+  left: 5%;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .input_task {
@@ -159,12 +158,10 @@
   font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgb(245, 213, 59) 0%,
-    rgb(241, 195, 65) 55%,
-    rgb(236, 177, 70) 100%
-  );
+  background-image: -webkit-linear-gradient(90deg,
+      rgb(245, 213, 59) 0%,
+      rgb(241, 195, 65) 55%,
+      rgb(236, 177, 70) 100%);
   outline: none;
 }
 
@@ -289,12 +286,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
     outline: none;
   }
 }
@@ -415,6 +410,28 @@
     font-family: 'Montserrat';
   }
 
+  .errorParagraph {
+    width: 500px;
+    color: red;
+    position: absolute;
+    left: -34%;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 700;
+    bottom: 30%;
+  }
+
+  .errorParagraphServer {
+    width: 500px;
+    color: red;
+    position: absolute;
+    left: -34%;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 700;
+    bottom: 30%;
+  }
+
   .button {
     border-radius: 20px 20px 20px 20px;
     font-family: 'Montserrat';
@@ -423,12 +440,10 @@
     font-weight: 900;
     width: 200px;
     height: 48px;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      rgb(245, 213, 59) 0%,
-      rgb(241, 195, 65) 55%,
-      rgb(236, 177, 70) 100%
-    );
+    background-image: -webkit-linear-gradient(90deg,
+        rgb(245, 213, 59) 0%,
+        rgb(241, 195, 65) 55%,
+        rgb(236, 177, 70) 100%);
     margin: 20px auto;
     outline: none;
   }
