@@ -1,6 +1,3 @@
-// import { toast } from 'react-toastify';
-// import React from 'react';
-
 import {
   getTaskListStart,
   getTaskListSuccess,
@@ -30,25 +27,11 @@ export const getGoalOperation = token => dispatch => {
   apiServices
     .getGoal('goals', token)
     .then(response => {
-      dispatch(
-        getGoalSuccess(
-          response.data.goals
-            // .sort((createdAt1, createdAt2) => {
-            //   if (createdAt1 < createdAt2) {
-            //     return -1;
-            //   }
-            //   if (createdAt1 > createdAt2) {
-            //     return 1;
-            //   }
-            //   return 0;
-            // })
-            .find(goal => !goal.isDone),
-        ),
-      );
+      dispatch(getGoalSuccess(response.data.goals.find(goal => !goal.isDone)));
     })
     .catch(error => {
       dispatch(getGoalError(error));
     });
 };
 
-export const getErrorOperation = () => {};
+export const getErrorOperation = errors => {};

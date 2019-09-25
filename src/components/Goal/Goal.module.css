@@ -108,4 +108,7 @@
   .progress {
     max-width: 180px;
   }
+  .goalName {
+    display: none;
+  }
 }
