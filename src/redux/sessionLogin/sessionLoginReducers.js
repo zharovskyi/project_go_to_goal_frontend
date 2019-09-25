@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { ActionType } from './sessionLoginActions';
 import { Type } from '../session/sessionActions';
+import * as TypeDeleteActions from '../ModalDeleteTask/ModalDeleteTaskActions';
 
 const returnValue = {
   TRUE: true,
@@ -17,6 +18,15 @@ const user = (prevState = null, { type, payload }) => {
     case Type.SIGNUP_USER_ERROR:
     case ActionType.LOGOUT:
       return null;
+
+    //-----------------------------------
+    case TypeDeleteActions.Type.DELETE_SCORES:
+      return {
+        ...prevState,
+        scores: payload.scores,
+      };
+
+    //-----------------------------------
 
     default:
       return prevState;

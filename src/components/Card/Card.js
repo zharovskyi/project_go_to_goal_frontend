@@ -14,7 +14,7 @@ class Card extends Component {
       createdAt: PropTypes.string.isRequired,
       points: PropTypes.number.isRequired,
       _id: PropTypes.string.isRequired,
-      dateFinished: PropTypes.string.isRequired,
+      dateFinished: PropTypes.string,
       title: PropTypes.string.isRequired,
       deadline: PropTypes.string.isRequired,
     }).isRequired,

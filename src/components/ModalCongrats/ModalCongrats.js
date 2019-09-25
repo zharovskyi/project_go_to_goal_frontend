@@ -35,9 +35,13 @@ const ModalCongrats = ({ goal, token, goalOperation }) => {
 };
 
 ModalCongrats.propTypes = {
-  goal: PropTypes.shape().isRequired,
+  goal: PropTypes.shape({}),
   token: PropTypes.string.isRequired,
   goalOperation: PropTypes.func.isRequired,
+};
+
+ModalCongrats.defaultProps = {
+  goal: {},
 };
 
 const mapStateToProps = store => ({
