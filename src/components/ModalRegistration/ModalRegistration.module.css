@@ -45,13 +45,13 @@
   fill: var(--color-gray);
 } */
 
-.btn_eye[type="button"] {
+.btn_eye[type='button'] {
   display: none;
 }
 
 .error {
   color: #ff3561;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
 }
@@ -149,7 +149,7 @@
   top: 85%;
   left: 25%;
   color: red;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width: 767px) {
