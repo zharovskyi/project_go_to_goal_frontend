@@ -69,11 +69,13 @@
 }
 
 .contactImage {
+  display: block;
   margin: 0 auto;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 230px;
+  height: 300px;
   margin-bottom: 30px;
+  margin-top: 20px;
+  object-fit: cover;
 }
 
 .contactName {
@@ -88,6 +90,7 @@
   font-weight: 700;
   color: black;
   text-transform: uppercase;
+  margin-bottom: 14px;
 }
 
 .contactEmail {
@@ -99,7 +102,7 @@
 }
 
 .contactInfo {
-  text-align: justify;
+  text-align: left;
   font-size: 16px;
   color: grey;
 }
