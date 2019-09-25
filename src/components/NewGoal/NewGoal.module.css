@@ -2,7 +2,7 @@
   width: 840px;
   margin: 0 auto 50px;
   padding-top: 50px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .new_goal_title {
@@ -75,7 +75,7 @@
 }
 
 .arrow_icon::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 85px;
   height: 50px;
@@ -157,7 +157,7 @@
   }
 
   .arrow_icon::after {
-    content: "";
+    content: '';
     display: inline-block;
     margin: 0;
     width: 16px;

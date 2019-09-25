@@ -1,6 +1,6 @@
-@import "./libs/normalize.css";
-@import "./fonts.css";
-@import "./vars.css";
+@import './libs/normalize.css';
+@import './fonts.css';
+@import './vars.css';
 ​ html {
   box-sizing: border-box;
 }

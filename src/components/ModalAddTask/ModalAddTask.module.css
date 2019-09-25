@@ -23,7 +23,7 @@
 .title_modal {
   margin: 20px auto;
   font-weight: 900;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .modal_container {
@@ -74,7 +74,7 @@
   border-style: solid;
   font-size: 14px;
   font-weight: 900;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   width: 569px;
   height: 37px;
   outline: none;
@@ -83,7 +83,7 @@
 .input_task::placeholder {
   font-size: 14px;
   font-weight: 900;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .input_task:valid {
@@ -100,7 +100,7 @@
   align-items: baseline;
   width: 580px;
   margin: 0 auto;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .input_options {
@@ -108,7 +108,7 @@
   height: 10px;
   padding: 2px;
   font-size: 16px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 900;
   color: black;
 }
@@ -118,7 +118,7 @@
   height: 37px;
   border-width: 0px 0px 2px 0px;
   border-style: solid black 5px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   outline: none;
   font-weight: 900;
   color: black;
@@ -127,7 +127,7 @@
 .input_options::placeholder {
   font-size: 14px;
   font-weight: 900;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   border-style: solid;
   border-color: white;
 }
@@ -142,13 +142,18 @@
 
 .button {
   border-radius: 20px 20px 20px 20px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   border: none;
   color: #ffffff;
   font-weight: 900;
   width: 200px;
   height: 48px;
-  background-image: -webkit-linear-gradient(90deg, rgb(245, 213, 59) 0%, rgb(241, 195, 65) 55%, rgb(236, 177, 70) 100%);
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(245, 213, 59) 0%,
+    rgb(241, 195, 65) 55%,
+    rgb(236, 177, 70) 100%
+  );
 }
 
 @media (max-width: 1279px) {
@@ -163,7 +168,7 @@
     margin-bottom: 0px;
     color: gray;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-size: 20px;
   }
 
@@ -211,13 +216,13 @@
     height: 37px;
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_task::placeholder {
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_options_section {
@@ -225,7 +230,7 @@
     justify-content: space-between;
     width: 580px;
     margin: 0 auto;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_options {
@@ -233,7 +238,7 @@
     height: 20px;
     border-color: #ffffff;
     border-style: none;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     color: black;
     font-weight: 900;
   }
@@ -244,18 +249,18 @@
     border-width: 0px 0px 2px 0px;
     border-color: rgb(224, 224, 224);
     border-style: solid;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_options::placeholder {
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .button {
     border-radius: 20px 20px 20px 20px;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     border: none;
     color: #ffffff;
     font-weight: 900;
@@ -326,13 +331,13 @@
     height: 37px;
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_task::placeholder {
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_options_section {
@@ -340,7 +345,7 @@
     flex-flow: column-reverse;
     width: 270px;
     margin: 0 auto;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .price {
@@ -364,7 +369,7 @@
     justify-content: space-between;
     width: 270px;
     margin: 0 auto;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     margin-bottom: 50px;
     color: black;
     font-weight: 900;
@@ -374,19 +379,19 @@
   .input_options::placeholder {
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .input_options_input {
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 900;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
   }
 
   .button {
     border-radius: 20px 20px 20px 20px;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     border: none;
     color: #ffffff;
     font-weight: 900;
