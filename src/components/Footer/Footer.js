@@ -18,7 +18,7 @@ class Footer extends Component {
       <div className={styles.footer}>
         <p className={styles.footerText}>
           &#169; Copyright 2019{' '}
-          <Link className={styles.footerCopyright} to="/contact">
+          <Link className={styles.footerCopyright} to="/contacts">
             powered by BOOTC@MP#13 team
           </Link>
         </p>
