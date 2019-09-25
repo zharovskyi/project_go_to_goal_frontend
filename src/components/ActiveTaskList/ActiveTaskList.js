@@ -14,7 +14,7 @@ class ActiveTaskList extends Component {
   render() {
     const { activePosts, getGoal } = this.props;
 
-    if (getGoal === '' || getGoal === null) {
+    if (getGoal === null) {
       return <NewGoal />;
     }
 

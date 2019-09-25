@@ -73,7 +73,7 @@ class ModalAddTask extends Component {
             <p className={style.title_form}>Що зробити?</p>
             <input
               maxLength="20"
-              minLength="4"
+              minLength="3"
               name="inputValue"
               type="text"
               className={style.input_task}

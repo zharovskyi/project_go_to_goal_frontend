@@ -32,6 +32,7 @@
   margin-left: 10px;
   border: none;
   pointer-events: none;
+  padding: 0;
 }
 
 .goalBtnActive {
@@ -57,18 +58,25 @@
   outline: none;
 }
 
-.goalBtnActive::after {
+.goalBtnActive::before {
   display: block;
   color: #000;
   content: 'Натисни мене !';
+  position: absolute;
+  transform: translate(-180px, 50px);
+  width: 85px;
+  /* padding-top: 50px; */
+}
+
+.goalBtnActive::after {
+  display: block;
   width: 85px;
   height: 45px;
   background-image: url(../../assets/images/arrow.png);
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 15px;
-  padding-top: 40px;
-  transform: translateX(200px);
+  margin-top: 10px;
+  transform: translateX(-180px) scale(-1, 1);
 }
 
 .progresBar {
