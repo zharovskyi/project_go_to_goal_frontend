@@ -19,11 +19,16 @@ export const setToken = Token => ({
 });
 
 export const deleteTask = (id, token) =>
-  axios.delete(`tasks/${id}`, {
-    headers: {
-      Authorization: `${token}`,
-    },
-  });
+  axios
+    .delete(`tasks/${id}`, {
+      headers: {
+        Authorization: `${token}`,
+      },
+    })
+    .then(res => {
+      console.log(res.data);
+      return res;
+    });
 
 export const addNewGoal = (goal, token) =>
   axios.post('goals', goal, {
@@ -69,12 +74,17 @@ export const getGoal = (goalAlias, token) =>
   });
 
 export const patchGoal = (goalId, token) =>
-  axios.patch(
-    `goals/${goalId}`,
-    { isDone: true },
-    {
-      headers: {
-        Authorization: `${token}`,
+  axios
+    .patch(
+      `goals/${goalId}`,
+      { isDone: true },
+      {
+        headers: {
+          Authorization: `${token}`,
+        },
       },
-    },
-  );
+    )
+    .then(res => {
+      console.log(res.data);
+      return res;
+    });
