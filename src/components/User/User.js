@@ -14,7 +14,7 @@ const User = ({ user, avatar, openModalLogout }) => {
       <div className={style.userInfo}>
         <img
           src={avatar}
-          width="50"
+          width="58"
           height="50"
           alt="Вася Пупкін"
           className={style.avatar}
