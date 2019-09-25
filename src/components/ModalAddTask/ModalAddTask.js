@@ -24,7 +24,7 @@ class ModalAddTask extends Component {
   state = {
     inputValue: '',
     inputPoint: '',
-    selectData: null,
+    selectData: '',
   };
 
   handleChange = e => {
@@ -68,15 +68,12 @@ class ModalAddTask extends Component {
     const { errorTask } = this.props;
     return (
       <div className={style.modal_title}>
-        <p className={style.title_modal}>
-          Немає завдань? Тоді їх треба створити!
-        </p>
         <div className={style.modal_container}>
           <form className={style.form} onSubmit={this.handleSubmit}>
             <p className={style.title_form}>Що зробити?</p>
             <input
               maxLength="20"
-              minLength="4"
+              minLength="3"
               name="inputValue"
               type="text"
               className={style.input_task}
@@ -91,7 +88,6 @@ class ModalAddTask extends Component {
                 value={findOption(selectData)}
                 options={options}
                 onChange={this.onChangeSelect}
-                required
               >
                 Час
               </Select>
@@ -100,6 +96,10 @@ class ModalAddTask extends Component {
                   el.includes('40') && (
                     <p className={style.errorParagraph}>Заповни поле Select</p>
                   ),
+              )}
+              {errorTask.map(
+                el =>
+                  el.includes('20') && <p className={style.errorParagraph} />,
               )}
               {errorTask.map(
                 el =>
@@ -135,7 +135,7 @@ class ModalAddTask extends Component {
 ModalAddTask.propTypes = {
   postfunc: PropTypes.func.isRequired,
   token: PropTypes.func.isRequired,
-  errorTask: PropTypes.string.isRequired,
+  errorTask: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
