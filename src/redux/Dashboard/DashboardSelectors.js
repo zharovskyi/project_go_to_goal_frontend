@@ -21,7 +21,7 @@ export const getAvatar = store => store.session.user.avatar;
 export const getGoalPoints = store =>
   store.goal !== null ? store.goal.points : 0;
 
-export const getUserPoints = store => store.user.scores;
+export const getUserPoints = store => store.user;
 
 // export const getUserPoints = store =>
 //   store.tasks
